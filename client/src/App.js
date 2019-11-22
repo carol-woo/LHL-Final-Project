@@ -12,9 +12,6 @@ function App() {
       
       Hello World!
       <Navbar />
-      <button>Add Entry</button>
-      <button>Add Category</button>
-
    </div>
   );
 }
