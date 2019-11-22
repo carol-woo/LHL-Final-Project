@@ -3,5 +3,9 @@ import React from "react"
 //New entry view
 export default function NewEntry(){
 
-  return()
+  return(
+    <div>
+      I am temp text for NewEntry!
+    </div>
+  )
 } 

@@ -3,5 +3,9 @@ import React from "import"
 //New Category view
 export default function NewCategory(){
 
-  return()
+  return(
+    <div>
+      I am temp text for NewCategory
+    </div>
+  )
 }
