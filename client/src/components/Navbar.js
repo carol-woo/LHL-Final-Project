@@ -2,29 +2,31 @@ import React from "react";
 import { Route, Link, Switch, BrowserRouter } from "react-router-dom";
 import App from "../App";
 import NewEntry from "./NewEntry";
+import MonthlyView from "./MonthlyView"
 
 //For Navbar view
 export default function Navbar(){
-  // function Appcomp (){
-  //   return <App />
-  // }
-  // function NewEntryComp() {
-  //   return <NewEntry />
-  // }
+  function Appcomp (){
+    return <App />
+  }
+  function NewEntryComp() {
+    return <NewEntry />
+  }
   return(
       <div>
         <BrowserRouter>
         I am the NavBar!
         <nav>
-          <button>Homepage</button>
+          <button><Link to="/">Homepage</Link></button>
           <button><Link to="/new-entry"> New Entry </Link></button>
-          <button>Monthly View</button>
+          <button><Link to="/monthly-view">Monthly View</Link></button>
           <button>Logout</button>
         </nav>
 
-        <Route path="/new-entry">
-          <NewEntry/>
-      </Route>
+
+        <Route path="/new-entry" component={NewEntry}></Route>
+        <Route path="/monthly-view" component={MonthlyView}></Route>
+
 
         </BrowserRouter>
       </div>

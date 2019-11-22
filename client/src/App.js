@@ -12,11 +12,9 @@ function App() {
       
       Hello World!
       <Navbar />
-      <HomepageSingleCategory />
       <button>Add Entry</button>
       <button>Add Category</button>
 
-  
    </div>
   );
 }
