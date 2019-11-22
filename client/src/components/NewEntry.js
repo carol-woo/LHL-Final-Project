@@ -8,10 +8,7 @@ export default function NewEntry(){
     <div>
 
       I am temp text for NewEntry!
-
-       <Switch>
-        <Route path="/new_entry" component={NewEntry} />
-      </Switch>
+      
     </div>
   )
 } 
