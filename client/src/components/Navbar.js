@@ -12,22 +12,21 @@ export default function Navbar(){
   //   return <NewEntry />
   // }
   return(
-    <BrowserRouter>
       <div>
+        <BrowserRouter>
         I am the NavBar!
         <nav>
-          <button><Link to="/">Homepage</Link></button>
-          <button><Link to="/new_entry">New Entry</Link></button>
-          <button><Link to="/monthly_view">Monthly View</Link></button>
+          <button>Homepage</button>
+          <button><Link to="/new-entry"> New Entry </Link></button>
+          <button>Monthly View</button>
           <button>Logout</button>
         </nav>
 
-        <Switch>
-          <Route path="/" component={App} />
-          <Route path="/new_entry" component={NewEntry} />
-        </Switch>
-       
+        <Route path="/new-entry">
+          <NewEntry/>
+      </Route>
+
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
   )
 }
