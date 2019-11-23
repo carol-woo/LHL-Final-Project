@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS transactions CASCADE;
 
 CREATE TABLE accounts (
   id SERIAL PRIMARY KEY NOT NULL
-)
+);
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE users (
   password_digest VARCHAR (255) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE categories (
   account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
   created_at TIMESTAMP NOT NULL,
   icon_image_path VARCHAR (255)
-)
+);
 
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -31,4 +31,4 @@ CREATE TABLE transactions (
   amount INTEGER NOT NULL,
   entered_on DATE NOT NULL,
   description TEXT
-)
+);
