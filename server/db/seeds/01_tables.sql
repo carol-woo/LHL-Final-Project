@@ -7,7 +7,7 @@
 INSERT INTO users (name, email, password_digest, account_id)
 VALUES ('vasily', 'vasily@vasily.com', 'test', 1)
 
-INSERT INTO categories (name, account_id, icon_image_path)
+INSERT INTO categories (name, account_id, created_at, icon_image_path)
 VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
 ('Transportation', 1, CURRENT_TIMESTAMP, '../something'),
 ('Recreational', 1, CURRENT_TIMESTAMP, '../something'),

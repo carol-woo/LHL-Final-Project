@@ -7,14 +7,64 @@ const pool = new Pool({
   port: 5432,
 })
 
-const getCategories = (req, res) => {
-  pool.query('SELECT * FROM categories', (error, results) => {
-    console.log("TESTING")
+const getCategories = async (req, res) => {
+  await pool.query('SELECT * FROM categories', (error, results) => {
     if (error) {
       throw error
     }
+    console.log("TESTING AGAIN")
     res.status(200).json(results.rows)
   })
 }
 
-module.exports = {getCategories}
+const getTransactions = async (req, res) => {
+  await pool.query('SELECT * FROM transactions', (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("TESTING AGAIN")
+    res.status(200).json(results.rows)
+  })
+}
+
+const addTransaction = async (req, res) => {
+
+  const {store_name, amount, entered_on, description} = request.body
+  const category_id = parseInt(req.params.id)
+  await pool.query(`INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
+  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [store_name, category_id, amount, entered_on, description], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("TESTING AGAIN")
+    res.status(200).send(`Transactions`)
+  })
+}
+
+const editTransaction = async (req, res) => {
+
+  const {store_name, amount, entered_on, description} = request.body
+  const transaction_id = parseInt(req.params.id)
+  await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
+  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [store_name, category_id, amount, entered_on, description], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("TESTING AGAIN")
+    res.status(200).send(`Edited transactions`)
+  })
+}
+
+const deleteTransaction = async (req, res) => {
+
+  const transaction_id = parseInt(req.params.id)
+  await pool.query(`DELETE FROM transactions WHERE id = $1`, [transaction_id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("TESTING AGAIN")
+    res.status(200).send(`Transaction deleted`)
+  })
+}
+
+module.exports = {getCategories, getTransactions, addTransaction, editTransaction, deleteTransaction}
