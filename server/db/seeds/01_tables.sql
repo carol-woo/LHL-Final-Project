@@ -2,12 +2,13 @@
 
 -- -- Insert into the users table
 
--- INSERT INTO accounts(id) 
--- VALUES 
--- (2),
--- (3),
--- (4),
--- (5);
+INSERT INTO accounts(id) 
+VALUES 
+(1),
+(2),
+(3),
+(4),
+(5);
 
 -- -- INSERT INTO users (name, email, password_digest, account_id)
 -- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
