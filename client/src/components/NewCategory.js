@@ -1,4 +1,4 @@
-import React from "import"
+import React from "react"
 
 //New Category view
 export default function NewCategory(){
