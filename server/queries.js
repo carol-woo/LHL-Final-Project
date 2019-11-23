@@ -7,8 +7,9 @@ const pool = new Pool({
   port: 5432,
 })
 
-const getCategories = async (req, res) => {
-  await pool.query(`SELECT * FROM categories`, (error, results) => {
+const getCategories = (req, res) => {
+  pool.query('SELECT * FROM categories', (error, results) => {
+    console.log("TESTING")
     if (error) {
       throw error
     }

@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
   res.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
+app.get('/categories', db.getCategories)
+
 
 
 
