@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/categories', db.getCategories)
+app.get('/transactions', db.getTransactions)
+app.post('/transactions/:id', db.addTransaction)
+app.put('/transactions/:id', db.editTransaction)
+app.delete('/transactions:id', db.deleteTransaction)
 
 
 
