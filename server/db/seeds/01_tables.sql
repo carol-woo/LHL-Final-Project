@@ -2,16 +2,16 @@
 
 -- -- Insert into the users table
 
--- INSERT INTO accounts(id) 
--- VALUES (1), 
--- (2),
--- (3),
--- (4),
--- (5);
+INSERT INTO accounts(id) 
+VALUES 
+(1),
+(2),
+(3),
+(4),
+(5);
 
-
--- -- -- INSERT INTO users (name, email, password_digest, account_id)
--- -- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
+-- -- INSERT INTO users (name, email, password_digest, account_id)
+-- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
 
 INSERT INTO categories (name, account_id, created_at, icon_image_path)
 VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
@@ -45,18 +45,17 @@ VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
 
 -- -- Date format will have to be yyyy-mm-dd
 
-
-INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
-VALUES ('Rental property', 8, 2000.00, '2019-06-01', 'monthly rent'),
-('Oretta', 20, 92.98, '2019-06-01', 'Went to restaurant'),
-('Costco', 19, 75.00, '2019-06-03', 'grocery shopping'),
-('Manulife', 6, 25.00, '2019-06-05', 'insurance payment'),
-('TTC', 26, 45.00, '2019-06-09', 'paying for transportation'),
-('metro', 19, 50.00, '2019-06-02', 'groceries'),
-('Rogers', 17, 120.00, '2019-06-09', 'cell phone bill'),
-('Toronto Hydro', 15, 56.00, '2019-06-13', 'hydro bill'),
-('Mcdonalds', 20, 8.00, '2019-06-01', 'went for chicken nuggets'), 
-('LCBO', 21, 30.00, '2019-06-14', 'Friday night wine night');
+-- INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
+-- VALUES ('Rental property', 64, 2000.00, '2019-06-01', 'monthly rent'),
+-- ('Oretta', 76, 92.98, '2019-06-01', 'Went to restaurant'),
+-- ('Costco', 75, 75.00, '2019-06-03', 'grocery shopping'),
+-- ('Manulife', 79, 25.00, '2019-06-05', 'insurance payment'),
+-- ('TTC', 81, 45.00, '2019-06-09', 'paying for transportation'),
+-- ('metro', 75, 50.00, '2019-06-02', 'groceries'),
+-- ('Rogers', 73, 120.00, '2019-06-09', 'cell phone bill'),
+-- ('Toronto Hydro', 71, 56.00, '2019-06-13', 'hydro bill'),
+-- ('Mcdonalds', 76, 8.00, '2019-06-01', 'went for chicken nuggets'),
+-- ('LCBO', 77, 30.00, '2019-06-14', 'Friday night wine night'),
 -- ('Rogers', 74, 135.00, '2019-06-09', 'monthly cable/internet bill'),
 -- ('metro', 75, 62.47, '2019-06-09', 'groceries'),
 -- ('Esso', 68, 49.00, '2019-06-02', 'gas expense'),
