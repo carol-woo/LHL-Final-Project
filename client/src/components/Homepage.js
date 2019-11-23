@@ -18,7 +18,7 @@ export default function Homepage () {
     axios.get('http://localhost:3001/categories')
       .then((res) => {
         console.log(res)
-        setCategories('res.data: ', res.data)
+        setCategories(res.data)
       })
   }, [])
 

@@ -1,7 +1,12 @@
-import React from "import"
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 //New Category view
 export default function NewCategory(){
+
+  useEffect(() => {
+    axios.put()
+  })
 
   return(
     <div>
