@@ -5,23 +5,16 @@ export default function Homepage () {
 
   const [categories, setCategories] = useState([]);
 
-  // Promise.all([
-  //   axios.get('http://localhost:3001/categories')
-  // ])
-  // .then(function(values) {
-  //   console.log("THE VALUES ARE", values)
-
-  // })
 
   useEffect(() => {
     axios.get('http://localhost:3001/categories')
       .then((res) => {
         console.log(res)
-        setCategories('res.data: ', res.data)
+        setCategories(res.data)
       })
   }, [])
 
-
+// Alternative with promise.all. This may be used with multiple requests
   // useEffect(() => {
   //   Promise.all([
   //     axios.get('http://localhost:3001/categories'),
@@ -33,10 +26,11 @@ export default function Homepage () {
   //   })
   // }, [])
 
-
   return (
     <div>
       {categories.map(category => {
+        console.log(category.name)
+        
         return category.name
       })}
       I am home page <br/>
