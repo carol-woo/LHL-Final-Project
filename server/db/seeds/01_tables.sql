@@ -1,8 +1,7 @@
 -- INSERT DATA INTO TABLES
 
 -- Insert into the users table
-INSERT INTO accounts (name)
-VALUES ('vas')
+INSERT INTO accounts
 INSERT INTO users (name, email, password_digest, account_id)
 VALUES ('vasily', 'vasily@vasily.com', 'test', '2')
 
