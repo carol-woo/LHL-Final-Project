@@ -14,20 +14,27 @@ export default function Navbar(){
     return <NewEntry />
   }
   return(
-      <div>
+      <div className='nav'>
         <BrowserRouter>
-        I am the NavBar!
         <nav>
-          <button><Link to="/">Homepage</Link></button>
-          <button><Link to="/new-entry"> New Entry </Link></button>
-          <button><Link to="/monthly-view">Monthly View</Link></button>
+        I am the NavBar! <br/>
+          <button><Link to="/">Homepage</Link></button> <br/>
+          <button><Link to="/new-entry"> New Entry </Link></button> <br/>
+          <button><Link to="/monthly-view">Monthly View</Link></button> <br/>
           <button>Logout</button>
         </nav>
 
-        
+        <div className="homepage">
         <Route exact path="/" component={Homepage}></Route>
+        </div>
+        
+        <div className="new-entry">
         <Route path="/new-entry" component={NewEntry}></Route>
+        </div>
+        
+        <div className="monthly-view">
         <Route path="/monthly-view" component={MonthlyView}></Route>
+        </div>
 
 
         </BrowserRouter>
