@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* Nav bar CSS */
+
+.nav {
+  display: flex;
+}
+
+nav {
+  width: 25rem;
+  background-color: gray;
+}
+
