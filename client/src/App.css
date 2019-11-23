@@ -24,18 +24,11 @@
 /* Nav bar CSS */
 
 .nav {
+  display: flex;
+}
+
+nav {
+  width: 25rem;
   background-color: gray;
-  width: 20%;
 }
 
-.homepage {
-  border: 3px solid black;
-  
-}
-
-.new-entry {
-}
-
-.monthly-view {
-  
-}
