@@ -3,21 +3,43 @@ import axios from 'axios';
 
 export default function Homepage () {
 
-  const [state, setState] = useState()
+  const [categories, setCategories] = useState([]);
+
+  // Promise.all([
+  //   axios.get('http://localhost:3001/categories')
+  // ])
+  // .then(function(values) {
+  //   console.log("THE VALUES ARE", values)
+
+  // })
 
 
   useEffect(() => {
-    Promise.all([
-      axios.get('http://localhost:3001/categories')
-    ])
-    .then(function(values) {
-      console.log(values)
-      setState(...values)
-    })
+    axios.get('http://localhost:3001/categories')
+      .then((res) => {
+        console.log(res)
+        setCategories('res.data: ', res.data)
+      })
   }, [])
+
+
+  // useEffect(() => {
+  //   Promise.all([
+  //     axios.get('http://localhost:3001/categories'),
+  //     axios.get('http://localhost:3001/transactions'),
+  //   ])
+  //   .then(([{ data: categoriesData }, transactionsResponse]) => {
+  //     console.log('categoriesData: ', categoriesData, transactionsResponse)
+  //     setCategories(categoriesData)
+  //   })
+  // }, [])
+
+
   return (
     <div>
-      {state}
+      {categories.map(category => {
+        return category.name
+      })}
       I am home page <br/>
       <button>Add Entry</button>
       <button>Add Category</button>
