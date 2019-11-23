@@ -3,6 +3,7 @@ import { Route, Link, Switch, BrowserRouter } from "react-router-dom";
 import App from "../App";
 import NewEntry from "./NewEntry";
 import MonthlyView from "./MonthlyView"
+import Homepage from "./Homepage";
 
 //For Navbar view
 export default function Navbar(){
@@ -23,7 +24,8 @@ export default function Navbar(){
           <button>Logout</button>
         </nav>
 
-
+        
+        <Route exact path="/" component={Homepage}></Route>
         <Route path="/new-entry" component={NewEntry}></Route>
         <Route path="/monthly-view" component={MonthlyView}></Route>
 
