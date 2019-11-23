@@ -13,7 +13,6 @@ export default function Homepage () {
 
   // })
 
-
   useEffect(() => {
     axios.get('http://localhost:3001/categories')
       .then((res) => {
