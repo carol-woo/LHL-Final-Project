@@ -14,7 +14,7 @@ export default function Navbar(){
     return <NewEntry />
   }
   return(
-      <div>
+      <div className='nav'>
         <BrowserRouter>
         I am the NavBar!
         <nav>
@@ -24,10 +24,17 @@ export default function Navbar(){
           <button>Logout</button>
         </nav>
 
-        
+        <div className="homepage">
         <Route exact path="/" component={Homepage}></Route>
+        </div>
+        
+        <div className="new-entry">
         <Route path="/new-entry" component={NewEntry}></Route>
+        </div>
+        
+        <div className="monthly-view">
         <Route path="/monthly-view" component={MonthlyView}></Route>
+        </div>
 
 
         </BrowserRouter>

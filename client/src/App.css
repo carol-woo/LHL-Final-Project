@@ -20,3 +20,22 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* Nav bar CSS */
+
+.nav {
+  background-color: gray;
+  width: 20%;
+}
+
+.homepage {
+  border: 3px solid black;
+  
+}
+
+.new-entry {
+}
+
+.monthly-view {
+  
+}
