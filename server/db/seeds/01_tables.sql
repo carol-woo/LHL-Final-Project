@@ -9,40 +9,42 @@
 -- (4),
 -- (5);
 
+
 -- -- -- INSERT INTO users (name, email, password_digest, account_id)
 -- -- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
 
--- INSERT INTO categories (name, account_id, created_at, icon_image_path)
--- VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Transportation', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Recreational', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Miscellaneous', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Food', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Insurance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Medical and Healthcare', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Rent', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Mortgage', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Property Tax', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Home Maintenance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Gas', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Parking', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Water', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Hydro', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Home Phone', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Cell Phone', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Cable/Internet', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Groceries', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Restaurants', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Beverage', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Mortgage Insurance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Auto Insurance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Home Insurance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Life Insurance', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Public Transportation', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Pets', 1, CURRENT_TIMESTAMP, '../something'),
--- ('Loans', 1, CURRENT_TIMESTAMP, '../something');
+INSERT INTO categories (name, account_id, created_at, icon_image_path)
+VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
+('Transportation', 1, CURRENT_TIMESTAMP, '../something'),
+('Recreational', 1, CURRENT_TIMESTAMP, '../something'),
+('Miscellaneous', 1, CURRENT_TIMESTAMP, '../something'),
+('Food', 1, CURRENT_TIMESTAMP, '../something'),
+('Insurance', 1, CURRENT_TIMESTAMP, '../something'),
+('Medical and Healthcare', 1, CURRENT_TIMESTAMP, '../something'),
+('Rent', 1, CURRENT_TIMESTAMP, '../something'),
+('Mortgage', 1, CURRENT_TIMESTAMP, '../something'),
+('Property Tax', 1, CURRENT_TIMESTAMP, '../something'),
+('Home Maintenance', 1, CURRENT_TIMESTAMP, '../something'),
+('Gas', 1, CURRENT_TIMESTAMP, '../something'),
+('Parking', 1, CURRENT_TIMESTAMP, '../something'),
+('Water', 1, CURRENT_TIMESTAMP, '../something'),
+('Hydro', 1, CURRENT_TIMESTAMP, '../something'),
+('Home Phone', 1, CURRENT_TIMESTAMP, '../something'),
+('Cell Phone', 1, CURRENT_TIMESTAMP, '../something'),
+('Cable/Internet', 1, CURRENT_TIMESTAMP, '../something'),
+('Groceries', 1, CURRENT_TIMESTAMP, '../something'),
+('Restaurants', 1, CURRENT_TIMESTAMP, '../something'),
+('Beverage', 1, CURRENT_TIMESTAMP, '../something'),
+('Mortgage Insurance', 1, CURRENT_TIMESTAMP, '../something'),
+('Auto Insurance', 1, CURRENT_TIMESTAMP, '../something'),
+('Home Insurance', 1, CURRENT_TIMESTAMP, '../something'),
+('Life Insurance', 1, CURRENT_TIMESTAMP, '../something'),
+('Public Transportation', 1, CURRENT_TIMESTAMP, '../something'),
+('Pets', 1, CURRENT_TIMESTAMP, '../something'),
+('Loans', 1, CURRENT_TIMESTAMP, '../something');
 
 -- -- Date format will have to be yyyy-mm-dd
+
 
 INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
 VALUES ('Rental property', 8, 2000.00, '2019-06-01', 'monthly rent'),
