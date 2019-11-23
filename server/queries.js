@@ -12,7 +12,7 @@ const getCategories = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("TESTING AGAIN")
+    console.log("getCategories being used in queries.js")
     res.status(200).json(results.rows)
   })
 }
@@ -22,7 +22,7 @@ const getTransactions = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("TESTING AGAIN")
+    console.log("getTransactions being used in queries.js")
     res.status(200).json(results.rows)
   })
 }
@@ -36,7 +36,7 @@ const addTransaction = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("TESTING AGAIN")
+    console.log("addTransaction being used in queries.js")
     res.status(200).send(`Transactions`)
   })
 }
@@ -50,7 +50,7 @@ const editTransaction = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("TESTING AGAIN")
+    console.log("editTransaction function being used in queries.js")
     res.status(200).send(`Edited transactions`)
   })
 }
@@ -62,7 +62,7 @@ const deleteTransaction = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("TESTING AGAIN")
+    console.log("deleteTransaction being used in queries.js")
     res.status(200).send(`Transaction deleted`)
   })
 }
