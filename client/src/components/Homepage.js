@@ -5,34 +5,22 @@ export default function Homepage () {
 
   const [categories, setCategories] = useState([]);
 
-  // Promise.all([
-  //   axios.get('http://localhost:3001/categories')
-  // ])
-  // .then(function(values) {
-  //   console.log("THE VALUES ARE", values)
-
-  // })
-
-
   useEffect(() => {
+<<<<<<< HEAD
     axios.get('http://localhost:3001/categories')
       .then((res) => {
         console.log(res)
         setCategories(res.data)
       })
+=======
+    Promise.all([
+      axios.get('http://localhost:3001/categories'),
+    ])
+    .then(([{ data: categoriesData }]) => {
+      setCategories(categoriesData)
+    })
+>>>>>>> master
   }, [])
-
-
-  // useEffect(() => {
-  //   Promise.all([
-  //     axios.get('http://localhost:3001/categories'),
-  //     axios.get('http://localhost:3001/transactions'),
-  //   ])
-  //   .then(([{ data: categoriesData }, transactionsResponse]) => {
-  //     console.log('categoriesData: ', categoriesData, transactionsResponse)
-  //     setCategories(categoriesData)
-  //   })
-  // }, [])
 
 
   return (

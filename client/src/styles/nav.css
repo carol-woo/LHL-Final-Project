@@ -1,0 +1,21 @@
+.nav {
+  position: fixed;
+  display: flex;
+  height: 100%;
+  z-index: 1;
+}
+
+nav button {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav nav {
+  width: 25rem;
+  background-color: gray;
+  flex-flow: column;
+}
+
+.homepage {
+  background: black;
+}
