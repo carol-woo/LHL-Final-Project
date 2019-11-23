@@ -1,4 +1,13 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .App {
+  height: 100%;
   text-align: center;
 }
 
@@ -22,13 +31,4 @@
 }
 
 /* Nav bar CSS */
-
-.nav {
-  display: flex;
-}
-
-nav {
-  width: 25rem;
-  background-color: gray;
-}
 
