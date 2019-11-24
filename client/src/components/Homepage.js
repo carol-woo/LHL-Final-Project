@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { Route, Link, BrowserRouter } from "react-router-dom";
+import NewCategory from "./NewCategory";
+import NewEntry from "./NewEntry";
+
+
 
 export default function Homepage () {
 
@@ -18,12 +23,12 @@ export default function Homepage () {
   return (
     <div>
       {categories.map(category => {
-        return category.name
+        return <div>{category.name}</div>
       })}
       I am home page <br/>
-      <button>Add Entry</button>
-      <button>Add Category</button>
 
+      <button>New Entry</button> 
+      <button>Add Category</button>
     </div>
   )
 }
