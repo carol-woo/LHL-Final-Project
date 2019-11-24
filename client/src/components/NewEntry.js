@@ -17,11 +17,10 @@ export default function NewEntry(){
   const [enteredOn, setEnteredOn] = useState([])
   const [description, setDescription] = useState([])
 
-  submitTransaction = event => {
+  const submitTransaction = event => {
     event.preventDefault();
-    const newTransaction = {
-      setStoreName(store_name: event.target.value); 
-    }
+      setStoreName({store_name: event.target.value}); 
+    
   }
   
   //  useEffect(() => {
@@ -40,45 +39,51 @@ export default function NewEntry(){
     <div>
 
       I am temp text for NewEntry!
+      
       <form>
-      Store Name
-      <input
-      type="text"
-      name={storeName}
-      placeholder="Enter store name"
-      onChange={event =>setStoreName(event.target.value)}
-      ></input>
-      Date
-      <input
-      type="date"
-      name={enteredOn}
-      onChange={event => setEnteredOn(event.target.value)}
-      placeholder="Enter date of occurance"
-      ></input>
-      Amount
-      <input
-      type="number"
-      name={transactionAmount}
-      onChange={event => setTransactionAmount(event.target.value)}
-      placeholder="Enter the total amount"
-      ></input>
-      Description
-      <input
-      type="text"
-      name={description}
-      onChange={event => setDescription(event.target.value)}
-      placeholder="Please provide description of transactions"
-      ></input>
-      Category
-      <input type="text"
-      name={categoryId}
-      onChange={event => setCateroryId(event.target.value)}
-      placeholder="Category ID Test"
-      ></input>
-      <button
-      type="submit"
-      onClick={() => submitTransaction()}
-      >Submit</button>
+        Store Name
+        <input
+          type="text"
+          name={storeName}
+          placeholder="Enter store name"
+          onChange={event =>setStoreName(event.target.value)}
+        />
+
+        Date
+        <input
+          type="date"
+          name={enteredOn}
+          onChange={event => setEnteredOn(event.target.value)}
+          placeholder="Enter date of occurance"
+        />
+
+        Amount
+        <input
+          type="number"
+          name={transactionAmount}
+          onChange={event => setTransactionAmount(event.target.value)}
+          placeholder="Enter the total amount"
+        />
+
+        Description
+          <input
+          type="text"
+          name={description}
+          onChange={event => setDescription(event.target.value)}
+          placeholder="Please provide description of transactions"
+        />
+
+         Category
+          <input type="text"
+          name={categoryId}
+          onChange={event => setCateroryId(event.target.value)}
+          placeholder="Category ID Test"
+        />
+
+          <button
+          type="submit"
+          onClick={() => submitTransaction()}
+          >Submit</button>
       
       </form>
     </div>
