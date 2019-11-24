@@ -3,10 +3,15 @@ import axios from 'axios';
 
 //New Category view
 export default function NewCategory(){
+  // const [categories, setCategory] = useState([]);
 
-  useEffect(() => {
-    axios.put()
-  })
+  // useEffect(() => {
+  //   axios.post('http://localhost:3001/new-category', categories)
+  //   .then((res) => {
+  //     console.log(res.data)
+  //     setCategory(res)
+  //   })
+  // }, [])
 
   return(
     <div>

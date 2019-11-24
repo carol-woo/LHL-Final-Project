@@ -6,21 +6,13 @@ export default function Homepage () {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-<<<<<<< HEAD
     axios.get('http://localhost:3001/categories')
       .then((res) => {
         console.log(res)
         setCategories(res.data)
       })
-=======
-    Promise.all([
-      axios.get('http://localhost:3001/categories'),
-    ])
-    .then(([{ data: categoriesData }]) => {
-      setCategories(categoriesData)
-    })
->>>>>>> master
   }, [])
+
 
 
   return (
