@@ -18,7 +18,7 @@ export default function Homepage () {
   return (
     <div>
       {categories.map(category => {
-        return category.name
+        return <div>{category.name}</div>
       })}
       I am home page <br/>
       <button>Add Entry</button>
