@@ -13,27 +13,27 @@ export default function NewEntry(){
   // ]);
   const [storeName, setStoreName] = useState([])
   const [categoryId, setCateroryId] = useState([])
-  const [amount, setAmount] = useState([])
+  const [transactionAmount, setTransactionAmount] = useState([])
   const [enteredOn, setEnteredOn] = useState([])
   const [description, setDescription] = useState([])
 
-  handleSubmit = event => {
+  submitTransaction = event => {
     event.preventDefault();
     const newTransaction = {
       setStoreName(store_name: event.target.value); 
     }
   }
   
-   useEffect(() => {
-    axios({
-      method: 'post',
-      url: 'http://localhost:3001/new-entry/:',
-      data: {store_name, category_id, amount, entered_on, description}
-    })
-    .then(function(response) {
-      console.log(response);
-    })
-  })
+  //  useEffect(() => {
+  //   axios({
+  //     method: 'post',
+  //     url: 'http://localhost:3001/new-entry/:',
+  //     data: {store_name, category_id, amount, entered_on, description}
+  //   })
+  //   .then(function(response) {
+  //     console.log(response);
+  //   })
+  // })
 
 
   return(
@@ -44,10 +44,10 @@ export default function NewEntry(){
       Store Name
       <input
       type="text"
-      name={storeName}>
+      name={storeName}
       placeholder="Enter store name"
       onChange={event =>setStoreName(event.target.value)}
-      </input>
+      ></input>
       Date
       <input
       type="date"
@@ -58,19 +58,27 @@ export default function NewEntry(){
       Amount
       <input
       type="number"
-      name={amount}
-      onChange={event => setAmount(event.target.value)}
+      name={transactionAmount}
+      onChange={event => setTransactionAmount(event.target.value)}
       placeholder="Enter the total amount"
       ></input>
       Description
       <input
       type="text"
-      
+      name={description}
+      onChange={event => setDescription(event.target.value)}
       placeholder="Please provide description of transactions"
       ></input>
       Category
-      <input type="text" placeholder="Category ID Test"></input>
-      <button type="submit" >Submit</button>
+      <input type="text"
+      name={categoryId}
+      onChange={event => setCateroryId(event.target.value)}
+      placeholder="Category ID Test"
+      ></input>
+      <button
+      type="submit"
+      onClick={() => submitTransaction()}
+      >Submit</button>
       
       </form>
     </div>
