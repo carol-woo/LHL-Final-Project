@@ -17,6 +17,20 @@ const getCategories = async (req, res) => {
   })
 }
 
+const addCategory = async (req, res) => {
+
+  const {name, created_at, icon_image_path} = request.body
+  const {account_id} = request.params.id;
+  await pool.query(`INSERT INTO categories(store_name, category_id, amount, entered_on, description)
+  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [name, account_id, created_at, icon_image_path], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("addCategory being used in queries.js")
+    res.status(200).send(`Category`)
+  })
+}
+
 const getTransactions = async (req, res) => {
   await pool.query('SELECT * FROM transactions', (error, results) => {
     if (error) {
@@ -67,4 +81,4 @@ const deleteTransaction = async (req, res) => {
   })
 }
 
-module.exports = {getCategories, getTransactions, addTransaction, editTransaction, deleteTransaction}
+module.exports = {getCategories, addCategory, getTransactions, addTransaction, editTransaction, deleteTransaction}
