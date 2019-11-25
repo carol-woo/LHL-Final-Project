@@ -19,12 +19,7 @@ export default function NewEntry(){
   const [enteredOn, setEnteredOn] = useState()
   const [description, setDescription] = useState()
 
-  function submitTransaction (event) {
-    // event.preventDefault();
-    console.log("submit function working")
-    // console.log("FUNCTION WORKING", event)
-    // setEntries(event.target.value)
-      // setEntries({storeName: event.target.value}); 
+  function submitTransaction() {
       axios({
         method: 'post',
         url: `/new-entry`,
