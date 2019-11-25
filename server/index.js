@@ -14,14 +14,15 @@ app.use(
   })
 )
 
-app.get('/', (req, res) => {
-  res.json({ info: 'Node.js, Express, and Postgres API' })
-})
-
+// app.get('/', (req, res) => {
+//   res.json({ info: 'Node.js, Express, and Postgres API' })
+// })
+app.post('/new-user', db.addUser)
 app.get('/categories', db.getCategories)
 app.post('/new-category/:id', db.addCategory)
 app.get('/transactions', db.getTransactions)
-app.post('/transactions/:id', db.addTransaction)
+// app.post('/transactions/:id', db.addTransaction)
+app.post('/new-entry', db.addTransaction)
 app.put('/transactions/:id', db.editTransaction)
 app.delete('/transactions:id', db.deleteTransaction)
 

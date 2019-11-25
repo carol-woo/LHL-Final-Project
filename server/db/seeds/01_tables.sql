@@ -2,18 +2,18 @@
 
 -- -- Insert into the users table
 
-INSERT INTO accounts(id) 
+INSERT INTO households(name) 
 VALUES 
-(1),
-(2),
-(3),
-(4),
-(5);
+('Griffindor'),
+('Ravenclaw'),
+('Hufflepuff'),
+('Slytherin'),
+('Hogsmeade');
 
 -- -- INSERT INTO users (name, email, password_digest, account_id)
 -- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
 
-INSERT INTO categories (name, account_id, created_at, icon_image_path)
+INSERT INTO categories (name, households_id, created_at, icon_image_path)
 VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
 ('Transportation', 1, CURRENT_TIMESTAMP, '../something'),
 ('Recreational', 1, CURRENT_TIMESTAMP, '../something'),
@@ -45,15 +45,15 @@ VALUES ('Housing', 1, CURRENT_TIMESTAMP, '../something'),
 
 -- -- Date format will have to be yyyy-mm-dd
 
--- INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
--- VALUES ('Rental property', 64, 2000.00, '2019-06-01', 'monthly rent'),
--- ('Oretta', 76, 92.98, '2019-06-01', 'Went to restaurant'),
--- ('Costco', 75, 75.00, '2019-06-03', 'grocery shopping'),
--- ('Manulife', 79, 25.00, '2019-06-05', 'insurance payment'),
--- ('TTC', 81, 45.00, '2019-06-09', 'paying for transportation'),
--- ('metro', 75, 50.00, '2019-06-02', 'groceries'),
--- ('Rogers', 73, 120.00, '2019-06-09', 'cell phone bill'),
--- ('Toronto Hydro', 71, 56.00, '2019-06-13', 'hydro bill'),
+INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
+VALUES ('Rental property', 1, 2000.00, '2019-06-01', 'monthly rent'),
+('Oretta', 2, 92.98, '2019-06-01', 'Went to restaurant'),
+('Costco', 3, 75.00, '2019-06-03', 'grocery shopping'),
+('Manulife', 4, 25.00, '2019-06-05', 'insurance payment'),
+('TTC', 5, 45.00, '2019-06-09', 'paying for transportation'),
+('metro', 6, 50.00, '2019-06-02', 'groceries'),
+('Rogers', 7, 120.00, '2019-06-09', 'cell phone bill'),
+('Toronto Hydro', 8, 56.00, '2019-06-13', 'hydro bill');
 -- ('Mcdonalds', 76, 8.00, '2019-06-01', 'went for chicken nuggets'),
 -- ('LCBO', 77, 30.00, '2019-06-14', 'Friday night wine night'),
 -- ('Rogers', 74, 135.00, '2019-06-09', 'monthly cable/internet bill'),

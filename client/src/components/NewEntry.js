@@ -4,35 +4,55 @@ import axios from 'axios';
 //New entry view
 export default function NewEntry(){
 
-  // const [entries, setEntries] = useState([ 
-  //   store_name
-  //   // category_id,
-  //   // amount,
-  //   // entered_on,
-  //   // description
-  // ]);
-  const [storeName, setStoreName] = useState([])
-  const [categoryId, setCateroryId] = useState([])
-  const [transactionAmount, setTransactionAmount] = useState([])
-  const [enteredOn, setEnteredOn] = useState([])
-  const [description, setDescription] = useState([])
+  // const [entries, setEntries] = useState({
+  //   storeName: '',
+  //   categoryId: '',
+  //   transactionAmount: '',
+  //   enteredOn: '',
+  //   description: ''
+  // });
 
-  const submitTransaction = event => {
-    event.preventDefault();
-      setStoreName({store_name: event.target.value}); 
+
+  const [storeName, setStoreName] = useState()
+  const [categoryId, setCateroryId] = useState()
+  const [transactionAmount, setTransactionAmount] = useState()
+  const [enteredOn, setEnteredOn] = useState()
+  const [description, setDescription] = useState()
+
+  function submitTransaction() {
+      axios({
+        method: 'post',
+        url: `/new-entry`,
+        data: {
+          store_name: storeName,
+          category_id: categoryId,
+          amount: transactionAmount,
+          entered_on: enteredOn,
+          description: description},
+          responseType: JSON
+      })
+      .then(function(response) {
+        console.log("TEH Response", response);
+      }, (error) => {
+        console.log("GOOTTT!")
+        console.log(error)
+      })
+    }
     
-  }
-  
-  //  useEffect(() => {
-  //   axios({
-  //     method: 'post',
-  //     url: 'http://localhost:3001/new-entry/:',
-  //     data: {store_name, category_id, amount, entered_on, description}
-  //   })
-  //   .then(function(response) {
-  //     console.log(response);
-  //   })
-  // })
+  //   useEffect(() => {
+
+  //    axios({
+  //      method: 'put',
+  //      url: '/new-entry',
+  //      data: {storeName, categoryId, transactionAmount, enteredOn, description}
+  //    })
+  //    .then(function(response) {
+  //      console.log("TEH Response", response);
+  //    }, (error) => {
+  //      console.log("GOOTTT!")
+  //      console.log(error)
+  //    })
+  //  }, [])
 
 
   return(
@@ -82,7 +102,7 @@ export default function NewEntry(){
 
           <button
           type="submit"
-          onClick={() => submitTransaction()}
+          onClick={submitTransaction}
           >Submit</button>
       
       </form>
