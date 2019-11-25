@@ -9,15 +9,18 @@ const [userEmail, setEmail] = useState()
 const [userPassword, setPassword] = useState()
 const [householdId, setHouseholdId] = useState()
 
+let date = new Date()
+
 function submitRegistration(){
       axios({
         method: 'post',
         //Temp sending route from homepage
-        url: `/`,
+        url: `/new-user`,
         data: {
           name: userName,
           email: userEmail,
-          password: userPassword,
+          password_digest: userPassword,
+          created_at: date,
           households_id: householdId
         },
           responseType: JSON
@@ -38,28 +41,28 @@ function submitRegistration(){
           <input
             type="text"
             name={userName}
-            onChange={setName}
+            onChange={event =>setName(event.target.value)}
           />
 
         Email
           <input
             type="text"
             email={userEmail}
-            onChange={setEmail}
+            onChange={event =>setEmail(event.target.value)}
           />
           
         Password
           <input
             type="password"
             password={userPassword}
-            onChange={setPassword}
+            onChange={event =>setPassword(event.target.value)}
           />
 
         Household ID
           <input
             type="number"
             household={householdId}
-            onChange={setHouseholdId}
+            onChange={event =>setHouseholdId(event.target.value)}
           />
 
           <button

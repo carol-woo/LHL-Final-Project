@@ -8,10 +8,11 @@ const pool = new Pool({
 })
 
 const addUser = async (req, res) => {
-
-  const {name, email, password, households_id} = request.body
-  await pool.query(`INSERT INTO users(name, email, password, households_id)
-  VALUES ($1, $2, $3, $4, $5)`, [name, email, password, households_id], (error, results) => {
+console.log("addUser is running!")
+console.log("I AM REQ.BODY ",req.body)
+  const {name, email, password_digest, created_at, households_id} = req.body
+  await pool.query(`INSERT INTO users(name, email, password_digest, created_at, households_id)
+  VALUES ($1, $2, $3, $4, $5)`, [name, email, password_digest, created_at, households_id], (error, results) => {
     if (error) {
       throw error
     }
