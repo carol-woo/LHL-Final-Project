@@ -7,6 +7,12 @@ const pool = new Pool({
   port: 5432,
 })
 
+const oldPoolQuery = pool.query;
+pool.query = (...args) => {
+  console.log('QUERY:', args);
+  return oldPoolQuery.apply(pool, args);
+};
+
 const getCategories = async (req, res) => {
   await pool.query('SELECT * FROM categories', (error, results) => {
     if (error) {
@@ -19,7 +25,7 @@ const getCategories = async (req, res) => {
 
 const addCategory = async (req, res) => {
 
-  const {name, created_at, icon_image_path} = request.body
+  const {name, created_at, icon_image_path} = req.body
   const {account_id} = request.params.id;
   await pool.query(`INSERT INTO categories(store_name, category_id, amount, entered_on, description)
   VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [name, account_id, created_at, icon_image_path], (error, results) => {
@@ -42,12 +48,13 @@ const getTransactions = async (req, res) => {
 }
 
 const addTransaction = async (req, res) => {
-
-  const {store_name, amount, entered_on, description} = request.body
-  const category_id = parseInt(req.params.id)
+  console.log("addTransaction QUERY IS RUNNING!!")
+  const {store_name, category_id, amount, entered_on, description} = req.body
   await pool.query(`INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
-  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [store_name, category_id, amount, entered_on, description], (error, results) => {
+  VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
     if (error) {
+      console.log("Error in query function")
+
       throw error
     }
     console.log("addTransaction being used in queries.js")
@@ -57,10 +64,10 @@ const addTransaction = async (req, res) => {
 
 const editTransaction = async (req, res) => {
 
-  const {store_name, amount, entered_on, description} = request.body
+  const {store_name, amount, entered_on, description} = req.body
   const transaction_id = parseInt(req.params.id)
   await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
-  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [store_name, category_id, amount, entered_on, description], (error, results) => {
+  VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
     if (error) {
       throw error
     }
