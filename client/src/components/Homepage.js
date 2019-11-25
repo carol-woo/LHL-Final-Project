@@ -11,13 +11,13 @@ export default function Homepage () {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    Promise.all([
-      axios.get('http://localhost:3001/categories'),
-    ])
-    .then(([{ data: categoriesData }]) => {
-      setCategories(categoriesData)
-    })
+    axios.get('http://localhost:3001/categories')
+      .then((res) => {
+        console.log(res)
+        setCategories(res.data)
+      })
   }, [])
+
 
 
   return (

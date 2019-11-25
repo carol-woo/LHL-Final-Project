@@ -1,0 +1,9 @@
+#home_page {
+  background-image: url("./Images/house.png");
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px; 
+  width: 160px;
+  height: 80px;
+}

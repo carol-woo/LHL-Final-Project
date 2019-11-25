@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import axios from 'axios'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 //New entry view
 export default function NewEntry(){
@@ -64,6 +64,7 @@ export default function NewEntry(){
     <div>
 
       I am temp text for NewEntry!
+      
       <form>
         Store Name
         <input
