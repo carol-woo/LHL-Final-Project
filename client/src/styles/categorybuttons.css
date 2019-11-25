@@ -1,9 +1,159 @@
-#home_page {
-  background-image: url("./Images/house.png");
+.category {
+  height: 100%;
+  overflow: scroll;
+}
+
+.category_buttons {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
   background-size: 60px 60px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  background-position-y: 20%;
   border-radius: 20px; 
-  width: 160px;
-  height: 80px;
+  width: 180px;
+  height: 90px;
+  padding-bottom: 3px;
+  font-size: 1.2rem;
+  margin: 10px;
 }
+
+/* HOME CATEGORY */
+#house {
+  background-image: url("./Images/house.png");
+  background-color: rgb(0,191,255);
+  color: white;
+}
+#rent {
+  background-image: url("./Images/rent.png");
+  background-color: rgb(64,224,208);
+  color: white;
+}
+#property {
+  background-image: url("./Images/propertytax.png");
+  background-color: rgb(95,158,160);
+  color: white;
+}
+#home_maintenance {
+  background-image: url("./Images/homemaintenance.png");
+  background-color: rgb(135,206,235);
+  color: white;
+}
+#hydro {
+  background-image: url("./Images/hydro.png");
+  background-color: rgb(176,196,222);
+  color: white;
+}
+#home_phone {
+  background-image: url("./Images/hometelephone.png");
+  background-color: rgb(30,144,255);
+  color: white;
+}
+#cable_internet {
+  background-image: url("./Images/cableinternet.png");
+  background-color: rgb(95,158,160);
+  color: white;
+}
+#mortgage {
+  background-image: url("./Images/mortgage.png");
+  background-color: rgb(100,149,237);
+  color: white;
+}
+#cell_phone {
+  background-image: url("./Images/cellphone.png");
+  background-color: rgb(173,216,230);
+  color: white;
+}
+#water {
+  background-image: url("./Images/water.png");
+  background-color: rgb(0,0,139);
+  color: white;
+}
+
+
+/* INSURANCE CATEGORY */
+#insurance {
+  background-image: url("./Images/insurance.png");
+  background-color: rgb(255,255,224);
+  color: black;
+}
+#mortgage_insurance {
+  background-image: url("./Images/mortgage_insurance.png");
+  font-size: 1.1rem;
+  background-color: rgb(238,232,170);
+}
+#auto_insurance {
+  background-image: url("./Images/autoinsurance.png");
+  background-color: rgb(240,230,140);
+}
+#home_insurance {
+  background-image: url("./Images/homeinsurance.png");
+  background-color: rgb(245,245,220);
+}
+#life_insurance {
+  background-image: url("./Images/lifeinsurance.png");
+  background-color: rgb(255,240,245);
+}
+
+/* TRAVELLING RELATED CATEGORIES */
+#transportation {
+  background-image: url("./Images/transportation.png");
+}
+#gas {
+  background-image: url("./Images/gas.png");
+}
+#parking {
+  background-image: url("./Images/parking-sign.png");
+}
+#public_transportation {
+  background-image: url("./Images/publictransportation.png");
+  font-size: 1.1rem;
+}
+
+/* FOOD RELATED CATEGORIES */
+#food {
+  background-image: url("./Images/food.png");
+}
+#groceries {
+  background-image: url("./Images/grocery.png");
+}
+
+#restaurants {
+  background-image: url("./Images/restaurant.png");
+}
+
+#beverage {
+  background-image: url("./Images/beverage.png");
+}
+
+
+/* OTHER CATEGORIES */
+#medical {
+  background-image: url("./Images/medical.png");
+}
+
+#pets {
+  background-image: url("./Images/pets.png");
+}
+
+#loans {
+  background-image: url("./Images/loans.png");
+}
+
+#recreational {
+  background-image: url("./Images/recreational.png");
+}
+
+#miscellaneous {
+  background-image: url("./Images/miscellaneous.png");
+}
+
+
+
+
+
+
+
+
+
