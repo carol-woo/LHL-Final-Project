@@ -26,6 +26,11 @@ app.post('/new-entry', db.addTransaction)
 app.put('/transactions/:id', db.editTransaction)
 app.delete('/transactions:id', db.deleteTransaction)
 
+//login
+app.post('/login',(req, res) =>{
+  console.log(req.body)
+})
+
 
 
 
