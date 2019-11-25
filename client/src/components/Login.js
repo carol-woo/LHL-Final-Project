@@ -7,7 +7,13 @@ export default function Login(){
   
   return(
     <div>
-      I am temp text for Login!
+      I am temp login!
+      <form>
+        Email
+          <input
+            email={email}
+          />
+      </form>
     </div>
   )
 }
