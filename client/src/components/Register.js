@@ -3,10 +3,31 @@ import React, {useState} from "react"
 
 //For Register view
 export default function Register(){
-const [name, setName] = useState()
-const [email, setEmail] = useState()
-const [password, setPassword] = useState()
+const [userName, setName] = useState()
+const [userEmail, setEmail] = useState()
+const [userPassword, setPassword] = useState()
 const [householdID, setHouseholdID] = useState()
+
+function submitRegistration(){
+      axios({
+        method: 'post',
+        //Temp sending route from homepage
+        url: `/`,
+        data: {
+          name: userName,
+          email: userEmail,
+          password: userPassword,
+          households_id: householdID
+        },
+          responseType: JSON
+      })
+      .then(function(response) {
+        console.log("TEH Response", response);
+      }, (error) => {
+        console.log("GOOTTT!")
+        console.log(error)
+      })
+    }
 
   return(
     <div>
@@ -15,21 +36,21 @@ const [householdID, setHouseholdID] = useState()
         Name
           <input
             type="text"
-            name={name}
+            name={userName}
             onChange={setName}
           />
 
         Email
           <input
             type="text"
-            email={email}
+            email={userEmail}
             onChange={setEmail}
           />
           
         Password
           <input
             type="password"
-            password={password}
+            password={userPassword}
             onChange={setPassword}
           />
 
@@ -39,6 +60,13 @@ const [householdID, setHouseholdID] = useState()
             household={householdID}
             onChange={setHouseholdID}
           />
+
+          <button
+          type="submit"
+          onClick={submitRegistration}
+          >
+            Submit
+          </button>
       </form>
     </div>
   )
