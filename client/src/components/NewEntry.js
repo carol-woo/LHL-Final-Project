@@ -82,7 +82,7 @@ export default function NewEntry(){
 
           <button
           type="submit"
-          onClick={() => submitTransaction()}
+          onClick={submitTransaction}
           >Submit</button>
       
       </form>
