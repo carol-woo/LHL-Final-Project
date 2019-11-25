@@ -7,6 +7,19 @@ const pool = new Pool({
   port: 5432,
 })
 
+const addUser = async (req, res) => {
+
+  const {name, email, password, households_id} = request.body
+  await pool.query(`INSERT INTO households(name, email, password, households_id)
+  VALUES ($1, $2, $3, $4, $5)`, [name, email, password, households_id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("addUser being used in queries.js")
+    res.status(200).send(`User`)
+  })
+}
+
 const getCategories = async (req, res) => {
   await pool.query('SELECT * FROM categories', (error, results) => {
     if (error) {
@@ -20,9 +33,9 @@ const getCategories = async (req, res) => {
 const addCategory = async (req, res) => {
 
   const {name, created_at, icon_image_path} = request.body
-  const {account_id} = request.params.id;
+  const {households_id} = request.params.id;
   await pool.query(`INSERT INTO categories(store_name, category_id, amount, entered_on, description)
-  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [name, account_id, created_at, icon_image_path], (error, results) => {
+  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [name, households_id, created_at, icon_image_path], (error, results) => {
     if (error) {
       throw error
     }
