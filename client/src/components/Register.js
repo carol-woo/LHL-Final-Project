@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import axios from "axios"
 
 
 //For Register view
@@ -6,7 +7,7 @@ export default function Register(){
 const [userName, setName] = useState()
 const [userEmail, setEmail] = useState()
 const [userPassword, setPassword] = useState()
-const [householdID, setHouseholdID] = useState()
+const [householdId, setHouseholdId] = useState()
 
 function submitRegistration(){
       axios({
@@ -17,7 +18,7 @@ function submitRegistration(){
           name: userName,
           email: userEmail,
           password: userPassword,
-          households_id: householdID
+          households_id: householdId
         },
           responseType: JSON
       })
@@ -57,8 +58,8 @@ function submitRegistration(){
         Household ID
           <input
             type="number"
-            household={householdID}
-            onChange={setHouseholdID}
+            household={householdId}
+            onChange={setHouseholdId}
           />
 
           <button
