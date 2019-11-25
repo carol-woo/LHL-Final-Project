@@ -1,21 +1,114 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
+import axios from 'axios'
 
 //New entry view
 export default function NewEntry(){
+
+  // const [entries, setEntries] = useState({
+  //   storeName: '',
+  //   categoryId: '',
+  //   transactionAmount: '',
+  //   enteredOn: '',
+  //   description: ''
+  // });
+
+
+  const [storeName, setStoreName] = useState()
+  const [categoryId, setCateroryId] = useState()
+  const [transactionAmount, setTransactionAmount] = useState()
+  const [enteredOn, setEnteredOn] = useState()
+  const [description, setDescription] = useState()
+
+  function submitTransaction (event) {
+    // event.preventDefault();
+    console.log("submit function working")
+    // console.log("FUNCTION WORKING", event)
+    // setEntries(event.target.value)
+      // setEntries({storeName: event.target.value}); 
+      axios({
+        method: 'post',
+        url: `/new-entry`,
+        data: {
+          store_name: storeName,
+          category_id: categoryId,
+          amount: transactionAmount,
+          entered_on: enteredOn,
+          description: description},
+          responseType: JSON
+      })
+      .then(function(response) {
+        console.log("TEH Response", response);
+      }, (error) => {
+        console.log("GOOTTT!")
+        console.log(error)
+      })
+    }
+    
+  //   useEffect(() => {
+
+  //    axios({
+  //      method: 'put',
+  //      url: '/new-entry',
+  //      data: {storeName, categoryId, transactionAmount, enteredOn, description}
+  //    })
+  //    .then(function(response) {
+  //      console.log("TEH Response", response);
+  //    }, (error) => {
+  //      console.log("GOOTTT!")
+  //      console.log(error)
+  //    })
+  //  }, [])
+
 
   return(
     <div>
 
       I am temp text for NewEntry!
       <form>
-      Store Name
-      <input type="text" placeholder="Enter store name"></input>
-      Date
-      <input type="date" placeholder="Enter date of occurance"></input>
-      Amount
-      <input type="number" placeholder="Enter the total amount"></input>
-      Description
-      <input type="text" placeholder="Please provide description of transactions"></input>
+        Store Name
+        <input
+          type="text"
+          name={storeName}
+          placeholder="Enter store name"
+          onChange={event =>setStoreName(event.target.value)}
+        />
+
+        Date
+        <input
+          type="date"
+          name={enteredOn}
+          onChange={event => setEnteredOn(event.target.value)}
+          placeholder="Enter date of occurance"
+        />
+
+        Amount
+        <input
+          type="number"
+          name={transactionAmount}
+          onChange={event => setTransactionAmount(event.target.value)}
+          placeholder="Enter the total amount"
+        />
+
+        Description
+          <input
+          type="text"
+          name={description}
+          onChange={event => setDescription(event.target.value)}
+          placeholder="Please provide description of transactions"
+        />
+
+         Category
+          <input type="text"
+          name={categoryId}
+          onChange={event => setCateroryId(event.target.value)}
+          placeholder="Category ID Test"
+        />
+
+          <button
+          type="submit"
+          onClick={submitTransaction}
+          >Submit</button>
+      
       </form>
     </div>
   )
