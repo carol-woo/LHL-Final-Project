@@ -2,7 +2,7 @@
 
 -- -- Insert into the users table
 
-INSERT INTO accounts(id) 
+INSERT INTO households(name) 
 VALUES 
 (1),
 (2),

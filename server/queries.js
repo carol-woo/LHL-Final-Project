@@ -7,12 +7,6 @@ const pool = new Pool({
   port: 5432,
 })
 
-const oldPoolQuery = pool.query;
-pool.query = (...args) => {
-  console.log('QUERY:', args);
-  return oldPoolQuery.apply(pool, args);
-};
-
 const getCategories = async (req, res) => {
   await pool.query('SELECT * FROM categories', (error, results) => {
     if (error) {
@@ -28,7 +22,7 @@ const addCategory = async (req, res) => {
   const {name, created_at, icon_image_path} = req.body
   const {account_id} = request.params.id;
   await pool.query(`INSERT INTO categories(store_name, category_id, amount, entered_on, description)
-  VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [name, account_id, created_at, icon_image_path], (error, results) => {
+  VALUES ($1, $2, $3, $4, $5)`, [name, account_id, created_at, icon_image_path], (error, results) => {
     if (error) {
       throw error
     }
