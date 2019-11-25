@@ -25,6 +25,7 @@ app.get('/transactions', db.getTransactions)
 app.post('/new-entry', db.addTransaction)
 app.put('/transactions/:id', db.editTransaction)
 app.delete('/transactions:id', db.deleteTransaction)
+app.post('/new-user', db.addUser)
 
 
 

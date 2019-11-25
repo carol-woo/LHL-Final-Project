@@ -10,7 +10,7 @@ const pool = new Pool({
 const addUser = async (req, res) => {
 
   const {name, email, password, households_id} = request.body
-  await pool.query(`INSERT INTO households(name, email, password, households_id)
+  await pool.query(`INSERT INTO users(name, email, password, households_id)
   VALUES ($1, $2, $3, $4, $5)`, [name, email, password, households_id], (error, results) => {
     if (error) {
       throw error
@@ -97,4 +97,4 @@ const deleteTransaction = async (req, res) => {
   })
 }
 
-module.exports = {getCategories, addCategory, getTransactions, addTransaction, editTransaction, deleteTransaction}
+module.exports = {addUser, getCategories, addCategory, getTransactions, addTransaction, editTransaction, deleteTransaction}

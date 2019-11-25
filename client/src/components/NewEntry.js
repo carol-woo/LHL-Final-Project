@@ -17,11 +17,7 @@ export default function NewEntry(){
   const [enteredOn, setEnteredOn] = useState([])
   const [description, setDescription] = useState([])
 
-<<<<<<< HEAD
-  function submitTransaction () = event => {
-=======
   const submitTransaction = event => {
->>>>>>> master
     event.preventDefault();
       setStoreName({store_name: event.target.value}); 
     
