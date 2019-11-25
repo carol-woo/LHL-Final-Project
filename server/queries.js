@@ -45,6 +45,7 @@ const addTransaction = async (req, res) => {
 
   const {store_name, amount, entered_on, description} = request.body
   const category_id = parseInt(req.params.id)
+  console.log(entered_on)
   await pool.query(`INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
   VALUES (${1}, ${2}, ${3}, ${4}, ${5})`, [store_name, category_id, amount, entered_on, description], (error, results) => {
     if (error) {
