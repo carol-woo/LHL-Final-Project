@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import "../styles/categorybuttons.css";
 
 //New Category view
 export default function NewCategory(){
@@ -15,7 +16,7 @@ export default function NewCategory(){
 
   return(
     <div>
-      I am temp text for NewCategory
+      <button type="submit" id="home_page">Home</button>
     </div>
   )
 }

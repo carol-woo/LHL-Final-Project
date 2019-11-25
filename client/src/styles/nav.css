@@ -16,6 +16,11 @@ nav button {
   flex-flow: column;
 }
 
-.homepage {
-}
-
+/* Adding a image to button test code */
+/* #home_page {
+  background-image: url("./Images/house.png");
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 62px;
+} */
