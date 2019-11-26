@@ -35,19 +35,10 @@ app.post('/login', async (req, res) => {
 })
 
 app.get('/logout',  (req, res) => {
-//  if(req.session.user && req.session.user_id){
-//    res.clearCookie('user_id')
-//  }
-//   console.log("Nuke my Cookie index.js!")
-//   console.log("what is my session?", req.session)
-
-// req.session.destroy((err) => {
-//   if(err){
-//     console.log(err)
-//   }
-// })
-
-req.session = null
+  console.log("/logout, please nuke the session")
+  console.log("what is my session?", req.session)
+  req.session = null;
+  res.json({logout: 'ok'})
 })
 
 app.post('/new-user', db1.addUser)

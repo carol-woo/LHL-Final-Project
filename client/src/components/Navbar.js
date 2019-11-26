@@ -10,14 +10,14 @@ import '../styles/nav.css';
 import axios from "axios";
 
 //For Navbar view
-export default function Navbar(){
+export default function Navbar(){ 
 
   const nukeMyLogout = async() => {
     try{
       let response = await axios({
-        method: 'post',
+        method: 'get',
         url: `/logout`,
-        withCredentials: true,
+        // withCredentials: true,
       })
         console.log("yay i work in nukeMyLogout")
         return response
