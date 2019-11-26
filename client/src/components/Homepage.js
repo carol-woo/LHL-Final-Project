@@ -32,8 +32,8 @@ export default function Homepage() {
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
-            <button type="submit" id={category.name} className="category_buttons">Home</button>
-            ></div>
+            <button type="submit" id={category.name} className="category_buttons">{category.name} </button>
+            </div>
         )
 
       })}

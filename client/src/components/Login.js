@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import axios from "axios"
+import { Redirect } from 'react-router-dom'
 
 
 
@@ -7,6 +8,14 @@ import axios from "axios"
 export default function Login(){
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [redirect, setRedirect] = useState(false)
+
+  const renderRedirect = () => {
+    if (this.redirect === true) {
+      console.log("REDIRECTING")
+      return <Redirect to='/new-category' />
+    }
+  }
 
   const submitLogin = event => {
     event.preventDefault()
@@ -20,6 +29,10 @@ export default function Login(){
     })
     .then(function(response) {
       console.log("TEH Response", response);
+      // renderRedirect();
+      setRedirect(true);
+      console.log("Changing redirect state", redirect);
+      console.log("HELLO! IS IT THE homepage you are looking for?")
     }, (error) => {
       console.log("GOOTTT!")
       console.log(error)
@@ -46,7 +59,7 @@ export default function Login(){
             onChange={event =>setPassword(event.target.value)}
           />
 
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={renderRedirect}>Submit</button>
       </form>
     </div>
   )
