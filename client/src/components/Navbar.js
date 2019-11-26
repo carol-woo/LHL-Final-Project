@@ -7,22 +7,39 @@ import NewCategory from "./NewCategory";
 import Login from "./Login";
 import Register from "./Register";
 import '../styles/nav.css';
+import axios from "axios";
 
 //For Navbar view
-export default function Navbar(){
+export default function Navbar(){ 
+
+  const nukeMyLogout = async() => {
+    try{
+      let response = await axios({
+        method: 'get',
+        url: `/logout`,
+        // withCredentials: true,
+      })
+        console.log("yay i work in nukeMyLogout")
+        return response
+      }catch(error){
+        console.log(error)
+      }
+  }
+
+
   return(
       <div className='nav'>
         <BrowserRouter>
         <nav className="side_nav_bar">
           <h1>Cache My Budget</h1>
           <ul className="nav_ul">
-            <li className="nav_li"><Link to="/log-in">Login</Link></li>
+            <li className="nav_li"><Link to="/login">Login</Link></li>
             <li className="nav_li"><Link to="/register">Register</Link></li>
             <li className="nav_li"><Link to="/">Homepage</Link></li> 
             <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
             <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
             <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
-            <li className="nav_li">Logout</li>
+            <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
           </ul>
         </nav>
 
@@ -35,7 +52,7 @@ export default function Navbar(){
         </div>
 
         <div className="login">
-          <Route path="/log-in" component={Login}></Route>
+          <Route path="/login" component={Login}></Route>
         </div>
         
         <div className="new-entry">
