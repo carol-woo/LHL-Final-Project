@@ -1,0 +1,21 @@
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80vw;
+}
+
+.login_image{
+  background: url("./Images/login.jpeg") center no-repeat;
+  background-size: cover contain;
+  width: 40vw;
+  height: 40vw;
+}
+
+.login_form {
+  display: flex;
+  flex-flow: column;
+  width: 20vw;
+  height: 40vw;
+}
