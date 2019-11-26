@@ -2,25 +2,31 @@
   position: fixed;
   display: flex;
   height: 100%;
-  z-index: 1;
+  z-index: 1; 
 }
 
-nav button {
+.side_nav_bar {
   display: flex;
   flex-direction: column;
-}
-
-.nav nav {
-  width: 25rem;
+  align-items: center;
+  width: 40rem;
   background-color: gray;
-  flex-flow: column;
 }
 
-/* Adding a image to button test code */
-/* #home_page {
-  background-image: url("./Images/house.png");
-  background-size: 60px 60px;
-  background-repeat: no-repeat;
-  width: 80px;
-  height: 62px;
-} */
+.nav_ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav_li {
+  text-decoration: none;
+  list-style: none;
+  font-size: 2rem;
+  margin-top: 60px;
+  color: white;
+}
+
+.nav_li a {
+  text-decoration: none;
+  color: inherit;
+}
