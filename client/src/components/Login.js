@@ -10,12 +10,6 @@ export default function Login(){
   const [password, setPassword] = useState()
   const [redirect, setRedirect] = useState(false)
 
-  const renderRedirect = () => {
-    if (redirect) {
-      console.log("REDIRECTING")
-      return <Redirect to='/new-category' />
-    }
-  }
 
   const submitLogin = event => {
     event.preventDefault()
@@ -38,6 +32,10 @@ export default function Login(){
       console.log(error)
     })
   }
+
+  if (redirect) {
+    return <Redirect to='/new-category' />
+  }
   
 
   return(
@@ -59,7 +57,7 @@ export default function Login(){
             onChange={event =>setPassword(event.target.value)}
           />
 
-        <button type="submit" onClick={renderRedirect}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
