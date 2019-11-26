@@ -8,22 +8,11 @@ const pool = new Pool({
 })
 
 
-const userVerification = async ( req, res) => {
- console.log(req.body)
-
-  await pool.query(`
+const userVerification = async (email, password) => {
+ const res =  await pool.query(`
     SELECT * FROM users
-    WHERE email=$1 AND password_digest=$2;`,[req.body.email, req.body.password], (error, result) => {
-    if(error){
-      throw error
-    }
-    if(result.rows.length === 1){
-      console.log("200")
-      res.status(200).json()
-    } else {
-      res.status(401).json()
-    }
-  });
+    WHERE email=$1 AND password_digest=$2;`,[email,password]);
+  return res.rows[0]
 }
 
 module.exports = {userVerification}

@@ -21,6 +21,7 @@ export default function Login() {
           email: email,
           password: password
         },
+        withCredentials: true,
       })
 
       console.log("TEH Response", response);
