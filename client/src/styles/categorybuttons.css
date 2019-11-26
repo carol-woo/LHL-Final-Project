@@ -7,10 +7,7 @@
   display: inline-flex;
   flex-direction: column-reverse;
   align-items: center;
-  background-size: 60px 60px;
-  background-repeat: no-repeat;
   background-position: top;
-  background-position-y: 20%;
   border-radius: 20px; 
   width: 180px;
   height: 90px;
@@ -22,148 +19,162 @@
 
 /* HOME CATEGORY */
 #house {
-  background-image: url("./Images/house.png"), linear-gradient(#1c10ee, #499ee3, #cdebf1);
-  color: white;
+  background: url("./Images/house.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #rent {
-  background-image: url("./Images/rent.png");
-  background-color: rgb(64,224,208);
-  color: white;
+  background: url("./Images/rent.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%; 
 }
 #property {
-  background-image: url("./Images/propertytax.png");
-  background-color: rgb(95,158,160);
-  color: white;
+  background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #home_maintenance {
-  background-image: url("./Images/homemaintenance.png");
-  background-color: rgb(135,206,235);
-  color: white;
+  background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #hydro {
-  background-image: url("./Images/hydro.png");
-  background-color: rgb(176,196,222);
-  color: white;
+  background: url("./Images/hydro.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #home_phone {
-  background-image: url("./Images/hometelephone.png");
-  background-color: rgb(30,144,255);
-  color: white;
+  background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #cable_internet {
-  background-image: url("./Images/cableinternet.png");
-  background-color: rgb(95,158,160);
-  color: white;
+  background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #mortgage {
-  background-image: url("./Images/mortgage.png");
-  background-color: rgb(100,149,237);
-  color: white;
+  background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #cell_phone {
-  background-image: url("./Images/cellphone.png");
-  background-color: rgb(173,216,230);
-  color: white;
+  background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #water {
-  background-image: url("./Images/water.png");
-  background-color: rgb(0,0,139);
-  color: white;
+  background: url("./Images/water.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 
 /* INSURANCE CATEGORY */
 #insurance {
-  background-image: url("./Images/insurance.png");
-  background-color: rgb(255,255,224);
-  color: black;
+  background: url("./Images/insurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #mortgage_insurance {
-  background-image: url("./Images/mortgage_insurance.png");
+  background: url("./Images/mortgage_insurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
   font-size: 1.1rem;
-  background-color: rgb(238,232,170);
 }
 #auto_insurance {
-  background-image: url("./Images/autoinsurance.png");
-  background-color: rgb(240,230,140);
+  background: url("./Images/autoinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #home_insurance {
-  background-image: url("./Images/homeinsurance.png");
-  background-color: rgb(245,245,220);
+  background: url("./Images/homeinsurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #life_insurance {
-  background-image: url("./Images/lifeinsurance.png");
-  background-color: rgb(255,240,245);
+  background: url("./Images/lifeinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 /* TRAVELLING RELATED CATEGORIES */
 #transportation {
-  background-image: url("./Images/transportation.png");
-  background-color: rgb(59, 115, 2);
+  background: url("./Images/transportation.png") no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #gas {
-  background-image: url("./Images/gas.png");
-  background-color: rgb(34, 240, 111);
+  background: url("./Images/gas.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #parking {
-  background-image: url("./Images/parking-sign.png");
-  background-color: rgb(171, 217, 4);
+  background: url("./Images/parking-sign.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #public_transportation {
-  background-image: url("./Images/publictransportation.png");
+  background: url("./Images/publictransportation.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
   font-size: 1.1rem;
-  background-color: rgb( 74, 235, 40);
 }
 
 /* FOOD RELATED CATEGORIES */
 #food {
-  background-image: url("./Images/food.png");
-  background-color: rgb(240, 20, 102);
-  color: white;
+  background: url("./Images/food.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 #groceries {
-  background-image: url("./Images/grocery.png");
-  background-color: rgb(253, 89, 255);
-  color: white;
+  background: url("./Images/grocery.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #restaurants {
-  background-image: url("./Images/restaurant.png");
-  background-color: rgb(235, 16, 191);
-  color: white;
+  background: url("./Images/restaurant.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #beverage {
-  background-image: url("./Images/beverage.png");
-  background-color: rgb(255, 79, 182);
-  color: white;
+  background: url("./Images/beverage.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 
 /* OTHER CATEGORIES */
 #medical {
-  background-image: url("./Images/medical.png");
-  background-color: rgb(242, 116, 5)
+  background: url("./Images/medical.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #pets {
-  background-image: url("./Images/pets.png");
-  background-color: rgb(242, 93, 39)
+  background: url("./Images/pets.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #loans {
-  background-image: url("./Images/loans.png");
-  background-color: rgb(255, 255, 0);
+  background: url("./Images/loans.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #recreational {
-  background-image: url("./Images/recreational.png");
-  background-color: rgb(242, 183, 5);
+  background: url("./Images/recreational.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 #miscellaneous {
-  background-image: url("./Images/miscellaneous.png");
-  background-color: rgb(242, 159, 5)
+  background: url("./Images/miscellaneous.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background-size: 60px, 60px;
+  background-position-y: 20%;
 }
 
 
