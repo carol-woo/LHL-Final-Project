@@ -8,7 +8,8 @@ export default function Login(){
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
 
-  function submitLogin(){
+  const submitLogin = event => {
+    event.preventDefault()
     axios({
       method: 'post',
       url: `/login`,
@@ -16,7 +17,6 @@ export default function Login(){
         email: email,
         password: password
       },
-        responseType: JSON
     })
     .then(function(response) {
       console.log("TEH Response", response);
@@ -30,7 +30,7 @@ export default function Login(){
   return(
     <div>
       I am temp login!
-      <form>
+      <form onSubmit={submitLogin}>
 
         Email
           <input
@@ -46,10 +46,7 @@ export default function Login(){
             onChange={event =>setPassword(event.target.value)}
           />
 
-        <button
-          type="submit"
-          onClick={submitLogin}
-          >Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )
