@@ -21,15 +21,11 @@ console.log("I AM REQ.BODY ",req.body)
   })
 }
 
-const getCategories = async (req, res) => {
-  await pool.query('SELECT * FROM categories', (error, results) => {
-    if (error) {
-      throw error
-    }
-    console.log("getCategories being used in queries.js")
-    res.status(200).json(results.rows)
-  })
-}
+const getCategories = async () => {
+  const res = await pool.query('SELECT * FROM categories')
+    return res.rows
+  }
+
 
 const addCategory = async (req, res) => {
 

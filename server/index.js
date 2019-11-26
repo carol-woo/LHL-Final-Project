@@ -42,7 +42,13 @@ app.get('/logout',  (req, res) => {
 })
 
 app.post('/new-user', db1.addUser)
-app.get('/categories', db1.getCategories)
+
+app.get('/categories', (req, res) => {
+  db1.getCategories(res)
+  res.status(200).json({status: 'ok'} )
+})
+ 
+
 app.post('/new-category/:id', db1.addCategory)
 app.get('/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)
