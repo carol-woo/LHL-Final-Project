@@ -36,16 +36,9 @@ export default function Login() {
     }
 
   if (redirect) {
-    return <Redirect to='/' />
-  }
-<<<<<<< HEAD
-
-  if (redirect) {
     return <Redirect to='/new-category' />
   }
   
-=======
->>>>>>> 6dab3ab85e8e3132fdfa636f26575518d1ccd99c
 
   return (
     <div>
