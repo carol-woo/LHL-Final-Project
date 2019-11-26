@@ -11,7 +11,7 @@ export default function Login(){
   const [redirect, setRedirect] = useState(false)
 
   const renderRedirect = () => {
-    if (this.redirect === true) {
+    if (redirect) {
       console.log("REDIRECTING")
       return <Redirect to='/new-category' />
     }
