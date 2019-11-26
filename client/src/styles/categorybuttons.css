@@ -17,12 +17,12 @@
   padding-bottom: 3px;
   font-size: 1.2rem;
   margin: 10px;
+  outline: none;
 }
 
 /* HOME CATEGORY */
 #house {
-  background-image: url("./Images/house.png");
-  background-color: rgb(0,191,255);
+  background-image: url("./Images/house.png"), linear-gradient(#1c10ee, #499ee3, #cdebf1);
   color: white;
 }
 #rent {
@@ -99,54 +99,71 @@
 /* TRAVELLING RELATED CATEGORIES */
 #transportation {
   background-image: url("./Images/transportation.png");
+  background-color: rgb(59, 115, 2);
 }
 #gas {
   background-image: url("./Images/gas.png");
+  background-color: rgb(34, 240, 111);
 }
 #parking {
   background-image: url("./Images/parking-sign.png");
+  background-color: rgb(171, 217, 4);
 }
 #public_transportation {
   background-image: url("./Images/publictransportation.png");
   font-size: 1.1rem;
+  background-color: rgb( 74, 235, 40);
 }
 
 /* FOOD RELATED CATEGORIES */
 #food {
   background-image: url("./Images/food.png");
+  background-color: rgb(240, 20, 102);
+  color: white;
 }
 #groceries {
   background-image: url("./Images/grocery.png");
+  background-color: rgb(253, 89, 255);
+  color: white;
 }
 
 #restaurants {
   background-image: url("./Images/restaurant.png");
+  background-color: rgb(235, 16, 191);
+  color: white;
 }
 
 #beverage {
   background-image: url("./Images/beverage.png");
+  background-color: rgb(255, 79, 182);
+  color: white;
 }
 
 
 /* OTHER CATEGORIES */
 #medical {
   background-image: url("./Images/medical.png");
+  background-color: rgb(242, 116, 5)
 }
 
 #pets {
   background-image: url("./Images/pets.png");
+  background-color: rgb(242, 93, 39)
 }
 
 #loans {
   background-image: url("./Images/loans.png");
+  background-color: rgb(255, 255, 0);
 }
 
 #recreational {
   background-image: url("./Images/recreational.png");
+  background-color: rgb(242, 183, 5);
 }
 
 #miscellaneous {
   background-image: url("./Images/miscellaneous.png");
+  background-color: rgb(242, 159, 5)
 }
 
 
