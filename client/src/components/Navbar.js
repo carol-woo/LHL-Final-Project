@@ -31,7 +31,7 @@ export default function Navbar(){
         </div>
 
         <div className="register">
-          <Route path="/log-in" component={Register}></Route>
+          <Route path="/register" component={Register}></Route>
         </div>
 
         <div className="login">
