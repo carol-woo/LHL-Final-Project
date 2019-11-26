@@ -14,15 +14,14 @@ CREATE TABLE users (
   email VARCHAR NOT NULL,
   password_digest VARCHAR NOT NULL,
   created_at TIMESTAMP NOT NULL,
-  households_id INTEGER REFERENCES households(id) ON DELETE CASCADE
+  household_id INTEGER REFERENCES households(id) ON DELETE CASCADE
 );
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR NOT NULL,
-  households_id INTEGER REFERENCES households(id) ON DELETE CASCADE,
-  created_at TIMESTAMP NOT NULL,
-  icon_image_path VARCHAR
+  household_id INTEGER REFERENCES households(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE transactions (

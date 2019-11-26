@@ -24,12 +24,6 @@ const userVerification = async ( req, res) => {
       res.status(401).json()
     }
   });
-
-//  if(isUser === true){
-//    console.log("im true")
-//  } else {
-
-//  }
 }
 
 module.exports = {userVerification}
