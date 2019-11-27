@@ -21,11 +21,9 @@ app.use(
     extended: true,
   })
 )
-
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
 // })
-
 //login
 app.post('/login', async (req, res) => {
   const user = await db2.userVerification(req.body.email, req.body.password)
@@ -41,8 +39,9 @@ app.get('/logout',  (req, res) => {
   res.json({logout: 'ok'})
 })
 
+app.get('/api/home', db2.getHouseholdsCategories)
 app.post('/new-user', db1.addUser)
-app.get('/categories', db1.getCategories)
+// app.get('/api/home', db1.getCategories)
 app.post('/new-category/:id', db1.addCategory)
 app.get('/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)

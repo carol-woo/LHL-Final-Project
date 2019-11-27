@@ -44,7 +44,7 @@ export default function Navbar(){
         </nav>
 
         <div className="homepage">
-          <Route exact path="/" component={Homepage}></Route>
+          <Route exact path="/home" component={Homepage}></Route>
         </div>
 
         <div className="register">

@@ -4,7 +4,8 @@ import "../styles/categorybuttons.css";
 
 //New Category view
 export default function NewCategory(){
-  // const [categories, setCategory] = useState([]);
+  const [categories, setCategory] = useState();
+  const [userId, setUserId] = useState()
 
   // useEffect(() => {
   //   axios.post('http://localhost:3001/new-category', categories)

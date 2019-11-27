@@ -15,4 +15,26 @@ const userVerification = async (email, password) => {
   return res.rows[0]
 }
 
-module.exports = {userVerification}
+const getHouseholdsCategories = async (req, res) => {
+  await pool.query(`SELECT * FROM categories join households on households.id = categories.household_id where household_id='1'`, (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("getHouseholdCategories being used in queries_tier2.js", results.rows)
+    res.status(200).json(results.rows)
+  })
+}
+
+// const getHouseholdsCategories = async () => {
+//   console.log("TEST")
+//   const result =  await pool.query(`
+//      SELECT * FROM categories;`);
+//     //   M categories
+//     //  join households on households.id = categories.household_id
+//     //   where household_id='1';`);
+//   //  return res.json(res.rows);
+//   console.log(result.rows)
+//   return JSON.stringify(result.rows[0]);
+//  }
+
+module.exports = {userVerification, getHouseholdsCategories}
