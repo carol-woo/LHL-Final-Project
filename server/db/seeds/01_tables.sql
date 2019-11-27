@@ -2,46 +2,38 @@
 
 -- -- Insert into the users table
 
-INSERT INTO households(name) 
-VALUES 
-('Griffindor'),
-('Ravenclaw'),
-('Hufflepuff'),
-('Slytherin'),
-('Hogsmeade');
+INSERT INTO users (name, email, password_digest, created_at, budget)
+VALUES ('vasily', 'vasily@vasily.com', 'test', CURRENT_TIMESTAMP, 1000);
 
--- -- INSERT INTO users (name, email, password_digest, account_id)
--- -- VALUES ('vasily', 'vasily@vasily.com', 'test', 1);
-
-INSERT INTO categories (name, household_id, created_at)
-VALUES ('Housing', 1, CURRENT_TIMESTAMP),
-('Transportation', 1, CURRENT_TIMESTAMP),
-('Recreational', 1, CURRENT_TIMESTAMP),
-('Miscellaneous', 1, CURRENT_TIMESTAMP),
-('Food', 1, CURRENT_TIMESTAMP),
-('Insurance', 1, CURRENT_TIMESTAMP),
-('Medical and Healthcare', 1, CURRENT_TIMESTAMP),
-('Rent', 1, CURRENT_TIMESTAMP),
-('Mortgage', 1, CURRENT_TIMESTAMP),
-('Property Tax', 1, CURRENT_TIMESTAMP),
-('Home Maintenance', 1, CURRENT_TIMESTAMP),
-('Gas', 1, CURRENT_TIMESTAMP),
-('Parking', 1, CURRENT_TIMESTAMP),
-('Water', 1, CURRENT_TIMESTAMP),
-('Hydro', 1, CURRENT_TIMESTAMP),
-('Home Phone', 1, CURRENT_TIMESTAMP),
-('Cell Phone', 1, CURRENT_TIMESTAMP),
-('Cable/Internet', 1, CURRENT_TIMESTAMP),
-('Groceries', 1, CURRENT_TIMESTAMP),
-('Restaurants', 1, CURRENT_TIMESTAMP),
-('Beverage', 1, CURRENT_TIMESTAMP),
-('Mortgage Insurance', 1, CURRENT_TIMESTAMP),
-('Auto Insurance', 1, CURRENT_TIMESTAMP),
-('Home Insurance', 1, CURRENT_TIMESTAMP),
-('Life Insurance', 1, CURRENT_TIMESTAMP),
-('Public Transportation', 1, CURRENT_TIMESTAMP),
-('Pets', 1, CURRENT_TIMESTAMP),
-('Loans', 1, CURRENT_TIMESTAMP);
+INSERT INTO categories (name, user_id, created_at, category_budget)
+VALUES ('Housing', 1, CURRENT_TIMESTAMP, 2000),
+('Transportation', 1, CURRENT_TIMESTAMP, 100),
+('Recreational', 1, CURRENT_TIMESTAMP, 300),
+('Miscellaneous', 1, CURRENT_TIMESTAMP, 40),
+('Food', 1, CURRENT_TIMESTAMP, 2),
+('Insurance', 1, CURRENT_TIMESTAMP, 1000),
+('Medical and Healthcare', 1, CURRENT_TIMESTAMP, 400),
+('Rent', 1, CURRENT_TIMESTAMP, 5),
+('Mortgage', 1, CURRENT_TIMESTAMP, 70),
+('Property Tax', 1, CURRENT_TIMESTAMP, 600),
+('Home Maintenance', 1, CURRENT_TIMESTAMP, 40),
+('Gas', 1, CURRENT_TIMESTAMP, 25),
+('Parking', 1, CURRENT_TIMESTAMP, 600),
+('Water', 1, CURRENT_TIMESTAMP, 50),
+('Hydro', 1, CURRENT_TIMESTAMP,500),
+('Home Phone', 1, CURRENT_TIMESTAMP,80),
+('Cell Phone', 1, CURRENT_TIMESTAMP,40),
+('Cable/Internet', 1, CURRENT_TIMESTAMP,400),
+('Groceries', 1, CURRENT_TIMESTAMP,10000),
+('Restaurants', 1, CURRENT_TIMESTAMP,10),
+('Beverage', 1, CURRENT_TIMESTAMP,50),
+('Mortgage Insurance', 1, CURRENT_TIMESTAMP,50),
+('Auto Insurance', 1, CURRENT_TIMESTAMP,100),
+('Home Insurance', 1, CURRENT_TIMESTAMP,600),
+('Life Insurance', 1, CURRENT_TIMESTAMP,40),
+('Public Transportation', 1, CURRENT_TIMESTAMP,100),
+('Pets', 1, CURRENT_TIMESTAMP, 500),
+('Loans', 1, CURRENT_TIMESTAMP,2);
 
 -- -- Date format will have to be yyyy-mm-dd
 
@@ -53,8 +45,8 @@ VALUES ('Rental property', 1, 2000.00, '2019-06-01', 'monthly rent'),
 ('TTC', 5, 45.00, '2019-06-09', 'paying for transportation'),
 ('metro', 6, 50.00, '2019-06-02', 'groceries'),
 ('Rogers', 7, 120.00, '2019-06-09', 'cell phone bill'),
-('Toronto Hydro', 8, 56.00, '2019-06-13', 'hydro bill');
--- ('Mcdonalds', 76, 8.00, '2019-06-01', 'went for chicken nuggets'),
+('Toronto Hydro', 8, 56.00, '2019-06-13', 'hydro bill'),
+('Mcdonalds', 5, 8.00, '2019-06-01', 'went for chicken nuggets');
 -- ('LCBO', 77, 30.00, '2019-06-14', 'Friday night wine night'),
 -- ('Rogers', 74, 135.00, '2019-06-09', 'monthly cable/internet bill'),
 -- ('metro', 75, 62.47, '2019-06-09', 'groceries'),
