@@ -42,6 +42,7 @@ app.get('/logout',  (req, res) => {
 app.get('/api/home', async (req, res) => {
   try {
     const result = await db2.getHouseholdsCategories();
+    console.log("categories ---->", result.rows)
     res.json(result.rows)
   } catch (error) {
     res.status(500).send(error.message);

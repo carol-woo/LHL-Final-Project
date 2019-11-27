@@ -28,7 +28,7 @@ const userVerification = async (email, password) => {
 
 getHouseholdsCategories = async() => {
   try {
-    return await pool.query(`SELECT * FROM categories join households on households.id = categories.household_id where household_id='1'`);
+    return await pool.query(`SELECT * FROM categories join users on users.id = categories.user_id where user_id='1'`);
   } catch (error) {
     console.error(error);
   }
