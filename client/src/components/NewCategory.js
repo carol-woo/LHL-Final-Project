@@ -4,20 +4,18 @@ import "../styles/categorybuttons.css";
 
 //New Category view
 export default function NewCategory(){
-  const [categories, setCategory] = useState();
-  const [userId, setUserId] = useState()
-
-  // useEffect(() => {
-  //   axios.post('http://localhost:3001/new-category', categories)
-  //   .then((res) => {
-  //     console.log(res.data)
-  //     setCategory(res)
-  //   })
-  // }, [])
+  const [budget, setBudget] = useState();
 
   return(
     <div className="category">
       <h1>Add Category</h1>
+      
+      What is your budget?
+      <input 
+      type="number"
+      onChange={event => setBudget(event.target.value)}/>
+     
+      
       <h2>Home</h2>
       <h3>General Home Category</h3>
 
@@ -25,6 +23,9 @@ export default function NewCategory(){
       <button type="submit" id="house" className="category_buttons">Home</button>
       </Popover>
       <h3>Specific Home Categories</h3>
+    
+      <form>
+    
       <button type="submit" id="rent" className="category_buttons">Rent</button>
       <button type="submit" id="mortgage" className="category_buttons">Mortgage</button>
       <button type="submit" id="property" className="category_buttons">Property Tax</button>
@@ -60,6 +61,7 @@ export default function NewCategory(){
       <button type="submit" id="miscellaneous" className="category_buttons">Miscellaneous</button>
       <button type="submit" id="medical" className="category_buttons">Medical/Healtcare</button>
       <button type="submit" id="pets" className="category_buttons">Pets</button>
+      </form>
     </div>
   )
 }

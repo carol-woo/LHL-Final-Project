@@ -21,6 +21,9 @@ app.use(
     extended: true,
   })
 )
+
+const user_id = req.session.user_id
+
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
 // })
@@ -41,7 +44,7 @@ app.get('/logout',  (req, res) => {
 
 app.get('/api/home', async (req, res) => {
   try {
-    const result = await db2.getHouseholdsCategories();
+    const result = await db2.getUsercategories(user_id);
     res.json(result.rows)
   } catch (error) {
     res.status(500).send(error.message);
@@ -71,7 +74,23 @@ app.post('/new-user',(req, res) => {
 // app.get('/categories', db1.getCategories)
  
 
-// app.post('/new-category/:id', db1.addCategory)
+app.post('/new-category',(req, res) => {
+  
+  let name = req.body.name
+  let created_at = req.body.created_at
+  let category_budget = req.body.category_budget
+
+  const info = {
+    name,
+    user_id,
+    created_at,
+    category_budget
+  }
+ 
+  db1.addCategory(info)
+  res.status(200).send(`Category`)
+
+}) 
 // app.get('/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)
 
