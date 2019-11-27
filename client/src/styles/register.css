@@ -1,0 +1,126 @@
+.register_container {
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80vw;
+}
+
+.register_image{
+  background: url("./Images/registration.png") center no-repeat;
+  background-size: cover contain;
+  width: 40vw;
+  height: 40vw;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
+  margin-right: 20px;
+}
+
+.register_form_container {
+  display: flex;
+  flex-flow: column;
+  width: 26vw;
+  height: 40vw;
+}
+
+.register_email {
+  position: relative;
+  /* display: flex; */
+  /* flex-direction: column; */
+  
+  margin: 40px 0px 35px 40px;
+}
+
+
+.inputMaterial {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  /* display: block; */
+  display: flex;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.inputMaterial:focus {
+  outline: none;
+}
+
+#title_label {
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top:10px;
+  transition: 0.2s ease all;
+}
+
+.inputMaterial:focus ~ #title_label,
+.inputMaterial:valid ~ #title_label {
+  top: -20px;
+  font-size: 22px;
+  color: #009688;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 315px;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #009688; 
+  transition:0.2s ease all; 
+}
+
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+.inputMaterial:focus ~ .bar:before, 
+.inputMaterial:focus ~ .bar:after {
+  width: 50%;
+}
+
+.inputMaterial:focus ~ .highlight {
+  animation:inputHighlighter 0.3s ease;
+}
+
+#button_to_register {
+  background: #cfd8dc;
+	border:0;
+	color: #009688;
+	padding:10px;
+	font-size: 16px;
+  font-weight: 300;
+	width:315px;
+	margin:10px 0px 20px 40px;
+	display:block;
+  cursor:pointer;
+	transition: all 0.4s;
+	border-radius: 2px;
+}
+
+#button_to_register:hover {
+  background: #009688;
+  color: #FFF;
+	transition: all 0.4s;
+}
+
+#button_to_register:active{
+	background: #009688;
+  color: #263238;
+}
