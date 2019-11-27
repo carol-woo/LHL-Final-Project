@@ -39,8 +39,9 @@ app.get('/logout',  (req, res) => {
   res.json({logout: 'ok'})
 })
 
-app.get('/api/home', db2.getHouseholdsCategories)
+// app.get('/api/home', db2.getHouseholdsCategories)
 // app.get('/api/home', db1.getCategories)
+
 app.post('/new-user',(req, res) => {
   console.log(req.body)
   let name = req.body.name 
@@ -60,11 +61,11 @@ app.post('/new-user',(req, res) => {
   res.status(200).send(`User`)
 })
 
-app.get('/categories', db1.getCategories)
+// app.get('/categories', db1.getCategories)
  
 
-app.post('/new-category/:id', db1.addCategory)
-app.get('/transactions', db1.getTransactions)
+// app.post('/new-category/:id', db1.addCategory)
+// app.get('/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)
 
 app.post('/new-entry', (req, res) =>{
@@ -89,8 +90,8 @@ app.post('/new-entry', (req, res) =>{
  
 
 
-app.put('/transactions/:id', db1.editTransaction)
-app.delete('/transactions:id', db1.deleteTransaction)
+// app.put('/transactions/:id', db1.editTransaction)
+// app.delete('/transactions:id', db1.deleteTransaction)
 
 
 
