@@ -1,12 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS households CASCADE;
 DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS transactions CASCADE;
 
-CREATE TABLE households (
-  id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR NOT NULL
-);
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -14,14 +9,15 @@ CREATE TABLE users (
   email VARCHAR NOT NULL,
   password_digest VARCHAR NOT NULL,
   created_at TIMESTAMP NOT NULL,
-  household_id INTEGER REFERENCES households(id) ON DELETE CASCADE
+  budget INTEGER NOT NULL
 );
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR NOT NULL,
-  household_id INTEGER REFERENCES households(id) ON DELETE CASCADE,
-  created_at TIMESTAMP NOT NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL,
+  category_budget INTEGER NOT NULL
 );
 
 CREATE TABLE transactions (
