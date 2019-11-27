@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
   position: fixed;
   display: flex;
   height: 100%;
@@ -30,9 +30,22 @@
   text-decoration: none;
   color: inherit;
 }
+ */
 
+.toolbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: lightblue;
+  height: 56px;
+}
 
-
+.toolbar_logo link {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
 
 .page-enter {
   opacity: 0;
