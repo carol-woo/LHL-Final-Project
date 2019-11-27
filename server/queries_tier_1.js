@@ -13,10 +13,15 @@ const addUser = async (info) => {
   VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.created_at, info.household_id])
 }
 
-const getCategories = async () => {
-  const res = await pool.query('SELECT * FROM categories')
-    return res.rows
-  }
+const getCategories = async (req, res) => {
+  await pool.query('SELECT * FROM categories', (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("getCategories being used in queries.js")
+    res.status(200).json(results.rows)
+  })
+}
 
 
 const addCategory = async (req, res) => {

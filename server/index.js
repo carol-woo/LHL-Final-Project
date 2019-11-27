@@ -60,10 +60,7 @@ app.post('/new-user',(req, res) => {
   res.status(200).send(`User`)
 })
 
-app.get('/categories', (req, res) => {
-  db1.getCategories(res)
-  res.status(200).json({status: 'ok'} )
-})
+app.get('/categories', db1.getCategories)
  
 
 app.post('/new-category/:id', db1.addCategory)
