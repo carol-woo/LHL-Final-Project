@@ -69,7 +69,29 @@ app.get('/categories', (req, res) => {
 app.post('/new-category/:id', db1.addCategory)
 app.get('/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)
-app.post('/new-entry', db1.addTransaction)
+
+app.post('/new-entry', (req, res) =>{
+  console.log(req.body)
+  let store_name = req.body.store_name
+  let category_id = req.body.category_id
+  let amount = req.body.amount
+  let entered_on = req.body.entered_on
+  let description = req.body.description
+
+  const info = {
+    store_name,
+    category_id,
+    amount,
+    entered_on,
+    description
+  }
+ 
+  db1.addTransaction(info)
+  res.status(200).send(`Transactions`)
+})
+ 
+
+
 app.put('/transactions/:id', db1.editTransaction)
 app.delete('/transactions:id', db1.deleteTransaction)
 
