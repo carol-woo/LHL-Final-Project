@@ -24,18 +24,13 @@ const addUser = async (info) => {
 // }
 
 
-// const addCategory = async (req, res) => {
-//   const {name, created_at} = req.body
-//   // const {household_id} = request.params.id;
-//   await pool.query(`INSERT INTO categories(name, household_id, created_at)
-//   VALUES ($1, $2, $3)`, [name, household_id, created_at], (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("addCategory being used in queries.js")
-//     res.status(200).send(`Category`)
-//   })
-// }
+const addCategory = async (info) => {
+  const {name, created_at} = req.body
+  await pool.query(`INSERT INTO categories(name, user_id, created_at, catergory_budget)
+  VALUES ($1, $2, $3, $4)`, [info.name, info.user_id, info.created_at, info.category_budget])
+  console.log("addCategory being used in queries.js")
+  }
+
 
 // const getTransactions = async (req, res) => {
 //   await pool.query('SELECT * FROM transactions', (error, results) => {
@@ -80,4 +75,4 @@ const addTransaction = async (info) => {
 // }
 
 
-module.exports = {addUser, addTransaction}
+module.exports = {addUser, addTransaction, addCategory}
