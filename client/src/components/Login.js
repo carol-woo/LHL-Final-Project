@@ -37,8 +37,9 @@ export default function Login() {
     }
 
   if (redirect) {
-    return <Redirect to='/' />
+    return <Redirect to='/new-category' />
   }
+  
 
   return (
     <div className="login_container">
