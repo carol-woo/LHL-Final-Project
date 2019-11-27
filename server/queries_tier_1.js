@@ -7,18 +7,10 @@ const pool = new Pool({
   port: 5432,
 })
 
-const addUser = async (req, res) => {
-console.log("addUser is running!")
-console.log("I AM REQ.BODY ",req.body)
-  const {name, email, password_digest, created_at, household_id} = req.body
-  await pool.query(`INSERT INTO users(name, email, password_digest, created_at, household_id)
-  VALUES ($1, $2, $3, $4, $5)`, [name, email, password_digest, created_at, household_id], (error, results) => {
-    if (error) {
-      throw error
-    }
-    console.log("addUser being used in queries.js")
-    res.status(200).send(`User`)
-  })
+const addUser = async (info) => {
+  await pool.query(`
+  INSERT INTO users(name, email, password_digest, created_at, household_id)
+  VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.created_at, info.household_id])
 }
 
 const getCategories = async (req, res) => {
@@ -31,8 +23,8 @@ const getCategories = async (req, res) => {
   })
 }
 
-const addCategory = async (req, res) => {
 
+const addCategory = async (req, res) => {
   const {name, created_at, icon_image_path} = req.body
   // const {household_id} = request.params.id;
   await pool.query(`INSERT INTO categories(name, household_id, description)
@@ -55,23 +47,15 @@ const getTransactions = async (req, res) => {
   })
 }
 
-const addTransaction = async (req, res) => {
+const addTransaction = async (info) => {
   console.log("addTransaction QUERY IS RUNNING!!")
-  const {store_name, category_id, amount, entered_on, description} = req.body
-  await pool.query(`INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
-  VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
-    if (error) {
-      console.log("Error in query function")
+  await pool.query(`
+  INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
+  VALUES ($1, $2, $3, $4, $5)`, [info.store_name, info.category_id, info.amount, info.entered_on, info.description])
+  }
 
-      throw error
-    }
-    console.log("addTransaction being used in queries.js")
-    res.status(200).send(`Transactions`)
-  })
-}
 
 const editTransaction = async (req, res) => {
-
   const {store_name, amount, entered_on, description} = req.body
   const transaction_id = parseInt(req.params.id)
   await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
@@ -85,8 +69,7 @@ const editTransaction = async (req, res) => {
 }
 
 const deleteTransaction = async (req, res) => {
-
-  const transaction_id = parseInt(req.params.id)
+ const transaction_id = parseInt(req.params.id)
   await pool.query(`DELETE FROM transactions WHERE id = $1`, [transaction_id], (error, results) => {
     if (error) {
       throw error
