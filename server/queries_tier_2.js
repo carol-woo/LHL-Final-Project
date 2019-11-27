@@ -26,13 +26,13 @@ const userVerification = async (email, password) => {
 //   })
 // }
 
-getHouseholdsCategories = async() => {
+getUsercategories = async(user_id) => {
   try {
-    return await pool.query(`SELECT * FROM categories join households on households.id = categories.household_id where household_id='1'`);
+    return await pool.query(`SELECT * FROM categories join users on users.id = categories.user_id where user_id='${user_id}'`);
   } catch (error) {
     console.error(error);
   }
 
 }
 
-module.exports = {userVerification, getHouseholdsCategories}
+module.exports = {userVerification, getUsercategories}
