@@ -1,17 +1,19 @@
-.login_container {
+.register_container {
   display: flex;
+  flex-flow: row-reverse;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 80vw;
 }
 
-.login_image{
-  background: url("./Images/login.jpeg") center no-repeat;
+.register_image{
+  background: url("./Images/registration.png") center no-repeat;
   background-size: cover contain;
   width: 40vw;
   height: 40vw;
 }
+
 h2 {
   display: flex;
   justify-content: center;
@@ -19,23 +21,27 @@ h2 {
   margin-right: 20px;
 }
 
-.login_form_container {
+.register_form_container {
   display: flex;
   flex-flow: column;
   width: 26vw;
   height: 40vw;
 }
 
-.login_email {
+.register_email {
   position: relative;
-  margin: 60px 0px 35px 40px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  
+  margin: 40px 0px 35px 40px;
 }
 
 
 .inputMaterial {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
-  display: block;
+  /* display: block; */
+  display: flex;
   width: 300px;
   border: none;
   border-bottom: 1px solid #757575;
@@ -93,7 +99,7 @@ h2 {
   animation:inputHighlighter 0.3s ease;
 }
 
-#button_to_login {
+#button_to_register {
   background: #cfd8dc;
 	border:0;
 	color: #009688;
@@ -101,20 +107,20 @@ h2 {
 	font-size: 16px;
   font-weight: 300;
 	width:315px;
-	margin:100px 0px 20px 40px;
+	margin:10px 0px 20px 40px;
 	display:block;
   cursor:pointer;
 	transition: all 0.4s;
 	border-radius: 2px;
 }
 
-#button_to_login:hover {
+#button_to_register:hover {
   background: #009688;
   color: #FFF;
 	transition: all 0.4s;
 }
 
-#button_to_login:active{
+#button_to_register:active{
 	background: #009688;
   color: #263238;
 }
