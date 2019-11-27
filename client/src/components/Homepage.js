@@ -23,9 +23,7 @@ export default function Homepage() {
 
   return (
     <div>
-
-
-      {categories.map(category => {
+    {categories.map(category => {
         // return (<div>{category.name}</div>
         return (
           <div className={category.name}>
