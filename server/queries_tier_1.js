@@ -7,18 +7,10 @@ const pool = new Pool({
   port: 5432,
 })
 
-const addUser = async (req, res) => {
-console.log("addUser is running!")
-console.log("I AM REQ.BODY ",req.body)
-  const {name, email, password_digest, created_at, household_id} = req.body
-  await pool.query(`INSERT INTO users(name, email, password_digest, created_at, household_id)
-  VALUES ($1, $2, $3, $4, $5)`, [name, email, password_digest, created_at, household_id], (error, results) => {
-    if (error) {
-      throw error
-    }
-    console.log("addUser being used in queries.js")
-    res.status(200).send(`User`)
-  })
+const addUser = async (info) => {
+  await pool.query(`
+  INSERT INTO users(name, email, password_digest, created_at, household_id)
+  VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.created_at, info.household_id])
 }
 
 const getCategories = async () => {

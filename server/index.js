@@ -41,7 +41,24 @@ app.get('/logout',  (req, res) => {
   res.json({logout: 'ok'})
 })
 
-app.post('/new-user', db1.addUser)
+app.post('/new-user',(req, res) => {
+  console.log(req.body)
+  let name = req.body.name 
+  let email = req.body.email 
+  let password_digest= req.body.password_digest
+  let created_at=req.body.created_at 
+  let household_id=req.body.household_id 
+  
+  const info = {
+    name,
+    email,
+    password_digest,
+    created_at,
+    household_id,
+  }
+  db1.addUser(info)
+  res.status(200).send(`User`)
+})
 
 app.get('/categories', (req, res) => {
   db1.getCategories(res)
