@@ -79,17 +79,5 @@ const addTransaction = async (info) => {
 //   })
 // }
 
-// const getHouseholdsCategories = async (req, res) => {
-//     console.log("TEST")
-//     const result =  await pool.query(`
-//        SELECT * FROM categories;`);
-//       //   M categories
-//       //  join households on households.id = categories.household_id
-//       //   where household_id='1';`);
-//     //  return res.json(res.rows);
-//     console.log(result.rows)
-//     return result.rows[0]
-//    }
-
 
 module.exports = {addUser, addTransaction}

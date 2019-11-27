@@ -39,7 +39,14 @@ app.get('/logout',  (req, res) => {
   res.json({logout: 'ok'})
 })
 
-// app.get('/api/home', db2.getHouseholdsCategories)
+app.get('/api/home', async (req, res) => {
+  try {
+    const result = await db2.getHouseholdsCategories();
+    res.json(result.rows)
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+})
 // app.get('/api/home', db1.getCategories)
 
 app.post('/new-user',(req, res) => {
