@@ -26,6 +26,7 @@ h2 {
   flex-flow: column;
   width: 26vw;
   height: 40vw;
+  margin-top: 60px;
 }
 
 .register_email {

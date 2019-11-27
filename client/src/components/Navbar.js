@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, BrowserRouter } from "react-router-dom";
+import { Route, Link, BrowserRouter, Switch } from "react-router-dom";
 import NewEntry from "./NewEntry";
 import MonthlyView from "./MonthlyView"
 import Homepage from "./Homepage";
@@ -7,12 +7,21 @@ import NewCategory from "./NewCategory";
 import Login from "./Login";
 import Register from "./Register";
 import '../styles/nav.css';
-import axios from "axios";
+import "../styles/App.css";
+import axios from "axios"; 
+import {
+  CSSTransition
+} from 'react-transition-group';
+
+const routes = [
+  { path: '/register', name: 'Register', Component: Register },
+  { path: '/login', name: 'Login', Component: Login },
+]
 
 //For Navbar view
 export default function Navbar(){ 
 
-  const nukeMyLogout = async() => {
+  const nukeMyLogout = async() => {    
     try{
       let response = await axios({
         method: 'get',
@@ -27,7 +36,7 @@ export default function Navbar(){
   }
 
 
-  return(
+  return( 
       <div className='nav'>
         <BrowserRouter>
         <nav className="side_nav_bar">
@@ -47,14 +56,23 @@ export default function Navbar(){
           <Route exact path="/home" component={Homepage}></Route>
         </div>
 
-        <div className="register">
-          <Route path="/register" component={Register}></Route>
-        </div>
+        {routes.map(({ path, Component }) => (
+          <Route key={path} exact path={path}>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={300}
+                classNames="page"
+                unmountOnExit
+              >
+                <div className="page">
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
+          </Route>
+        ))}
 
-        <div className="login">
-          <Route path="/login" component={Login}></Route>
-        </div>
-        
         <div className="new-entry">
           <Route path="/new-entry" component={NewEntry}></Route>
         </div>
