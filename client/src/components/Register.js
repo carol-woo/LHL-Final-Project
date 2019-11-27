@@ -7,7 +7,7 @@ export default function Register(){
 const [userName, setName] = useState()
 const [userEmail, setEmail] = useState()
 const [userPassword, setPassword] = useState()
-const [householdId, setHouseholdId] = useState()
+const [budget, setBudget] = useState()
 
 let date = new Date()
 
@@ -21,7 +21,7 @@ function submitRegistration(){
           email: userEmail,
           password_digest: userPassword,
           created_at: date,
-          households_id: householdId
+          budget: budget
         },
           responseType: JSON
       })
@@ -80,12 +80,12 @@ function submitRegistration(){
             <input
               className="inputMaterial"
               type="number"
-              household={householdId}
-              onChange={event =>setHouseholdId(event.target.value)}
+              household={budget}
+              onChange={event =>setBudget(event.target.value)}
             />
             <span className="highlight"></span>
             <span className="bar"></span>
-            <label id="title_label">Household ID</label>
+            <label id="title_label">Your Budget</label>
           </div>
             <button
             id="button_to_register"

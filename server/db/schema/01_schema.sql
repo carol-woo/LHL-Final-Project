@@ -15,8 +15,9 @@ CREATE TABLE users (
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR NOT NULL,
-  household_id INTEGER REFERENCES households(id) ON DELETE CASCADE,
-  created_at TIMESTAMP NOT NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  created_at TIMESTAMP NOT NULL,
+  category_budget INTEGER NOT NULL
 );
 
 CREATE TABLE transactions (
