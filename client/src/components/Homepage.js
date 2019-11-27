@@ -12,9 +12,10 @@ export default function Homepage() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/categories')
+    console.log("INHERE!")
+    axios.get('/api/home')
       .then((res) => {
-        console.log(res)
+        console.log("TESTING",res)
         setCategories(res.data)
       })
   }, [])
@@ -23,8 +24,9 @@ export default function Homepage() {
 
   return (
     <div>
-    {categories.map(category => {
-        // return (<div>{category.name}</div>
+
+
+      {categories.map(category => {
         return (
           <div className={category.name}>
             <h1>Add Category</h1>
