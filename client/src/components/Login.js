@@ -43,26 +43,35 @@ export default function Login() {
   return (
     <div className="login_container">
       <div className="login_image"></div>
-      <div className="login_form">
+      <div className="login_form_container">
         <h2>Login</h2>
         <form onSubmit={submitLogin}>
-          <div>
-            <label for="username">Email</label>
+
+          <div className="login_email">
             <input
+            className="inputMaterial"
             type="email"
             email={email}
             onChange={event => setEmail(event.target.value)}
           />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label for="username" id="title_label">Email</label>
           </div>
-          <div>
-          <label for="password">Password</label>
+
+          <div className="login_email">
             <input
+            className="inputMaterial"
             type="password"
             password={password}
             onChange={event => setPassword(event.target.value)}
           />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label for="password" id="title_label">Password</label>
           </div>
-          <button type="submit">Submit</button>
+
+          <button type="submit" id="button_to_login">Submit</button>
         </form>
       </div>
     </div>
