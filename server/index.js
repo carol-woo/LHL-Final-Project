@@ -40,9 +40,9 @@ app.get('/logout',  (req, res) => {
 })
 
 app.get('/api/home', async (req, res) => {
+  let user_id = req.session.user_id
   try {
-    const result = await db2.getHouseholdsCategories();
-    console.log("categories ---->", result.rows)
+    const result = await db2.getUsercategories(user_id);
     res.json(result.rows)
   } catch (error) {
     res.status(500).send(error.message);
