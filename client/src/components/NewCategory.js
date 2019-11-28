@@ -1,32 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Popover from "./Popover";
 import "../styles/categorybuttons.css";
 
 //New Category view
-export default function NewCategory(){
+export default function NewCategory() {
   const [budget, setBudget] = useState();
 
-  return(
+
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    console.log("INHERE!")
+    axios.get('/api/new-category')
+      .then((res) => {
+        console.log("TESTING", res)
+        setCategories(res.data)
+      })
+  }, [])
+
+
+  return (
     <div className="category">
       <h1>Add Category</h1>
-      
-      What is your budget?
-      <input 
-      type="number"
-      onChange={event => setBudget(event.target.value)}/>
-     
-      
-      <h2>Home</h2>
-      <h3>General Home Category</h3>
 
-      <Popover caption="this is a popover">
-      <button type="submit" id="house" className="category_buttons">Home</button>
-      </Popover>
-      <h3>Specific Home Categories</h3>
-    
+
       <form>
-    
-      <button type="submit" id="rent" className="category_buttons">Rent</button>
+      What is your budget?
+      <input
+        type="number"
+        onChange={event => setBudget(event.target.value)} />
+        {categories.map(category => {
+          let stringName = category.name.replace(' ', '-')
+          return (
+            <button type="submit" id={stringName} className="category_buttons">{category.name}</button>
+          )
+
+        })}
+
+        {/* <button type="submit" id="rent" className="category_buttons">Rent</button>
       <button type="submit" id="mortgage" className="category_buttons">Mortgage</button>
       <button type="submit" id="property" className="category_buttons">Property Tax</button>
       <button type="submit" id="water" className="category_buttons">Water</button>
@@ -60,7 +71,7 @@ export default function NewCategory(){
       <button type="submit" id="loans" className="category_buttons">Loans</button>
       <button type="submit" id="miscellaneous" className="category_buttons">Miscellaneous</button>
       <button type="submit" id="medical" className="category_buttons">Medical/Healtcare</button>
-      <button type="submit" id="pets" className="category_buttons">Pets</button>
+      <button type="submit" id="pets" className="category_buttons">Pets</button> */}
       </form>
     </div>
   )
