@@ -2,38 +2,38 @@
 
 -- -- Insert into the users table
 
-INSERT INTO users (name, email, password_digest, created_at, budget)
-VALUES ('vasily', 'vasily@vasily.com', 'test', CURRENT_TIMESTAMP, 1000);
+INSERT INTO users (name, email, password_digest,  budget)
+VALUES ('vasily', 'vasily@vasily.com', 'test', 1000);
 
-INSERT INTO categories (name, user_id, created_at, category_budget)
-VALUES ('Housing', 1, CURRENT_TIMESTAMP, 2000),
-('Transportation', 1, CURRENT_TIMESTAMP, 100),
-('Recreational', 1, CURRENT_TIMESTAMP, 300),
-('Miscellaneous', 1, CURRENT_TIMESTAMP, 40),
-('Food', 1, CURRENT_TIMESTAMP, 2),
-('Insurance', 1, CURRENT_TIMESTAMP, 1000),
-('Healthcare', 1, CURRENT_TIMESTAMP, 400),
-('Rent', 1, CURRENT_TIMESTAMP, 5),
-('Mortgage', 1, CURRENT_TIMESTAMP, 70),
-('Property Tax', 1, CURRENT_TIMESTAMP, 600),
-('Home Maintenance', 1, CURRENT_TIMESTAMP, 40),
-('Gas', 1, CURRENT_TIMESTAMP, 25),
-('Parking', 1, CURRENT_TIMESTAMP, 600),
-('Water', 1, CURRENT_TIMESTAMP, 50),
-('Hydro', 1, CURRENT_TIMESTAMP,500),
-('Home Phone', 1, CURRENT_TIMESTAMP,80),
-('Cell Phone', 1, CURRENT_TIMESTAMP,40),
-('Cable Internet', 1, CURRENT_TIMESTAMP,400),
-('Groceries', 1, CURRENT_TIMESTAMP,10000),
-('Restaurants', 1, CURRENT_TIMESTAMP,10),
-('Beverage', 1, CURRENT_TIMESTAMP,50),
-('Mortgage Insurance', 1, CURRENT_TIMESTAMP,50),
-('Auto Insurance', 1, CURRENT_TIMESTAMP,100),
-('Home Insurance', 1, CURRENT_TIMESTAMP,600),
-('Life Insurance', 1, CURRENT_TIMESTAMP,40),
-('Public Transportation', 1, CURRENT_TIMESTAMP,100),
-('Pets', 1, CURRENT_TIMESTAMP, 500),
-('Loans', 1, CURRENT_TIMESTAMP,2);
+INSERT INTO categories (name, user_id, category_budget)
+VALUES ('Housing', 1, 2000),
+('Transportation', 1, 100),
+('Recreational', 1, 300),
+('Miscellaneous', 1, 40),
+('Food', 1, 2),
+('Insurance', 1, 1000),
+('Healthcare', 1, 400),
+('Rent', 1, 5),
+('Mortgage', 1, 70),
+('Property Tax', 1, 600),
+('Home Maintenance', 1, 40),
+('Gas', 1, 25),
+('Parking', 1, 600),
+('Water', 1, 50),
+('Hydro', 1, 500),
+('Home Phone', 1, 80),
+('Cell Phone', 1, 40),
+('Cable Internet', 1, 400),
+('Groceries', 1, 10000),
+('Restaurants', 1, 10),
+('Beverage', 1, 50),
+('Mortgage Insurance', 1, 50),
+('Auto Insurance', 1, 100),
+('Home Insurance', 1, 600),
+('Life Insurance', 1, 40),
+('Public Transportation', 1, 100),
+('Pets', 1, 500),
+('Loans', 1, 2);
 
 -- -- Date format will have to be yyyy-mm-dd
 
