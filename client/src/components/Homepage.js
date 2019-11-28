@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import NewCategory from "./NewCategory";
-import NewEntry from "./NewEntry";
 import "../styles/categorybuttons.css";
 
 
@@ -23,12 +20,12 @@ export default function Homepage() {
 
 
   return (
-    <div>
+    <div className="category">
 
 
       {categories.map(category => {
         return (
-          <div className={category.name}>
+          <div className={category.name} >
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
