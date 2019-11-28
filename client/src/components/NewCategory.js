@@ -8,26 +8,27 @@ export default function NewCategory() {
   const [categories, setCategories] = useState([]);
   const [budget, setBudget] = useState();
   const [selectedCategoryId, setSelectedCategoryId] = useState();
-  // const [selectedCategoryName, setSelectedCategoryName] = useState();
+  const [selectedCategoryName, setSelectedCategoryName] = useState();
 
 
-  function submitCategory(catid) {
-    setSelectedCategoryId(catid)
-    // setSelectedCategoryName(name)
+  function submitCategory(id, name) {
+    setSelectedCategoryId(id)
+    setSelectedCategoryName(name)
     axios({
       method: "post",
-      url: `/new-category`,
+      url: `/api/new-category`,
       data: {
-        selectedCategoryId: selectedCategoryId,
-        categoryBudget: budget
+        selectedCategoryId: Number(id),
+        categoryBudget: Number(budget),
+        name: name
       },
       responseType: JSON
     }).then(
       function(response) {
-        console.log("TEH Response", response);
+        // console.log("TEH Response", response);
       },
       error => {
-        console.log("GOOTTT!");
+        // console.log("GOOTTT!");
         console.log(error);
       }
     );
@@ -59,7 +60,7 @@ export default function NewCategory() {
               name={category.name}
               id={category.id}
               className="category_buttons"
-              onClick={submitCategory}
+              onClick={() => submitCategory(category.id, category.name)}
             >
               {category.name}
             </button>
