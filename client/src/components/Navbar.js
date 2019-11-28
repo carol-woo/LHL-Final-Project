@@ -42,16 +42,16 @@ export default function Navbar(){
         <nav className="toolbar_navigation">
           <div></div>
           <div className="toolbar_logo"><Link to="/">Logo</Link></div>
-          <div className="toolbar_navigation-items">
-          <ul className="nav_ul">
-            <li className="nav_li"><Link to="/login">Login</Link></li>
-            <li className="nav_li"><Link to="/register">Register</Link></li>
-            <li className="nav_li"><Link to="/home">Homepage</Link></li> 
-            <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
-            <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
-            <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
-            <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
-          </ul>
+          <div className="toolbar_navigation_items">
+            <ul className="nav_ul">
+              <li className="nav_li"><Link to="/login">Login</Link></li>
+              <li className="nav_li"><Link to="/register">Register</Link></li>
+              <li className="nav_li"><Link to="/home">Homepage</Link></li> 
+              <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
+              <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
+              <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
+              <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
+            </ul>
           </div>
         </nav>
 
