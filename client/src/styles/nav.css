@@ -41,11 +41,34 @@
   height: 56px;
 }
 
-.toolbar_logo link {
+.toolbar_navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.toolbar_logo {
   color: white;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
+
+.nav_ul li {
+  color: white;
+  text-decoration: none;
+}
+
+.nav_li:hover,
+.nav_li:active{
+  color: orange;
+}
+
+
+
+
+
+
 
 .page-enter {
   opacity: 0;
