@@ -41,15 +41,15 @@ const addCategory = async info => {
   return result;
 };
 
-// const getTransactions = async (req, res) => {
-//   await pool.query('SELECT * FROM transactions', (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("getTransactions being used in queries.js")
-//     res.status(200).json(results.rows)
-//   })
-// }
+const getTransactions = async (req, res) => {
+  await pool.query('SELECT * FROM transactions', (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("getTransactions being used in queries.js")
+    res.status(200).json(results.rows)
+  })
+}
 
 const addTransaction = async info => {
   console.log("addTransaction QUERY IS RUNNING!!");
@@ -67,18 +67,19 @@ const addTransaction = async info => {
   );
 };
 
-// const editTransaction = async (req, res) => {
-//   const {store_name, amount, entered_on, description} = req.body
-//   const transaction_id = parseInt(req.params.id)
-//   await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
-//   VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("editTransaction function being used in queries.js")
-//     res.status(200).send(`Edited transactions`)
-//   })
-// }
+const editTransaction = async (info) => {
+  console.log("editTransaction is running!")
+ try{
+  await pool.query(`
+  UPDATE transactions 
+  SET store_name = $2, category_id = $3, amount = $4, entered_on = $5, description= $6
+  WHERE id = $1
+  `, [info.id, info.store_name, info.category_id, info.amount, info.entered_on, info.description])
+ } catch(error) {
+   console.log(error)
+ }
+}
+  
 
 // const deleteTransaction = async (req, res) => {
 //  const transaction_id = parseInt(req.params.id)
@@ -91,4 +92,5 @@ const addTransaction = async info => {
 //   })
 // }
 
-module.exports = { addUser, getCategories, addTransaction, addCategory };
+
+module.exports = {addUser, addTransaction, getTransactions, addCategory, editTransaction}
