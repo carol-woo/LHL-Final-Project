@@ -49,12 +49,21 @@ export default function Navbar(props){
           <div className="spacer"/>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
+<<<<<<< HEAD
               <li className="nav_li"><a href="/login">Login</a></li>
               <li className="nav_li"><a href="/register">Register</a></li>
               <li className="nav_li"><a href="/home">Homepage</a></li> 
               <li className="nav_li"><a href="/new-entry"> New Entry </a></li> 
               <li className="nav_li"><a href="/new-category"> Add Category </a></li> 
               <li className="nav_li"><a href="/monthly-view">Monthly View</a></li> 
+=======
+              <li className="nav_li"><Link to="/login">Login</Link></li>
+              <li className="nav_li"><Link to="/register">Register</Link></li>
+              <li className="nav_li"><Link to="/home">Homepage</Link></li> 
+              <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
+              <li className="nav_li"><Link to="/api/new-category"> Add Category </Link></li> 
+              <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
+>>>>>>> master
               <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
             </ul>
           </div>
