@@ -22,11 +22,12 @@ export default function Homepage() {
 
 
   return (
-    <div>
+    <div className="category">
+
       <Transactions />
       {categories.map(category => {
         return (
-          <div className={category.name}>
+          <div className={category.name} >
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
