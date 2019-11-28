@@ -61,7 +61,15 @@ export default function Homepage() {
               {transaction.description} <br/>
              <button type="submit" onClick={renderEdit}>Edit</button>
             </form>
-            {showForm && <Edit id={transaction.category_id} />}
+            
+            {showForm && <Edit 
+            category_id={transaction.category_id}
+            id={transaction.id} 
+            name={transaction.store_name} 
+            amount={transaction.amount} 
+            entered_on={transaction.entered_on} 
+            description={transaction.description}
+             />}
           </div>
           
   )

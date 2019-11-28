@@ -50,19 +50,12 @@ const addTransaction = async (info) => {
   }
 
 
-// const editTransaction = async (req, res) => {
-//   const {store_name, amount, entered_on, description} = req.body
-//   const transaction_id = parseInt(req.params.id)
-//   await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
-//   VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
-//     if (error) {
-
-//       throw error
-//     }
-//     console.log("editTransaction function being used in queries.js")
-//     res.status(200).send(`Edited transactions`)
-//   })
-// }
+const editTransaction = async (info) => {
+  console.log("editTransaction is running!")
+  await pool.query(`
+  UPDATE transactions (id, store_name, category_id, amount, entered_on, description)
+  VALUES ($1, $2, $3, $4, $5, $6)`, [info.id, info.store_name, info.category_id, info.amount, info.entered_on, info.description])
+  }
 
 // const deleteTransaction = async (req, res) => {
 //  const transaction_id = parseInt(req.params.id)
@@ -76,4 +69,4 @@ const addTransaction = async (info) => {
 // }
 
 
-module.exports = {addUser, addTransaction, getTransactions, addCategory}
+module.exports = {addUser, addTransaction, getTransactions, addCategory, editTransaction}

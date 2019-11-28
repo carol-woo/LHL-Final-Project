@@ -91,8 +91,9 @@ app.post('/new-category',(req, res) => {
   res.status(200).send(`Category`)
 
 }) 
+
+
 app.get('/api/transactions', db1.getTransactions)
-// app.post('/transactions/:id', db.addTransaction)
 
 app.post('/new-entry', (req, res) =>{
   console.log(req.body)
@@ -116,7 +117,30 @@ app.post('/new-entry', (req, res) =>{
  
 
 
-// app.put('/transactions/:id', db1.editTransaction)
+app.post('/api/transactions',(req,res) =>{
+  console.log(req.body)
+  let store_name = req.body.store_name
+  let amount = req.body.amount
+  let entered_on = req.body.entered_on
+  let description = req.body.description
+  let category_id = req.body.category_id
+  let id = req.body.id
+
+
+  const info = {
+    store_name,
+    amount,
+    entered_on,
+    description,
+    category_id,
+    id,
+  }
+
+  db1.editTransaction(info)
+  console.log("running after edit")
+  res.status(200).send(`Edited transactions`)
+}) 
+
 // app.delete('/transactions:id', db1.deleteTransaction)
 
 
