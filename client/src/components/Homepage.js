@@ -15,14 +15,14 @@ export default function Homepage() {
   const [showForm, toggleForm] = useState(false)
 
 
-  useEffect(() => {
-    console.log("INHERE!")
-    axios.get('/api/home')
-      .then((res) => {
-        console.log("TESTING",res)
-        setCategories(res.data)
-      })  
-  }, [])
+  // useEffect(() => {
+  //   console.log("INHERE!")
+  //   axios.get('/api/home')
+  //     .then((res) => {
+  //       console.log("TESTING",res)
+  //       setCategories(res.data)
+  //     })  
+  // }, [])
 
   useEffect(() => {
     console.log("INHERE!")
@@ -40,7 +40,7 @@ export default function Homepage() {
 
   return (
     <div>
-      {categories.map(category => {
+      {/* {categories.map(category => {
         return (
           <div className={category.name}>
             <h1>Add Category</h1>
@@ -49,7 +49,7 @@ export default function Homepage() {
             <button type="submit" id={category.name} className="category_buttons">{category.name} </button>
             </div>
         )
-      })}
+      })} */}
 
       {transactions.map(transaction => {
         return(

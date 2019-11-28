@@ -125,6 +125,7 @@ app.post('/new-entry', (req, res) =>{
 
 app.post('/api/transactions',(req,res) =>{
   console.log(req.body)
+  
   let store_name = req.body.store_name
   let amount = req.body.amount
   let entered_on = req.body.entered_on

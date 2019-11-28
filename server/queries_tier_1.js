@@ -69,10 +69,17 @@ const addTransaction = async info => {
 
 const editTransaction = async (info) => {
   console.log("editTransaction is running!")
+ try{
   await pool.query(`
-  UPDATE transactions (id, store_name, category_id, amount, entered_on, description)
-  VALUES ($1, $2, $3, $4, $5, $6)`, [info.id, info.store_name, info.category_id, info.amount, info.entered_on, info.description])
-  }
+  UPDATE transactions 
+  SET store_name = $2, category_id = $3, amount = $4, entered_on = $5, description= $6
+  WHERE id = $1
+  `, [info.id, info.store_name, info.category_id, info.amount, info.entered_on, info.description])
+ } catch(error) {
+   console.log(error)
+ }
+}
+  
 
 // const deleteTransaction = async (req, res) => {
 //  const transaction_id = parseInt(req.params.id)
