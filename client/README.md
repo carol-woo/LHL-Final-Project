@@ -66,3 +66,11 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+For the Receipt OCR:
+
+In your client server, run the following:
+npm install ocr-space-api --save
+
+This uses the image from the images folder.

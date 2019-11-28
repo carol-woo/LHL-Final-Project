@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, BrowserRouter, Switch } from "react-router-dom";
+import { Route, Link, BrowserRouter } from "react-router-dom";
 import NewEntry from "./NewEntry";
 import MonthlyView from "./MonthlyView"
 import Homepage from "./Homepage";
@@ -37,19 +37,22 @@ export default function Navbar(){
 
 
   return( 
-      <div className='nav'>
+      <div className='toolbar'>
         <BrowserRouter>
-        <nav className="side_nav_bar">
-          <h1>Cache My Budget</h1>
-          <ul className="nav_ul">
-            <li className="nav_li"><Link to="/login">Login</Link></li>
-            <li className="nav_li"><Link to="/register">Register</Link></li>
-            <li className="nav_li"><Link to="/home">Homepage</Link></li> 
-            <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
-            <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
-            <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
-            <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
-          </ul>
+        <nav className="toolbar_navigation">
+          <div></div>
+          <div className="toolbar_logo"><Link to="/">Logo</Link></div>
+          <div className="toolbar_navigation_items">
+            <ul className="nav_ul">
+              <li className="nav_li"><Link to="/login">Login</Link></li>
+              <li className="nav_li"><Link to="/register">Register</Link></li>
+              <li className="nav_li"><Link to="/home">Homepage</Link></li> 
+              <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
+              <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
+              <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
+              <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
+            </ul>
+          </div>
         </nav>
 
         <div className="homepage">
@@ -78,7 +81,7 @@ export default function Navbar(){
         </div>
 
         <div>
-          <Route path="/new-category" component={NewCategory}></Route>
+          <Route path="/api/new-category" component={NewCategory}></Route>
         </div>
         
         <div className="monthly-view">
