@@ -1,9 +1,6 @@
 import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
-import { Route, Link, BrowserRouter } from "react-router-dom";
-import NewCategory from "./NewCategory";
-import NewEntry from "./NewEntry";
-import Edit from "./Edit";
+import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
 
 
@@ -11,36 +8,23 @@ import "../styles/categorybuttons.css";
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
-  const [transactions, setTransactions] = useState([]);
-  const [showForm, toggleForm] = useState(false)
+  
 
-
-  // useEffect(() => {
-  //   console.log("INHERE!")
-  //   axios.get('/api/home')
-  //     .then((res) => {
-  //       console.log("TESTING",res)
-  //       setCategories(res.data)
-  //     })  
-  // }, [])
 
   useEffect(() => {
     console.log("INHERE!")
-    axios.get('/api/transactions')
+    axios.get('/api/home')
       .then((res) => {
         console.log("TESTING",res)
-        setTransactions(res.data)
+        setCategories(res.data)
       })  
   }, [])
-  
-  function renderEdit(evt){
-    evt.preventDefault()
-    toggleForm(prev => !prev)
-  }
+
 
   return (
     <div>
-      {/* {categories.map(category => {
+      <Transactions />
+      {categories.map(category => {
         return (
           <div className={category.name}>
             <h1>Add Category</h1>
@@ -49,31 +33,8 @@ export default function Homepage() {
             <button type="submit" id={category.name} className="category_buttons">{category.name} </button>
             </div>
         )
-      })} */}
+      })}
 
-      {transactions.map(transaction => {
-        return(
-          <div>
-            <form>
-              {transaction.store_name} <br/>
-              ${transaction.amount} <br/>
-              {transaction.entered_on} <br/>
-              {transaction.description} <br/>
-             <button type="submit" onClick={renderEdit}>Edit</button>
-            </form>
-            
-            {showForm && <Edit 
-            category_id={transaction.category_id}
-            id={transaction.id} 
-            name={transaction.store_name} 
-            amount={transaction.amount} 
-            entered_on={transaction.entered_on} 
-            description={transaction.description}
-             />}
-          </div>
-          
-  )
-})}
       
       I am home page <br />
 
