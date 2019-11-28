@@ -9,8 +9,8 @@ const pool = new Pool({
 
 const addUser = async (info) => {
   await pool.query(`
-  INSERT INTO users(name, email, password_digest, created_at, budget)
-  VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.created_at, info.budget])
+  INSERT INTO users(name, email, password_digest, budget)
+  VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.budget])
 }
 
 const getCategories = async () => {

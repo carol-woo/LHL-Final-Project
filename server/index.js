@@ -58,18 +58,23 @@ app.post('/new-user',(req, res) => {
   let name = req.body.name 
   let email = req.body.email 
   let password_digest= req.body.password_digest
-  let created_at=req.body.created_at 
+  // let created_at=req.body.created_at 
   let budget = req.body.budget
   
   const info = {
     name,
     email,
     password_digest,
-    created_at,
-    budget,
+    // created_at,
+    budget
   }
-  db1.addUser(info)
-  res.status(200).send(`User`)
+  try {
+    await db1.addUser(info)
+    res.status(200).send(`User`)
+  } catch (error) {
+    res.status(500).send("ERROR");
+    console.log(error)
+  }
 })
 
 app.get('/api/new-category', async (req, res) => {
