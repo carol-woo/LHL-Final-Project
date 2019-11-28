@@ -18,52 +18,52 @@
 }
 
 /* HOME CATEGORY */
-#house {
+#Housing {
   background: url("./Images/house.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#rent {
+#Rent {
   background: url("./Images/rent.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%; 
 }
-#property {
+#Property-Tax {
   background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#home_maintenance {
+#Home-Maintenance {
   background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#hydro {
+#Hydro {
   background: url("./Images/hydro.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#home_phone {
+#Home-Phone {
   background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#cable_internet {
+#Cable-Internet {
   background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#mortgage {
+#Mortgage {
   background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#cell_phone {
+#Cell-Phone {
   background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#water {
+#Water {
   background: url("./Images/water.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
@@ -71,50 +71,50 @@
 
 
 /* INSURANCE CATEGORY */
-#insurance {
+#Insurance {
   background: url("./Images/insurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#mortgage_insurance {
+#Mortgage-Insurance {
   background: url("./Images/mortgage_insurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
   background-size: 60px, 60px;
   background-position-y: 20%;
   font-size: 1.1rem;
 }
-#auto_insurance {
+#Auto-Insurance {
   background: url("./Images/autoinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#home_insurance {
+#Home-Insurance {
   background: url("./Images/homeinsurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#life_insurance {
+#Life-Insurance {
   background: url("./Images/lifeinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 /* TRAVELLING RELATED CATEGORIES */
-#transportation {
+#Transportation {
   background: url("./Images/transportation.png") no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#gas {
+#Gas {
   background: url("./Images/gas.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#parking {
+#Parking {
   background: url("./Images/parking-sign.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#public_transportation {
+#Public-Transportation {
   background: url("./Images/publictransportation.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
@@ -122,24 +122,24 @@
 }
 
 /* FOOD RELATED CATEGORIES */
-#food {
+#Food {
   background: url("./Images/food.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
-#groceries {
+#Groceries {
   background: url("./Images/grocery.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#restaurants {
+#Restaurants {
   background: url("./Images/restaurant.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#beverage {
+#Beverage {
   background: url("./Images/beverage.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
@@ -147,31 +147,31 @@
 
 
 /* OTHER CATEGORIES */
-#medical {
+#Healthcare {
   background: url("./Images/medical.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#pets {
+#Pets {
   background: url("./Images/pets.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#loans {
+#Loans {
   background: url("./Images/loans.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#recreational {
+#Recreational {
   background: url("./Images/recreational.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
-#miscellaneous {
+#Miscellaneous {
   background: url("./Images/miscellaneous.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
   background-size: 60px, 60px;
   background-position-y: 20%;
