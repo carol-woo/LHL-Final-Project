@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
   position: fixed;
   display: flex;
   height: 100%;
@@ -30,6 +30,42 @@
   text-decoration: none;
   color: inherit;
 }
+ */
+
+.toolbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: lightblue;
+  height: 56px;
+}
+
+.toolbar_navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.toolbar_logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav_ul li {
+  color: white;
+  text-decoration: none;
+}
+
+.nav_li:hover,
+.nav_li:active{
+  color: orange;
+}
+
+
+
 
 
 

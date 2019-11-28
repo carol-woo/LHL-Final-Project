@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 //New entry view
-export default function NewEntry(){
+export default function NewEntry() {
 
   // const [entries, setEntries] = useState({
   //   storeName: '',
@@ -20,25 +20,26 @@ export default function NewEntry(){
   const [description, setDescription] = useState()
 
   function submitTransaction() {
-      axios({
-        method: 'post',
-        url: `/new-entry`,
-        data: {
-          store_name: storeName,
-          category_id: categoryId,
-          amount: transactionAmount,
-          entered_on: enteredOn,
-          description: description},
-          responseType: JSON
-      })
-      .then(function(response) {
+    axios({
+      method: 'post',
+      url: `/new-entry`,
+      data: {
+        store_name: storeName,
+        category_id: categoryId,
+        amount: transactionAmount,
+        entered_on: enteredOn,
+        description: description
+      },
+      responseType: JSON
+    })
+      .then(function (response) {
         console.log("TEH Response", response);
       }, (error) => {
         console.log("GOOTTT!")
         console.log(error)
       })
-    }
-    
+  }
+
   //   useEffect(() => {
 
   //    axios({
@@ -55,18 +56,18 @@ export default function NewEntry(){
   //  }, [])
 
 
-  return(
+  return (
     <div>
 
       I am temp text for NewEntry!
-      
+
       <form>
         Store Name
         <input
           type="text"
           name={storeName}
           placeholder="Enter store name"
-          onChange={event =>setStoreName(event.target.value)}
+          onChange={event => setStoreName(event.target.value)}
         />
 
         Date
@@ -85,6 +86,14 @@ export default function NewEntry(){
           placeholder="Enter the total amount"
         />
 
+        Receipt
+        <input
+          type="file"
+          name="avatar"
+          placeholder="Click here for receipt"
+          accept="image/png, image/jpeg"
+        />
+
         Description
           <input
           type="text"
@@ -93,18 +102,18 @@ export default function NewEntry(){
           placeholder="Please provide description of transactions"
         />
 
-         Category
+        Category
           <input type="text"
           name={categoryId}
           onChange={event => setCateroryId(event.target.value)}
           placeholder="Category ID Test"
         />
 
-          <button
+        <button
           type="submit"
           onClick={submitTransaction}
-          >Submit</button>
-      
+        >Submit</button>
+
       </form>
     </div>
   )

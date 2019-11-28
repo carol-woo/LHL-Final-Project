@@ -13,15 +13,15 @@ const addUser = async (info) => {
   VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.created_at, info.budget])
 }
 
-// const getCategories = async (req, res) => {
-//   await pool.query('SELECT * FROM categories', (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("getCategories being used in queries.js", results.rows)
-//     res.status(200).json(results.rows)
-//   })
-// }
+const getCategories = async () => {
+  try {
+    const returnData = await pool.query('SELECT * FROM categories');
+    console.log("TESTING ROUTE", returnData.rows)
+    return returnData.rows
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 
 const addCategory = async (info) => {

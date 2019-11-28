@@ -42,7 +42,7 @@ app.get('/logout',  (req, res) => {
 })
 
 app.get('/api/home', async (req, res) => {
-  let user_id = req.session.user_id
+  const user_id = req.session.user_id;
   try {
     const result = await db2.getUsercategories(user_id);
     res.json(result.rows)
@@ -71,11 +71,16 @@ app.post('/new-user',(req, res) => {
   res.status(200).send(`User`)
 })
 
-// app.get('/categories', db1.getCategories)
+app.get('/api/new-category', async (req, res) => {
+  const result = await db1.getCategories();
+  res.status(200).json(result)
+
+})
  
 
 app.post('/new-category',(req, res) => {
-  user_id = req.session.user_id
+
+  const user_id = req.session.user_id
   let name = req.body.name
   let created_at = req.body.created_at
   let category_budget = req.body.category_budget
