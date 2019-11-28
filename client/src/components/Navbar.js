@@ -81,7 +81,7 @@ export default function Navbar(){
         </div>
 
         <div>
-          <Route path="/api/new-category" component={NewCategory}></Route>
+          <Route path="/new-category" component={NewCategory}></Route>
         </div>
         
         <div className="monthly-view">

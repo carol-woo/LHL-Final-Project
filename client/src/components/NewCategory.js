@@ -1,42 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Popover from "./Popover";
 import "../styles/categorybuttons.css";
 
 //New Category view
 export default function NewCategory() {
-  const [budget, setBudget] = useState();
-
-
   const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    console.log("INHERE!")
-    axios.get('/api/new-category')
-      .then((res) => {
-        console.log("TESTING", res)
-        setCategories(res.data)
-      })
-  }, [])
+  const [budget, setBudget] = useState();
+  const [selectedCategoryId, setSelectedCategoryId] = useState();
+  // const [selectedCategoryName, setSelectedCategoryName] = useState();
 
+
+  function submitCategory(catid) {
+    setSelectedCategoryId(catid)
+    // setSelectedCategoryName(name)
+    axios({
+      method: "post",
+      url: `/new-category`,
+      data: {
+        selectedCategoryId: selectedCategoryId,
+        categoryBudget: budget
+      },
+      responseType: JSON
+    }).then(
+      function(response) {
+        console.log("TEH Response", response);
+      },
+      error => {
+        console.log("GOOTTT!");
+        console.log(error);
+      }
+    );
+  }
+
+  useEffect(() => {
+    axios.get("/api/new-category").then(res => {
+      setCategories(res.data);
+    });
+  }, []);
 
   return (
     <div className="category">
       <h1>Add Category</h1>
 
-
       <form>
-      What is your budget?
-      <input
-        type="number"
-        onChange={event => setBudget(event.target.value)} />
+        What is your budget?
+        <input
+          type="number"
+          value={budget}
+          onChange={event => setBudget(event.target.value)}
+        />
         {categories.map(category => {
-          let stringName = category.name.replace(' ', '-')
+          let stringName = category.name.replace(" ", "-");
           return (
-            <button type="submit" id={stringName} className="category_buttons">{category.name}</button>
-          )
-
+            <button
+              type="submit"
+              // id={stringName}
+              name={category.name}
+              id={category.id}
+              className="category_buttons"
+              onClick={submitCategory}
+            >
+              {category.name}
+            </button>
+          );
         })}
-
         {/* <button type="submit" id="rent" className="category_buttons">Rent</button>
       <button type="submit" id="mortgage" className="category_buttons">Mortgage</button>
       <button type="submit" id="property" className="category_buttons">Property Tax</button>
@@ -74,5 +102,5 @@ export default function NewCategory() {
       <button type="submit" id="pets" className="category_buttons">Pets</button> */}
       </form>
     </div>
-  )
+  );
 }
