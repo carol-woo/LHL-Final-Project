@@ -48,7 +48,7 @@ export default function Navbar(){
               <li className="nav_li"><Link to="/register">Register</Link></li>
               <li className="nav_li"><Link to="/home">Homepage</Link></li> 
               <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
-              <li className="nav_li"><Link to="/new-category"> Add Category </Link></li> 
+              <li className="nav_li"><Link to="/api/new-category"> Add Category </Link></li> 
               <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
               <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
             </ul>

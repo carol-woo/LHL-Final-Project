@@ -79,7 +79,7 @@ app.get('/api/new-category', async (req, res) => {
 })
  
 
-app.post('/new-category',(req, res) => {
+app.post('/api/new-category',(req, res) => {
 
   const user_id = req.session.user_id
   let name = req.body.name

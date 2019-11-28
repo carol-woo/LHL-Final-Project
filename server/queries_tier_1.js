@@ -25,7 +25,6 @@ const getCategories = async () => {
 
 
 const addCategory = async (info) => {
-  const {name, created_at} = req.body
   await pool.query(`INSERT INTO categories(name, user_id, created_at, catergory_budget)
   VALUES ($1, $2, $3, $4)`, [info.name, info.user_id, info.created_at, info.category_budget])
   console.log("addCategory being used in queries.js")
