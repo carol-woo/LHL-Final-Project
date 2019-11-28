@@ -104,7 +104,7 @@ app.post('/api/new-category',async (req, res) => {
     res.status(500).send("ERROR");
     console.log(error)
   }
-
+  //  console.log("TESTING THE INFO",info)
 }) 
 
 

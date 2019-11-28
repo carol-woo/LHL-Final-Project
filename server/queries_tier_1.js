@@ -7,28 +7,22 @@ const pool = new Pool({
   port: 5432
 });
 
-const addUser = async (info) => {
-  await pool.query(`
-  INSERT INTO users(name, email, password_digest, budget)
-  VALUES ($1, $2, $3, $4, $5)`, [info.name, info.email, info.password_digest, info.budget])
-}
+const addUser = async info => {
+  await pool.query(
+    `
+  INSERT INTO users(name, email, password_digest, created_at, budget)
+  VALUES ($1, $2, $3, $4, $5)`,
+    [info.name, info.email, info.password_digest, info.created_at, info.budget]
+  );
+};
 
 const getCategories = async () => {
   try {
-    const returnData = await pool.query('SELECT * FROM categories');
+    const returnData = await pool.query("SELECT * FROM categories");
     // console.log("TESTING ROUTE", returnData.rows)
-    return returnData.rows
+    return returnData.rows;
   } catch (error) {
-    console.error(error)
-  }
-}
-
-
-const addCategory = async (info) => {
-  await pool.query(`INSERT INTO categories(name, user_id, category_budget)
-  VALUES ($1, $2, $3)`, [info.name, info.user_id, info.category_budget])
-  console.log("addCategory being used in queries_tier1.js")
-  return true;
+    console.error(error);
   }
 };
 
@@ -99,4 +93,4 @@ const editTransaction = async (info) => {
 // }
 
 
-module.exports = {addUser, addTransaction, getTransactions, addCategory, editTransaction}
+module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction}
