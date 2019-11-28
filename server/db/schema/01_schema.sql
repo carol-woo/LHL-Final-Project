@@ -17,7 +17,8 @@ CREATE TABLE categories (
   name VARCHAR NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  category_budget INTEGER NOT NULL
+  category_budget INTEGER NOT NULL,
+  UNIQUE(name, user_id)
 );
 
 CREATE TABLE transactions (
