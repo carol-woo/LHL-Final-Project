@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
+import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
 
 
@@ -7,6 +8,8 @@ import "../styles/categorybuttons.css";
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
+  
+
 
   useEffect(() => {
     console.log("INHERE!")
@@ -14,15 +17,14 @@ export default function Homepage() {
       .then((res) => {
         console.log("TESTING",res)
         setCategories(res.data)
-      })
+      })  
   }, [])
-
 
 
   return (
     <div className="category">
 
-
+      <Transactions />
       {categories.map(category => {
         return (
           <div className={category.name} >
@@ -32,8 +34,9 @@ export default function Homepage() {
             <button type="submit" id={category.name} className="category_buttons">{category.name} </button>
             </div>
         )
-
       })}
+
+      
       I am home page <br />
 
       <button>New Entry</button>

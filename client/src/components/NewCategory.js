@@ -6,14 +6,14 @@ import "../styles/categorybuttons.css";
 //New Category view
 export default function NewCategory() {
   const [categories, setCategories] = useState([]);
-  const [budget, setBudget] = useState();
-  const [selectedCategoryId, setSelectedCategoryId] = useState();
-  const [selectedCategoryName, setSelectedCategoryName] = useState();
+  const [budget, setBudget] = useState('');
+  // const [selectedCategoryId, setSelectedCategoryId] = useState();
+  // const [selectedCategoryName, setSelectedCategoryName] = useState();
 
 
-  function submitCategory(id, name) {
-    setSelectedCategoryId(id)
-    setSelectedCategoryName(name)
+  function submitCategory({id, name}) {
+    // setSelectedCategoryId(id)
+    // setSelectedCategoryName(name)
     axios({
       method: "post",
       url: `/api/new-category`,
@@ -22,9 +22,10 @@ export default function NewCategory() {
         categoryBudget: Number(budget),
         name: name
       },
-      responseType: JSON
+      responseType: 'json'
     }).then(
       function(response) {
+
         // console.log("TEH Response", response);
       },
       error => {
@@ -51,19 +52,21 @@ export default function NewCategory() {
           value={budget}
           onChange={event => setBudget(event.target.value)}
         />
-        {categories.map(category => {
+        {categories.map((category, i) => {
           let stringName = category.name.replace(" ", "-");
           return (
             <button
+              key={i}
               type="submit"
-              // id={stringName}
+              id={stringName}
               name={category.name}
-              id={category.id}
+              // id={category.name}
               className="category_buttons"
-              onClick={() => submitCategory(category.id, category.name)}
+              onClick={event => {event.preventDefault();
+                submitCategory(category)}}
             >
               {category.name}
-            </button>
+            </button >
           );
         })}
         {/* <button type="submit" id="rent" className="category_buttons">Rent</button>

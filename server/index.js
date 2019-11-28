@@ -22,7 +22,6 @@ app.use(
   })
 )
 
-// const user_id = req.session.user_id
 
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
@@ -53,23 +52,28 @@ app.get('/api/home', async (req, res) => {
 })
 // app.get('/api/home', db1.getCategories)
 
-app.post('/new-user',(req, res) => {
+app.post('/new-user', async (req, res) => {
   console.log(req.body)
   let name = req.body.name 
   let email = req.body.email 
   let password_digest= req.body.password_digest
-  let created_at=req.body.created_at 
+  // let created_at=req.body.created_at 
   let budget = req.body.budget
   
   const info = {
     name,
     email,
     password_digest,
-    created_at,
-    budget,
+    // created_at,
+    budget
   }
-  db1.addUser(info)
-  res.status(200).send(`User`)
+  try {
+    await db1.addUser(info)
+    res.status(200).send(`User`)
+  } catch (error) {
+    res.status(500).send("ERROR");
+    console.log(error)
+  }
 })
 
 app.get('/api/new-category', async (req, res) => {
@@ -79,27 +83,32 @@ app.get('/api/new-category', async (req, res) => {
 })
  
 
-app.post('/api/new-category',(req, res) => {
-  const user_id = req.session.user_id
+app.post('/api/new-category',async (req, res) => {
+
   let name = req.body.name
-  let created_at = req.body.created_at
+  const user_id = req.session.user_id
+  // let created_at = req.body.created_at
   let category_budget = req.body.categoryBudget
-  let category_id = req.body.selectedCategoryId
 
   const info = {
     name,
     user_id,
-    created_at,
-    category_budget,
-    category_id
+    // created_at,
+    category_budget
   }
- console.log("TESTING THE INFO",info)
-  db1.addCategory(info)
-  res.status(200).send(`Category`)
+ 
+  try {
+    await db1.addCategory(info)
+    res.status(200).send(`Category`)
+  } catch (error) {
+    res.status(500).send("ERROR");
+    console.log(error)
+  }
 
 }) 
-// app.get('/transactions', db1.getTransactions)
-// app.post('/transactions/:id', db.addTransaction)
+
+
+app.get('/api/transactions', db1.getTransactions)
 
 app.post('/new-entry', (req, res) =>{
   console.log(req.body)
@@ -123,7 +132,31 @@ app.post('/new-entry', (req, res) =>{
  
 
 
-// app.put('/transactions/:id', db1.editTransaction)
+app.post('/api/transactions',(req,res) =>{
+  console.log(req.body)
+  
+  let store_name = req.body.store_name
+  let amount = req.body.amount
+  let entered_on = req.body.entered_on
+  let description = req.body.description
+  let category_id = req.body.category_id
+  let id = req.body.id
+
+
+  const info = {
+    store_name,
+    amount,
+    entered_on,
+    description,
+    category_id,
+    id,
+  }
+
+  db1.editTransaction(info)
+  console.log("running after edit")
+  res.status(200).send(`Edited transactions`)
+}) 
+
 // app.delete('/transactions:id', db1.deleteTransaction)
 
 
