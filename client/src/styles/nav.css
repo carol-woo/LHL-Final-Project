@@ -49,18 +49,37 @@
 }
 
 .toolbar_logo {
+  margin-left: 1rem;
+}
+
+.toolbar_logo a {
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
 }
 
-.nav_ul li {
+.spacer {
+  flex: 1;
+}
+
+.toolbar_navigation_items a {
   color: white;
   text-decoration: none;
 }
 
-.nav_li:hover,
-.nav_li:active{
+.toolbar_navigation_items ul {
+  list-style: none;
+  margin: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav_li {
+  padding: 0 0.5rem;
+}
+
+.toolbar_navigation_items a:hover,
+.toolbar_navigation_items a:active{
   color: orange;
 }
 
