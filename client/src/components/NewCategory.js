@@ -15,7 +15,7 @@ export default function NewCategory() {
     setSelectedCategoryId(id)
     setSelectedCategoryName(name)
     axios({
-      method: "post",
+      method: "get",
       url: `/api/new-category`,
       data: {
         selectedCategoryId: Number(id),
