@@ -53,7 +53,7 @@ app.get('/api/home', async (req, res) => {
 })
 // app.get('/api/home', db1.getCategories)
 
-app.post('/new-user',(req, res) => {
+app.post('/new-user', async (req, res) => {
   console.log(req.body)
   let name = req.body.name 
   let email = req.body.email 
