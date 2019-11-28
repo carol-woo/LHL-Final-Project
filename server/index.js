@@ -22,7 +22,7 @@ app.use(
   })
 )
 
-const user_id = req.session.user_id
+// const user_id = req.session.user_id
 
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
@@ -43,6 +43,7 @@ app.get('/logout',  (req, res) => {
 })
 
 app.get('/api/home', async (req, res) => {
+  const user_id = req.session.user_id
   try {
     const result = await db2.getUsercategories(user_id);
     res.json(result.rows)
@@ -76,6 +77,7 @@ app.post('/new-user',(req, res) => {
 
 app.post('/new-category',(req, res) => {
   
+  const user_id = req.session.user_id
   let name = req.body.name
   let created_at = req.body.created_at
   let category_budget = req.body.category_budget
