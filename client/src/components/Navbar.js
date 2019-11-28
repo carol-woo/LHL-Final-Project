@@ -9,9 +9,11 @@ import Register from "./Register";
 import '../styles/nav.css';
 import "../styles/App.css";
 import axios from "axios"; 
+import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 import {
   CSSTransition
 } from 'react-transition-group';
+import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
 const routes = [
   { path: '/register', name: 'Register', Component: Register },
@@ -19,7 +21,7 @@ const routes = [
 ]
 
 //For Navbar view
-export default function Navbar(){ 
+export default function Navbar(props){ 
 
   const nukeMyLogout = async() => {    
     try{
@@ -38,10 +40,13 @@ export default function Navbar(){
 
   return( 
       <div className='toolbar'>
-        <BrowserRouter>
+        <BrowserRouter>  
         <nav className="toolbar_navigation">
-          <div></div>
-          <div className="toolbar_logo"><Link to="/">Logo</Link></div>
+          <div>
+            <DrawerToggleButton click={props.drawerClickHandler}/>
+          </div>
+          <div className="toolbar_logo">Logo</div>
+          <div className="spacer"/>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
               <li className="nav_li"><Link to="/login">Login</Link></li>
@@ -81,7 +86,7 @@ export default function Navbar(){
         </div>
 
         <div>
-          <Route path="/api/new-category" component={NewCategory}></Route>
+          <Route path="/new-category" component={NewCategory}></Route>
         </div>
         
         <div className="monthly-view">

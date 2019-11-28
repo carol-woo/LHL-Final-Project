@@ -16,13 +16,14 @@ const scanReceipt = () => {
   // Run and wait the result
   ocrSpaceApi.parseImageFromLocalFile(imageFilePath, options)
     .then(function (parsedResult) {
-      console.log('parsedText: \n', parsedResult.parsedText);
-      console.log('ocrParsedResult: \n', parsedResult.ocrParsedResult);
-      console.log('Coordinates: \n', parsedResult.ocrParsedResult.ParsedResults[0].TextOverlay.Lines);
+      // console.log('parsedText: \n', parsedResult.parsedText);
+      // console.log('ocrParsedResult: \n', parsedResult.ocrParsedResult);
+      console.log('Coordinates: \n', parsedResult.ocrParsedResult.ParsedResults[0].TextOverlay.Lines[45]);
+       
     }).catch(function (err) {
       console.log('ERROR:', err);
     });
 
 }
 
-module.exports = {scanReceipt}
+// module.exports = {scanReceipt}
