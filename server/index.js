@@ -78,20 +78,21 @@ app.get('/api/new-category', async (req, res) => {
 })
  
 
-app.post('/new-category',(req, res) => {
-
+app.post('/api/new-category',(req, res) => {
   const user_id = req.session.user_id
   let name = req.body.name
   let created_at = req.body.created_at
-  let category_budget = req.body.category_budget
+  let category_budget = req.body.categoryBudget
+  let category_id = req.body.selectedCategoryId
 
   const info = {
     name,
     user_id,
     created_at,
-    category_budget
+    category_budget,
+    category_id
   }
- 
+ console.log("TESTING THE INFO",info)
   db1.addCategory(info)
   res.status(200).send(`Category`)
 
