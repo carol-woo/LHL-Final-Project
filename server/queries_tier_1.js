@@ -93,4 +93,4 @@ const editTransaction = async (info) => {
 // }
 
 
-module.exports = {addUser, addTransaction, getTransactions, addCategory, editTransaction}
+module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction}

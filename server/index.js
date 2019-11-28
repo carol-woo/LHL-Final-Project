@@ -92,7 +92,7 @@ app.post('/api/new-category',(req, res) => {
     category_budget,
     category_id
   }
- console.log("TESTING THE INFO",info)
+//  console.log("TESTING THE INFO",info)
   db1.addCategory(info)
   res.status(200).send(`Category`)
 
