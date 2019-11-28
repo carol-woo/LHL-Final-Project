@@ -16,7 +16,7 @@ const addUser = async (info) => {
 const getCategories = async () => {
   try {
     const returnData = await pool.query('SELECT * FROM categories');
-    console.log("TESTING ROUTE", returnData.rows)
+    // console.log("TESTING ROUTE", returnData.rows)
     return returnData.rows
   } catch (error) {
     console.error(error)
@@ -25,9 +25,10 @@ const getCategories = async () => {
 
 
 const addCategory = async (info) => {
-  await pool.query(`INSERT INTO categories(name, user_id, created_at, catergory_budget)
-  VALUES ($1, $2, $3, $4)`, [info.name, info.user_id, info.created_at, info.category_budget])
-  console.log("addCategory being used in queries.js")
+  await pool.query(`INSERT INTO categories(name, user_id, category_budget)
+  VALUES ($1, $2, $3)`, [info.name, info.user_id, info.category_budget])
+  console.log("addCategory being used in queries_tier1.js")
+  return true;
   }
 
 

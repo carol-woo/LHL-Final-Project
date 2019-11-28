@@ -79,22 +79,27 @@ app.get('/api/new-category', async (req, res) => {
 })
  
 
-app.post('/api/new-category',(req, res) => {
+app.post('/api/new-category',async (req, res) => {
 
-  const user_id = req.session.user_id
   let name = req.body.name
-  let created_at = req.body.created_at
-  let category_budget = req.body.category_budget
+  const user_id = req.session.user_id
+  // let created_at = req.body.created_at
+  let category_budget = req.body.categoryBudget
 
   const info = {
     name,
     user_id,
-    created_at,
+    // created_at,
     category_budget
   }
  
-  db1.addCategory(info)
-  res.status(200).send(`Category`)
+  try {
+    await db1.addCategory(info)
+    res.status(200).send(`Category`)
+  } catch (error) {
+    res.status(500).send("ERROR");
+    console.log(error)
+  }
 
 }) 
 // app.get('/transactions', db1.getTransactions)

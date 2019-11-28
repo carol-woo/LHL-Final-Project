@@ -8,7 +8,7 @@ CREATE TABLE users (
   name VARCHAR NOT NULL,
   email VARCHAR NOT NULL,
   password_digest VARCHAR NOT NULL,
-  created_at TIMESTAMP NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   budget INTEGER NOT NULL
 );
 
