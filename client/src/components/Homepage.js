@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import NewCategory from "./NewCategory";
 import NewEntry from "./NewEntry";
+import Edit from "./Edit";
 import "../styles/categorybuttons.css";
 
 
@@ -10,6 +11,9 @@ import "../styles/categorybuttons.css";
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [showForm, toggleForm] = useState(false)
+
 
   useEffect(() => {
     console.log("INHERE!")
@@ -17,15 +21,25 @@ export default function Homepage() {
       .then((res) => {
         console.log("TESTING",res)
         setCategories(res.data)
-      })
+      })  
   }, [])
 
-
+  useEffect(() => {
+    console.log("INHERE!")
+    axios.get('/api/transactions')
+      .then((res) => {
+        console.log("TESTING",res)
+        setTransactions(res.data)
+      })  
+  }, [])
+  
+  function renderEdit(evt){
+    evt.preventDefault()
+    toggleForm(prev => !prev)
+  }
 
   return (
     <div>
-
-
       {categories.map(category => {
         return (
           <div className={category.name}>
@@ -35,8 +49,24 @@ export default function Homepage() {
             <button type="submit" id={category.name} className="category_buttons">{category.name} </button>
             </div>
         )
-
       })}
+
+      {transactions.map(transaction => {
+        return(
+          <div>
+            <form>
+              {transaction.store_name} <br/>
+              ${transaction.amount} <br/>
+              {transaction.entered_on} <br/>
+              {transaction.description} <br/>
+             <button type="submit" onClick={renderEdit}>Edit</button>
+            </form>
+            {showForm && <Edit id={transaction.category_id} />}
+          </div>
+          
+  )
+})}
+      
       I am home page <br />
 
       <button>New Entry</button>

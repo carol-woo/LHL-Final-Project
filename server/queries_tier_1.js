@@ -32,15 +32,15 @@ const addCategory = async (info) => {
   }
 
 
-// const getTransactions = async (req, res) => {
-//   await pool.query('SELECT * FROM transactions', (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("getTransactions being used in queries.js")
-//     res.status(200).json(results.rows)
-//   })
-// }
+const getTransactions = async (req, res) => {
+  await pool.query('SELECT * FROM transactions', (error, results) => {
+    if (error) {
+      throw error
+    }
+    console.log("getTransactions being used in queries.js")
+    res.status(200).json(results.rows)
+  })
+}
 
 const addTransaction = async (info) => {
   console.log("addTransaction QUERY IS RUNNING!!")
@@ -56,6 +56,7 @@ const addTransaction = async (info) => {
 //   await pool.query(`UPDATE transactions (store_name, category_id, amount, entered_on, description)
 //   VALUES ($1, $2, $3, $4, $5)`, [store_name, category_id, amount, entered_on, description], (error, results) => {
 //     if (error) {
+
 //       throw error
 //     }
 //     console.log("editTransaction function being used in queries.js")
@@ -75,4 +76,4 @@ const addTransaction = async (info) => {
 // }
 
 
-module.exports = {addUser, addTransaction, addCategory}
+module.exports = {addUser, addTransaction, getTransactions, addCategory}

@@ -22,7 +22,6 @@ app.use(
   })
 )
 
-const user_id = req.session.user_id
 
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
@@ -43,6 +42,7 @@ app.get('/logout',  (req, res) => {
 })
 
 app.get('/api/home', async (req, res) => {
+  let user_id = req.session.user_id
   try {
     const result = await db2.getUsercategories(user_id);
     res.json(result.rows)
@@ -75,7 +75,7 @@ app.post('/new-user',(req, res) => {
  
 
 app.post('/new-category',(req, res) => {
-  
+  user_id = req.session.user_id
   let name = req.body.name
   let created_at = req.body.created_at
   let category_budget = req.body.category_budget
@@ -91,7 +91,7 @@ app.post('/new-category',(req, res) => {
   res.status(200).send(`Category`)
 
 }) 
-// app.get('/transactions', db1.getTransactions)
+app.get('/api/transactions', db1.getTransactions)
 // app.post('/transactions/:id', db.addTransaction)
 
 app.post('/new-entry', (req, res) =>{
