@@ -6,15 +6,14 @@ import "../styles/categorybuttons.css";
 //New Category view
 export default function NewCategory() {
   const [categories, setCategories] = useState([]);
-  const [budget, setBudget] = useState();
-  const [selectedCategoryId, setSelectedCategoryId] = useState();
-  const [selectedCategoryName, setSelectedCategoryName] = useState();
+  const [budget, setBudget] = useState('');
+  // const [selectedCategoryId, setSelectedCategoryId] = useState();
+  // const [selectedCategoryName, setSelectedCategoryName] = useState();
 
 
-  function submitCategory(id, name, evt) {
-    evt.preventDefault();
-    setSelectedCategoryId(id)
-    setSelectedCategoryName(name)
+  function submitCategory({id, name}) {
+    // setSelectedCategoryId(id)
+    // setSelectedCategoryName(name)
     axios({
       method: "post",
       url: `/api/new-category`,
@@ -23,7 +22,7 @@ export default function NewCategory() {
         categoryBudget: Number(budget),
         name: name
       },
-      responseType: JSON
+      responseType: 'json'
     }).then(
       function(response) {
 
@@ -59,11 +58,12 @@ export default function NewCategory() {
             <button
               key={i}
               type="submit"
-              // id={stringName}
+              id={stringName}
               name={category.name}
-              id={category.id}
+              // id={category.name}
               className="category_buttons"
-              onClick={evt => submitCategory(category.id, category.name, evt)}
+              onClick={event => {event.preventDefault();
+                submitCategory(category)}}
             >
               {category.name}
             </button >
