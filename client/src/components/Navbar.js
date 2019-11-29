@@ -10,15 +10,8 @@ import '../styles/nav.css';
 import "../styles/App.css";
 import axios from "axios"; 
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
-import {
-  CSSTransition
-} from 'react-transition-group';
-import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
-const routes = [
-  { path: '/register', name: 'Register', Component: Register },
-  { path: '/login', name: 'Login', Component: Login },
-]
+import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
 //For Navbar view
 export default function Navbar(props){ 
@@ -45,53 +38,14 @@ export default function Navbar(props){
           <div>
             <DrawerToggleButton click={props.drawerClickHandler}/>
           </div>
-          <div className="toolbar_logo">Logo</div>
+          <div className="toolbar_logo"><img src={require("../styles/Images/CIRCLE-05.png")} id="navbar_logo"/></div>
           <div className="spacer"/>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
-              <li className="nav_li"><Link to="/login">Login</Link></li>
-              <li className="nav_li"><Link to="/register">Register</Link></li>
-              <li className="nav_li"><Link to="/home">Homepage</Link></li> 
-              <li className="nav_li"><Link to="/new-entry"> New Entry </Link></li> 
-              <li className="nav_li"><Link to="/api/new-category"> Add Category </Link></li> 
-              <li className="nav_li"><Link to="/monthly-view">Monthly View</Link></li> 
               <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
             </ul>
           </div>
         </nav>
-
-        <div className="homepage">
-          <Route exact path="/home" component={Homepage}></Route>
-        </div>
-
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={300}
-                classNames="page"
-                unmountOnExit
-              >
-                <div className="page">
-                  <Component />
-                </div>
-              </CSSTransition>
-            )}
-          </Route>
-        ))}
-
-        <div className="new-entry">
-          <Route path="/new-entry" component={NewEntry}></Route>
-        </div>
-
-        <div>
-          <Route path="/api/new-category" component={NewCategory}></Route>
-        </div>
-        
-        <div className="monthly-view">
-          <Route path="/monthly-view" component={MonthlyView}></Route>
-        </div>
 
 
         </BrowserRouter>
