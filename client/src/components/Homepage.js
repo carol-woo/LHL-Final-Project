@@ -5,6 +5,7 @@ import "../styles/categorybuttons.css";
 
 
 
+
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);

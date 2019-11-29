@@ -3,6 +3,7 @@ import Edit from "./Edit"
 import axios from "axios"
 import Delete from "./Delete";
 
+
 export default function Transactions(props){
   const [transactions, setTransactions] = useState([]);
   const [showForm, toggleForm] = useState(false)
@@ -49,12 +50,8 @@ export default function Transactions(props){
           </form>
           
           {showDelete && <Delete 
-          store_name={transaction.store_name}
-          amount={transaction.amount}
-          entered_on={transaction.entered_on}
-          description={transaction.description}
-          category_id={transaction.category_id}
           id={transaction.id}
+          renderDelete={renderDelete}
           />
           }
 
