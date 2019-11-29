@@ -27,9 +27,9 @@ export default function Homepage() {
 
       <Transactions categoryId={categories.id}/>
 
-      {categories.map(category => {
+      {categories.map((category,i) => {
         return (
-          <div className={category.name} >
+          <div key={i} className={category.name} >
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>

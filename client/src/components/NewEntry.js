@@ -11,13 +11,14 @@ export default function NewEntry() {
   //   description: ''
   // });
 
-  const [storeName, setStoreName] = useState();
-  const [categoryId, setCateroryId] = useState();
-  const [transactionAmount, setTransactionAmount] = useState();
-  const [enteredOn, setEnteredOn] = useState();
-  const [description, setDescription] = useState();
+  const [storeName, setStoreName] = useState('');
+  const [categoryId, setCateroryId] = useState('');
+  const [transactionAmount, setTransactionAmount] = useState('');
+  const [enteredOn, setEnteredOn] = useState('');
+  const [description, setDescription] = useState('');
 
-  function submitTransaction() {
+  function submitTransaction(evt) {
+    evt.preventDefault()
     axios({
       method: "post",
       url: `/new-entry`,
@@ -32,6 +33,11 @@ export default function NewEntry() {
     }).then(
       function(response) {
         console.log("TEH Response", response);
+        setStoreName('')
+        setCateroryId('')
+        setTransactionAmount('')
+        setEnteredOn('')
+        setDescription('')
       },
       error => {
         console.log("GOOTTT!");
@@ -62,21 +68,21 @@ export default function NewEntry() {
         Store Name
         <input
           type="text"
-          name={storeName}
+          value={storeName}
           placeholder="Enter store name"
           onChange={event => setStoreName(event.target.value)}
         />
         Date
         <input
           type="date"
-          name={enteredOn}
+          value={enteredOn}
           onChange={event => setEnteredOn(event.target.value)}
           placeholder="Enter date of occurance"
         />
         Amount
         <input
           type="number"
-          name={transactionAmount}
+          value={transactionAmount}
           onChange={event => setTransactionAmount(event.target.value)}
           placeholder="Enter the total amount"
         />
@@ -90,14 +96,14 @@ export default function NewEntry() {
         Description
         <input
           type="text"
-          name={description}
+          value={description}
           onChange={event => setDescription(event.target.value)}
           placeholder="Please provide description of transactions"
         />
         Category
         <input
           type="text"
-          name={categoryId}
+          value={categoryId}
           onChange={event => setCateroryId(event.target.value)}
           placeholder="Category ID Test"
         />
