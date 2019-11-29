@@ -37,8 +37,9 @@
   width: 100%;
   top: 0;
   left: 0;
-  background: lightblue;
-  height: 56px;
+  background: url("https://cdn.hipwallpaper.com/m/67/64/LijZqG.jpg") no-repeat;
+  background-size: 100% auto;
+  height: 72px;
 }
 
 .toolbar_navigation {
@@ -49,7 +50,12 @@
 }
 
 .toolbar_logo {
-  margin-left: 1rem;
+  margin-left: 2rem;
+}
+
+#navbar_logo {
+  width: 60px;
+  height: 60px;
 }
 
 .toolbar_logo a {
