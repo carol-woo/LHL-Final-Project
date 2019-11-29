@@ -8,7 +8,7 @@ CREATE TABLE users (
   name VARCHAR NOT NULL,
   email VARCHAR NOT NULL,
   password_digest VARCHAR NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  created_at DATE DEFAULT NOW() NOT NULL,
   budget INTEGER NOT NULL
 );
 
@@ -16,7 +16,7 @@ CREATE TABLE categories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  created_at DATE DEFAULT NOW() NOT NULL,
   category_budget INTEGER NOT NULL,
   UNIQUE(name, user_id)
 );

@@ -47,6 +47,7 @@ const getTransactions = async (req, res) => {
       throw error
     }
     console.log("getTransactions being used in queries.js")
+    console.log("TESTING TIME STAMPE", results.rows)
     res.status(200).json(results.rows)
   })
 }
