@@ -36,9 +36,9 @@ export default function Transactions(props){
   function handleDeleteSuccess(id) {
     // remove the transaciton with ID = id, set transactions without that record
     console.log('handleDeleteSuccess called');
-    const newTransactions = [...transactions].slice(id);
-    console.log('new transactions:', newTransactions);
-    setTransactions(newTransactions);
+    const temp = [...transactions]
+    temp.splice(temp.map(e => e.id).indexOf(id),1);
+    setTransactions(temp);
   }
 
   return(
