@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../styles/NewEntry.css"
 
 //New entry view
 export default function NewEntry() {
@@ -62,52 +63,87 @@ export default function NewEntry() {
   //  }, [])
 
   return (
-    <div>
-      I am temp text for NewEntry!
+    <div className="new-entry">
       <form>
-        Store Name
+      <h1>Add a new entry!</h1>
+      Store Name
+      <span>
         <input
+          className="inputMaterial"
           type="text"
           value={storeName}
           placeholder="Enter store name"
           onChange={event => setStoreName(event.target.value)}
         />
-        Date
+        <span className="highlight"></span>
+        <span className="bar"></span>
+      </span>
+
+      Date
+      <span>
         <input
+        className="inputMaterial"
           type="date"
           value={enteredOn}
           onChange={event => setEnteredOn(event.target.value)}
           placeholder="Enter date of occurance"
         />
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        </span>
+
         Amount
+        <span>
         <input
+        className="inputMaterial"
           type="number"
           value={transactionAmount}
           onChange={event => setTransactionAmount(event.target.value)}
           placeholder="Enter the total amount"
         />
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        </span>
+
         Receipt
+        <span>
         <input
+        className="inputMaterial"
           type="file"
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
         />
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        </span>
+
         Description
+        <span>
         <input
+          className="inputMaterial"
           type="text"
           value={description}
           onChange={event => setDescription(event.target.value)}
-          placeholder="Please provide description of transactions"
+          placeholder="Provide description of transactions!"
         />
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        </span>
+
         Category
+        <span>
         <input
+        className="inputMaterial"
           type="text"
           value={categoryId}
           onChange={event => setCateroryId(event.target.value)}
           placeholder="Category ID Test"
         />
-        <button type="submit" onClick={submitTransaction}>
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        </span>
+        <button className="newEntryButton" type="submit" onClick={submitTransaction}>
           Submit
         </button>
       </form>

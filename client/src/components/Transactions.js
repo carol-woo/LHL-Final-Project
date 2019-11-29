@@ -6,14 +6,7 @@ import TransactionsItem from "./TransactionsItem"
 
 
 export default function Transactions(props){
-  const [transactions, setTransactions] = useState([]);
-  console.log("~~~~~~~~~~~~~~props for transactions~~~~~~~~~~~~~`", props)
-  // axios.get(`/categories-transactions/${props.id}`)
-  //     .then((res) => {
-  //       console.log("TESTING",res)
-  //       setTransactions(res.data)
-  //     })  
-  
+  const [transactions, setTransactions] = useState([]);  
   useEffect(() => {
     axios({
       method: "get",

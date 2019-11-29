@@ -2,6 +2,7 @@ import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
+import "../styles/Homepage.css";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import Category from './Category';
 
@@ -72,14 +73,16 @@ export default function Homepage() {
 
 
       {categories.map((category) => {
+        let remaining= category.category_budget
+        const RB = function (amount){
+          return remaining - amount
+        }
         return (
           <div
           key={category.id}
           className={category.name}>
-            <h1>Add Category</h1>
-            <h2>Home</h2>
-            <h3>General Home Category</h3>
-           
+            <h1>{category.name}</h1>  
+            <p>Your set budget is ${category.category_budget}</p>         
            <Link to="/category-transactions">
             <button
             type="submit"
@@ -96,7 +99,12 @@ export default function Homepage() {
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
          
-          {category.show && <Transactions id={category.id} handleOnGetTransactions={getTransactions} show={category.show}/>}
+          {category.show && <Transactions 
+          id={category.id} 
+          handleOnGetTransactions={getTransactions} 
+          show={category.show}
+          RB={RB}
+          />}
             
             </div>
             
@@ -107,11 +115,6 @@ export default function Homepage() {
       
       </BrowserRouter>
 
-
-      I am home page <br />
-
-      <button>New Entry</button>
-      <button>Add Category</button>
       
     </div>
   )
