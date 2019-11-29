@@ -5,6 +5,7 @@ import "../styles/categorybuttons.css";
 
 
 
+
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
@@ -24,7 +25,8 @@ export default function Homepage() {
   return (
     <div className="category">
 
-      <Transactions />
+      <Transactions categoryId={categories.id}/>
+
       {categories.map(category => {
         return (
           <div className={category.name} >

@@ -101,10 +101,11 @@ app.post('/api/new-category',async (req, res) => {
     await db1.addCategory(info)
     res.status(200).send(`Category`)
   } catch (error) {
+    // alert(`${name} has already this category`)
     res.status(500).send("ERROR");
     console.log(error)
   }
-
+  //  console.log("TESTING THE INFO",info)
 }) 
 
 
@@ -157,7 +158,16 @@ app.post('/api/transactions',(req,res) =>{
   res.status(200).send(`Edited transactions`)
 }) 
 
-// app.delete('/transactions:id', db1.deleteTransaction)
+app.delete('/api/transactions', (req, res) => {
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`WHAT AM I TRYING TO DELETE?",req.body)
+ let id = req.body.id
+ 
+  db1.deleteTransaction(id)
+  res.status(200).send(`Transaction deleted`)
+
+})
+
+
 
 
 
