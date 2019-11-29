@@ -9,9 +9,8 @@ export default function Delete(props){
           id:props.id
         }
       }).then((data) => {
-        // check data == 200
-
         props.onDeleteSuccess(props.id);
+        props.renderDelete()
       })
     } 
 

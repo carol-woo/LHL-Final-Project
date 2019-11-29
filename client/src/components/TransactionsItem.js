@@ -15,13 +15,11 @@ export default function TransactionsItems(props){
     description,
     onDeleteSuccess,} = props
 
-    function renderEdit(evt){
-      evt.preventDefault()
+    function renderEdit(){
       toggleForm(prev => !prev)
     }
   
-    function renderDelete(evt){
-      evt.preventDefault()
+    function renderDelete(){
       toggleDelete(prev => !prev)
     }
 
@@ -31,6 +29,7 @@ export default function TransactionsItems(props){
     <button type="submit" onClick={renderDelete}>Delete</button>
 
     {showDelete && <Delete 
+      renderDelete={renderDelete}
       id={id}
       renderDelete={renderDelete}
       onDeleteSuccess={onDeleteSuccess}
@@ -38,6 +37,7 @@ export default function TransactionsItems(props){
       }
 
       {showForm && <Edit 
+      renderEdit={renderEdit}
       category_id={category_id}
       id={id} 
       name={name} 
