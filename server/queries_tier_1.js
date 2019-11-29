@@ -93,6 +93,7 @@ const deleteTransaction = async (id) => {
 
   const deleteCategory = async (info) => {
     console.log("deleteCategory in queries_tier_1 is running!")
+    console.log("TESTING VALUES", info.category_id, info.user_id)
    try{
     await pool.query(`
     DELETE FROM categories WHERE categories.id = $1 AND categories.user_id = $2; `, [info.category_id, info.user_id])

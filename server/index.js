@@ -176,7 +176,7 @@ app.post('/api/home', async (req, res) => {
   }
   console.log("delete category in index.js", info)
   try {
-    await db1.deleteTransaction(info)
+    await db1.deleteCategory(info)
     res.status(200).send(`Transaction deleted`)
   } catch (error) {
     res.status(500).send("Error")
