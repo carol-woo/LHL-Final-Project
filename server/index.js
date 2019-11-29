@@ -101,6 +101,7 @@ app.post('/api/new-category',async (req, res) => {
     await db1.addCategory(info)
     res.status(200).send(`Category`)
   } catch (error) {
+    // alert(`${name} has already this category`)
     res.status(500).send("ERROR");
     console.log(error)
   }

@@ -29,7 +29,7 @@ export default function NewCategory() {
         // console.log("TEH Response", response);
       },
       error => {
-        // console.log("GOOTTT!");
+        alert(`${name} category has already been added`)
         console.log(error);
       }
     );
