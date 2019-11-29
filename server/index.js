@@ -183,7 +183,9 @@ app.post('/api/home', async (req, res) => {
   }
 })
 
+//gotta add params to this  
 app.get('/categories-transactions', async (req,res) => {
+  console.log(res)
   const result = await db2.getCategoryTransactions()
   res.status(200).json(result)
 })
