@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Edit from "./Edit"
 import axios from "axios"
 import Delete from "./Delete";
+import TransactionsItem from "./TransactionsItem"
 
 
 export default function Transactions(props){
@@ -9,11 +10,6 @@ export default function Transactions(props){
   const [showForm, toggleForm] = useState(false)
   const [showDelete, toggleDelete] = useState(false)
 
-
-
-  console.log("transactions props", props)
-
-  console.log("i am transactions ", transactions)
   useEffect(() => {
     console.log("INHERE!")
     axios.get('/api/transactions')
@@ -23,35 +19,52 @@ export default function Transactions(props){
       })  
   }, [])
   
-  function renderEdit(evt){
-    evt.preventDefault()
-    toggleForm(prev => !prev)
-  }
+  // function renderEdit(evt, cb){
+  //   evt.preventDefault()
+  //   cb()
+  // }
 
-  function renderDelete(evt){
-    evt.preventDefault()
-    toggleDelete(prev => !prev)
-  }
+  // function renderDelete(evt, cb){
+  //   evt.preventDefault()
+  //   cb()
+  // }
 
+  function handleDeleteSuccess(id) {
+    console.log('handleDeleteSuccess called');
+    const temp = [...transactions]
+    temp.splice(temp.map(e => e.id).indexOf(id),1);
+    setTransactions(temp);
+  }
 
   return(
     <div>
-    {transactions.map(transaction => {
+
+    {transactions.map((transaction) => {
      
       return(
-        <div>
+        <div key={transaction.id}>
+
           <form>
             {transaction.store_name} <br/> 
             ${transaction.amount} <br/>
             {transaction.entered_on} <br/>
             {transaction.description} <br/>
-           <button type="submit" onClick={renderEdit}>Edit</button>
-           <button type="submit" onClick={renderDelete}>Delete</button>
           </form>
-          
-          {showDelete && <Delete 
+
+          <TransactionsItem 
+            category_id={transaction.category_id}
+            id={transaction.id} 
+            name={transaction.store_name} 
+            amount={transaction.amount} 
+            entered_on={transaction.entered_on} 
+            description={transaction.description}
+            onDeleteSuccess={handleDeleteSuccess}
+          />
+
+          {/* {showDelete && <Delete 
           id={transaction.id}
           renderDelete={renderDelete}
+          onDeleteSuccess={handleDeleteSuccess}
           />
           }
 
@@ -62,7 +75,7 @@ export default function Transactions(props){
           amount={transaction.amount} 
           entered_on={transaction.entered_on} 
           description={transaction.description}
-           />}
+           />} */}
         </div>
       
         

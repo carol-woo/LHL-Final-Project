@@ -36,7 +36,7 @@ app.post('/login', async (req, res) => {
 
 app.get('/logout',  (req, res) => {
   console.log("/logout, please nuke the session")
-  console.log("what is my session?", req.session)
+  // console.log("what is my session?", req.session)
   req.session = null;
   res.json({logout: 'ok'})
 })
@@ -53,7 +53,7 @@ app.get('/api/home', async (req, res) => {
 // app.get('/api/home', db1.getCategories)
 
 app.post('/new-user', async (req, res) => {
-  console.log(req.body)
+  console.log('new user in index.js')
   let name = req.body.name 
   let email = req.body.email 
   let password_digest= req.body.password_digest
@@ -105,14 +105,14 @@ app.post('/api/new-category',async (req, res) => {
     res.status(500).send("ERROR");
     console.log(error)
   }
-  //  console.log("TESTING THE INFO",info)
+   console.log("new-category in index.js",info)
 }) 
 
 
 app.get('/api/transactions', db1.getTransactions)
 
 app.post('/new-entry', (req, res) =>{
-  console.log(req.body)
+  console.log("new entry in index.js")
   let store_name = req.body.store_name
   let category_id = req.body.category_id
   let amount = req.body.amount
@@ -134,7 +134,7 @@ app.post('/new-entry', (req, res) =>{
 
 
 app.post('/api/transactions',(req,res) =>{
-  console.log(req.body)
+  console.log("transactions in index.js")
   
   let store_name = req.body.store_name
   let amount = req.body.amount
@@ -154,12 +154,12 @@ app.post('/api/transactions',(req,res) =>{
   }
 
   db1.editTransaction(info)
-  console.log("running after edit")
+  console.log("edit transactions in index.js")
   res.status(200).send(`Edited transactions`)
 }) 
 
 app.delete('/api/transactions', (req, res) => {
-  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`WHAT AM I TRYING TO DELETE?",req.body)
+  console.log("delete transaction in index.js")
  let id = req.body.id
  
   db1.deleteTransaction(id)
@@ -167,10 +167,22 @@ app.delete('/api/transactions', (req, res) => {
 
 })
 
-
-
-
-
+app.post('/api/home', async (req, res) => {
+  const category_id = req.body.deleteCategoryId;
+  const user_id = req.session.user_id;
+  const info = {
+    category_id,
+    user_id
+  }
+  console.log("delete category in index.js", info)
+  try {
+    await db1.deleteCategory(info)
+    res.status(200).send(`Transaction deleted`)
+  } catch (error) {
+    res.status(500).send("Error")
+    console.log(error)
+  }
+})
 
 
 app.listen(port, () => {
