@@ -38,7 +38,7 @@ let drawerClasses = 'side-drawer';
         <li><Link to="/register" className="a">Register</Link></li>
         <li><Link to="/home" className="a">Homepage</Link></li>
         <li><Link to="/new-entry" className="a">New Entry</Link></li>
-        <li><Link to="/api/new-category" className="a">Add Category</Link></li>
+        <li><Link to="/new-category" className="a">Add Category</Link></li>
         <li><Link to="/home" className="a">Monthly View</Link></li>
       </ul>
     </nav>
@@ -69,7 +69,7 @@ let drawerClasses = 'side-drawer';
         </div>
 
         <div>
-          <Route path="/api/new-category" component={NewCategory}></Route>
+          <Route path="/new-category" component={NewCategory}></Route>
         </div>
 
         <div className="monthly-view">

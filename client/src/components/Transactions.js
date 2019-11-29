@@ -45,7 +45,7 @@ export default function Transactions(props){
           <form>
             {transaction.store_name} <br/> 
             ${transaction.amount} <br/>
-            {transaction.entered_on} <br/>
+            {(new Date(transaction.entered_on).toDateString())} <br/>
             {transaction.description} <br/>
           </form>
 
