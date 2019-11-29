@@ -86,16 +86,10 @@ const editTransaction = async (info) => {
 }
   
 
-// const deleteTransaction = async (req, res) => {
-//  const transaction_id = parseInt(req.params.id)
-//   await pool.query(`DELETE FROM transactions WHERE id = $1`, [transaction_id], (error, results) => {
-//     if (error) {
-//       throw error
-//     }
-//     console.log("deleteTransaction being used in queries.js")
-//     res.status(200).send(`Transaction deleted`)
-//   })
-// }
+const deleteTransaction = async (id) => {
+  await pool.query(`DELETE FROM transactions WHERE id = $1`, [id])
+  }
 
 
-module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction}
+
+module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction, deleteTransaction}
