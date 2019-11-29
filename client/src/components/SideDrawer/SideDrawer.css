@@ -1,6 +1,7 @@
 .side-drawer {
   height: 100%;
-  background: white;
+  background: url("https://cdn.hipwallpaper.com/m/67/64/LijZqG.jpg") no-repeat;
+  background-size: auto 100%;
   box-shadow: 1px 0 7px rgba(0,0,0, 0.5);
   position: fixed;
   top: 0;
@@ -11,34 +12,42 @@
   transition: transform 0.3s ease-out;
 }
 
-#logo_icon {
-  background-image: url("../../styles/Images/CIRCLE-05.png");
-  background-size: 60px, 60px;
-}
-
 .side-drawer.open {
   transform: translateX(0);
 }
 
 .side-drawer ul {
+  padding: 0;
   height: 100%;
   list-style: none;
   display: flex; 
   flex-direction: column;
+  justify-content: baseline;
+}
+
+.logo_icon {
+  display: flex;
   justify-content: center;
 }
 
+#app_logo {
+  display: flex;
+  align-self: center;
+  width: 220px;
+  height: 220px;
+}
+
 .side-drawer li {
-  margin: 0.5rem 0;
+  margin: 2rem 0;
 }
 
 .side-drawer a {
-  color: red;
+  color: black;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .side-drawer a:hover,
 .side-drawer a:active {
-  color: black;
+  color: red;
 }
