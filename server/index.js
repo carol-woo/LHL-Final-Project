@@ -183,11 +183,13 @@ app.post('/api/home', async (req, res) => {
   }
 })
 
-//gotta add params to this  
-app.get('/categories-transactions', async (req,res) => {
-  console.log(res)
-  const result = await db2.getCategoryTransactions()
-  res.status(200).json(result)
+
+app.get('/categories-transactions/:id', (req,res) => {
+  console.log("DO IT HERE")
+  console.log("CAT ID IS", req.params.id)
+  let id = Number(req.params.id)
+  db2.getCategoryTransactions(id)
+  res.json({data: 'ok'})
 })
 
 app.listen(port, () => {

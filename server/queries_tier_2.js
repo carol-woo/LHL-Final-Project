@@ -8,7 +8,7 @@ const pool = new Pool({
 })
 
 
-const userVerification = async (email, password) => {
+const userVerification = async (email,  password) => {
  const res =  await pool.query(`
     SELECT * FROM users
     WHERE email=$1 AND password_digest=$2;`,[email,password]);
@@ -28,7 +28,7 @@ getUsercategories = async(user_id) => {
 
 getCategoryTransactions = async(category_id) => {
   try {
-   let transactions = await pool.query(`select * from transactions join categories on categories.id = category_id where category_id = 1`);
+   let transactions = await pool.query(`select * from transactions join categories on categories.id = category_id where category_id = 16;`);
    return transactions;
     // return await pool.query(`SELECT * FROM categories`);
   } catch (error) {

@@ -58,11 +58,29 @@ export default function Homepage() {
     );
   }
 
+  function getTransactions(id) {
+    axios({
+      method: "get",
+      url: `/categories-transactions/${id}`,
+      data: {
+        category_id: id
+      },
+      responseType: 'json'
+    }).then(
+      function(response) {
+
+        console.log("TEH Response", response);
+      },
+      error => {
+        alert(`Category could not be deleted`)
+        console.log(error);
+      }
+    );
+  }
 
   return (
     <div className="category">
-
-      <Transactions categoryId={categories.id}/>
+      <BrowserRouter>
 
 
       {categories.map((category) => {
@@ -73,30 +91,40 @@ export default function Homepage() {
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
+           
+           <Link to="/category-transactions">
             <button
             type="submit"
             id={category.name}
             className="category_buttons"
+            onClick={() => getTransactions(category.id)}
             >{category.name} </button>
+          </Link>
+
             <button
             type="submit"
             id={category.name}
             className="category_buttons"
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
+         
+          <Route exact path="/category-transactions" render={() => <Transactions id={category.id}/>}/>
+            
             </div>
             
         )
       })}
       
+
       
+      </BrowserRouter>
 
 
       I am home page <br />
 
       <button>New Entry</button>
       <button>Add Category</button>
-
+      
     </div>
   )
 }
