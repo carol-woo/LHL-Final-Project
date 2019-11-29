@@ -2,6 +2,7 @@ import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
+import "../styles/Homepage.css";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import Category from './Category';
 
@@ -76,10 +77,7 @@ export default function Homepage() {
           <div
           key={category.id}
           className={category.name}>
-            <h1>Add Category</h1>
-            <h2>Home</h2>
-            <h3>General Home Category</h3>
-           
+            <h1>{category.name}</h1>           
            <Link to="/category-transactions">
             <button
             type="submit"
@@ -107,11 +105,6 @@ export default function Homepage() {
       
       </BrowserRouter>
 
-
-      I am home page <br />
-
-      <button>New Entry</button>
-      <button>Add Category</button>
       
     </div>
   )
