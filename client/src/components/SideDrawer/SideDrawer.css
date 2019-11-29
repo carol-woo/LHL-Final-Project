@@ -11,6 +11,11 @@
   transition: transform 0.3s ease-out;
 }
 
+#logo_icon {
+  background-image: url("../../styles/Images/CIRCLE-05.png");
+  background-size: 60px, 60px;
+}
+
 .side-drawer.open {
   transform: translateX(0);
 }

@@ -12,6 +12,7 @@ let drawerClasses = 'side-drawer';
   return (  
   <BrowserRouter>
     <nav className={drawerClasses}>
+      <div id="logo_icon"></div>
       <ul>
         <li><Link to="/home" className="a">Homepage</Link></li>
         <li><Link to="/new-entry" className="a">New Entry</Link></li>
