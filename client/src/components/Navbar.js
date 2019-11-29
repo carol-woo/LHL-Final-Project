@@ -1,13 +1,8 @@
 import React from "react";
 import { Route, Link, BrowserRouter } from "react-router-dom";
-import NewEntry from "./NewEntry";
-import MonthlyView from "./MonthlyView"
-import Homepage from "./Homepage";
-import NewCategory from "./NewCategory";
-import Login from "./Login";
-import Register from "./Register";
 import '../styles/nav.css';
 import "../styles/App.css";
+import Homepage from "./Homepage";
 import axios from "axios"; 
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
@@ -38,7 +33,9 @@ export default function Navbar(props){
           <div>
             <DrawerToggleButton click={props.drawerClickHandler}/>
           </div>
-          <div className="toolbar_logo"><img src={require("../styles/Images/CIRCLE-05.png")} id="navbar_logo"/></div>
+          <div className="toolbar_logo">
+            <Link to="/home"><img src={require("../styles/Images/CIRCLE-07.png")} id="navbar_logo" /></Link>
+          </div>
           <div className="spacer"/>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
