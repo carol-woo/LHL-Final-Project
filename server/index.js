@@ -157,12 +157,6 @@ app.post('/api/transactions',(req,res) =>{
   res.status(200).send(`Edited transactions`)
 }) 
 
-<<<<<<< HEAD
-// app.delete('/transactions:id', db1.deleteTransaction)
-
-
-
-=======
 app.delete('/api/transactions', (req, res) => {
   console.log("delete transaction in index.js")
  let id = req.body.id
@@ -188,7 +182,6 @@ app.post('/api/home', async (req, res) => {
     console.log(error)
   }
 })
->>>>>>> master
 
 
 app.listen(port, () => {

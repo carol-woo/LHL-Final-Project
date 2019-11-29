@@ -73,11 +73,6 @@ export default function Homepage() {
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
-<<<<<<< HEAD
-            <button type="submit" id={category.name} className="category_buttons">{category.name}</button>
-            <button type="submit">Delete</button>
-          </div>
-=======
             <button
             type="submit"
             id={category.name}
@@ -91,7 +86,6 @@ export default function Homepage() {
             >Delete</button>
             </div>
             
->>>>>>> master
         )
       })}
       
