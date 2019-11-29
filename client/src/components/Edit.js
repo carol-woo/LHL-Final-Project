@@ -30,7 +30,8 @@ export default function Edit(props){
   // }
 
 
-  const submitEdit = async () => {
+  const submitEdit = async (evt) => {
+    evt.preventDefault()
     try {
       let response = await axios({
         method: 'post',
