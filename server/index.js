@@ -159,8 +159,18 @@ app.post('/api/transactions',(req,res) =>{
 }) 
 
 app.delete('/api/transactions', (req, res) => {
-  console.log("delete transactions in index.js")
+  console.log("delete transaction in index.js")
  let id = req.body.id
+ 
+  db1.deleteTransaction(id)
+  res.status(200).send(`Transaction deleted`)
+
+})
+
+app.delete('/api/home', async (req, res) => {
+  const user_id = req.session.user_id
+  let id = req.body.deleteCategoryId
+  console.log("delete category in index.js")
  
   db1.deleteTransaction(id)
   res.status(200).send(`Transaction deleted`)

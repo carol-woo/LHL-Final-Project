@@ -21,6 +21,37 @@ export default function Homepage() {
       })  
   }, [])
 
+  function updateState (category) {
+    let categories = [...categories];
+    categories = categories.filter(eachCategory => eachCategory.id !== category.id)
+    setCategories(categories);
+
+  }
+
+  function deleteUserCategory({id}) {
+    // setSelectedCategoryId(id)
+    // setSelectedCategoryName(name)
+    axios({
+      method: "post",
+      url: `/api/home`,
+      data: {
+        deleteCategoryId: Number(id)
+        // categoryBudget: Number(budget),
+        // name: name
+      },
+      responseType: 'json'
+    }).then(
+      function(response) {
+
+        // console.log("TEH Response", response);
+      },
+      error => {
+        alert(`Category could not be deleted`)
+        console.log(error);
+      }
+    );
+  }
+
 
   return (
     <div className="category">
@@ -31,8 +62,7 @@ export default function Homepage() {
         return (
           <div
           key={category.id}
-          className={category.name} >
-          
+          className={category.name}>
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
@@ -41,7 +71,14 @@ export default function Homepage() {
             id={category.name}
             className="category_buttons"
             >{category.name} </button>
+            <button
+            type="submit"
+            id={category.name}
+            className="category_buttons"
+            onClick={() => deleteUserCategory(category)}
+            >Delete</button>
             </div>
+            
         )
       })}
 
