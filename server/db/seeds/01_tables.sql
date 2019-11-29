@@ -5,12 +5,12 @@
 INSERT INTO users (name, email, password_digest,  budget)
 VALUES ('vasily', 'vasily@vasily.com', 'test', 1000);
 
--- INSERT INTO categories (name, user_id, category_budget)
--- VALUES ('Housing', 1, 2000),
--- ('Transportation', 1, 100),
--- ('Recreational', 1, 300),
--- ('Miscellaneous', 1, 40),
--- ('Food', 1, 2),
+INSERT INTO categories (name, user_id, category_budget)
+VALUES ('Housing', 1, 2000),
+('Transportation', 1, 100),
+('Recreational', 1, 300),
+('Miscellaneous', 1, 40),
+('Food', 1, 2);
 -- ('Insurance', 1, 1000),
 -- ('Healthcare', 1, 400),
 -- ('Rent', 1, 5),
@@ -35,16 +35,16 @@ VALUES ('vasily', 'vasily@vasily.com', 'test', 1000);
 -- ('Pets', 1, 500),
 -- ('Loans', 1, 2);
 
-INSERT INTO categories (name, category_budget)
-VALUES ('Housing', 2000),
-('Transportation', 100),
-('Recreational', 300),
-('Miscellaneous', 40),
-('Food', 2),
-('Insurance', 1000),
-('Healthcare', 400),
-('Rent', 5),
-('Mortgage', 70);
+-- INSERT INTO categories (name, category_budget)
+-- VALUES ('Housing', 2000),
+-- ('Transportation', 100),
+-- ('Recreational', 300),
+-- ('Miscellaneous', 40),
+-- ('Food', 2),
+-- ('Insurance', 1000),
+-- ('Healthcare', 400),
+-- ('Rent', 5),
+-- ('Mortgage', 70);
 -- ('Property Tax', 600),
 -- ('Home Maintenance', 40),
 -- ('Gas', 25),
