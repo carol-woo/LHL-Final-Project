@@ -61,6 +61,7 @@ export default function Homepage() {
 
       <Transactions categoryId={categories.id}/>
 
+
       {categories.map((category) => {
         return (
           <div

@@ -30,7 +30,8 @@ export default function Edit(props){
   // }
 
 
-  const submitEdit = async () => {
+  const submitEdit = async (evt) => {
+    evt.preventDefault()
     try {
       let response = await axios({
         method: 'post',
@@ -44,9 +45,7 @@ export default function Edit(props){
           id: props.id
         },
       })
-
-
-      console.log("HELLO! IS IT THE homepage you are looking for?")
+      props.renderEdit()
       return response
     } catch(error) {
       console.log("GOOTTT!")
