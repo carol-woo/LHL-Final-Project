@@ -12,6 +12,7 @@ import Category from './Category';
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
+
   
 
 
@@ -20,7 +21,7 @@ export default function Homepage() {
     axios.get('/api/home')
       .then((res) => {
         console.log("TESTING",res)
-        setCategories(res.data)
+        setCategories(res.data.map( cat => {return {...cat, show: false}}));
       })  
   }, [])
 
@@ -58,24 +59,11 @@ export default function Homepage() {
     );
   }
 
-  function getTransactions(id) {
-    axios({
-      method: "get",
-      url: `/categories-transactions/${id}`,
-      data: {
-        category_id: id
-      },
-      responseType: 'json'
-    }).then(
-      function(response) {
-
-        console.log("TEH Response", response);
-      },
-      error => {
-        alert(`Category could not be deleted`)
-        console.log(error);
-      }
-    );
+  function getTransactions(id, cb) {
+    const temp = [...categories];
+    let index = temp.map( c => c.id ).indexOf(id);
+    temp[index].show = !temp[index].show;
+    setCategories(temp)
   }
 
   return (
@@ -108,7 +96,7 @@ export default function Homepage() {
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
          
-          <Route exact path="/category-transactions" render={() => <Transactions id={category.id}/>}/>
+          {category.show && <Transactions id={category.id} handleOnGetTransactions={getTransactions} show={category.show}/>}
             
             </div>
             

@@ -8,14 +8,29 @@ import TransactionsItem from "./TransactionsItem"
 export default function Transactions(props){
   const [transactions, setTransactions] = useState([]);
   console.log("~~~~~~~~~~~~~~props for transactions~~~~~~~~~~~~~`", props)
-  // useEffect(() => {
-  //   console.log("INHERE!")
-  //   axios.get(`/categories-transactions/${props.id}`)
+  // axios.get(`/categories-transactions/${props.id}`)
   //     .then((res) => {
   //       console.log("TESTING",res)
   //       setTransactions(res.data)
   //     })  
-  // }, [])
+  
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: `/categories-transactions/${props.id}`,
+      responseType: 'json'
+    }).then(
+      function(response) {  
+        console.log("TEH Response", response);
+        setTransactions(response.data.data);
+      },
+      error => {
+        alert(`Category could not be deleted`)
+        console.log(error);
+      }
+    );
+  }, [])
+  
   
   function handleDeleteSuccess(id) {
     console.log('handleDeleteSuccess called');
@@ -39,7 +54,8 @@ export default function Transactions(props){
             {transaction.description} <br/>
           </form>
 
-          <TransactionsItem 
+          <TransactionsItem
+            handleOnGetTransactions={props.handleOnGetTransactions}
             category_id={transaction.category_id}
             id={transaction.id} 
             name={transaction.store_name} 
