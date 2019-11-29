@@ -8,6 +8,10 @@ export default function Delete(props){
     axios.delete(`/api/transactions`, {data: {
           id:props.id
         }
+      }).then((data) => {
+        // check data == 200
+
+        props.onDeleteSuccess(props.id);
       })
     } 
 

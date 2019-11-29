@@ -33,6 +33,13 @@ export default function Transactions(props){
     toggleDelete(prev => !prev)
   }
 
+  function handleDeleteSuccess(id) {
+    // remove the transaciton with ID = id, set transactions without that record
+    console.log('handleDeleteSuccess called');
+    const newTransactions = [...transactions].slice(id);
+    console.log('new transactions:', newTransactions);
+    setTransactions(newTransactions);
+  }
 
   return(
     <div>
@@ -52,6 +59,7 @@ export default function Transactions(props){
           {showDelete && <Delete 
           id={transaction.id}
           renderDelete={renderDelete}
+          onDeleteSuccess={handleDeleteSuccess}
           />
           }
 
