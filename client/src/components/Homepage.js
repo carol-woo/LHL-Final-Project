@@ -73,11 +73,16 @@ export default function Homepage() {
 
 
       {categories.map((category) => {
+        let remaining= category.category_budget
+        const RB = function (amount){
+          return remaining - amount
+        }
         return (
           <div
           key={category.id}
           className={category.name}>
-            <h1>{category.name}</h1>           
+            <h1>{category.name}</h1>  
+            <p>Your set budget is ${category.category_budget}</p>         
            <Link to="/category-transactions">
             <button
             type="submit"
@@ -94,7 +99,12 @@ export default function Homepage() {
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
          
-          {category.show && <Transactions id={category.id} handleOnGetTransactions={getTransactions} show={category.show}/>}
+          {category.show && <Transactions 
+          id={category.id} 
+          handleOnGetTransactions={getTransactions} 
+          show={category.show}
+          RB={RB}
+          />}
             
             </div>
             
