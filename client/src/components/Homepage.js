@@ -2,6 +2,9 @@ import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
+import { Route, Link, BrowserRouter } from "react-router-dom";
+import Category from './Category';
+
 
 
 
@@ -9,6 +12,7 @@ import "../styles/categorybuttons.css";
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
+
   
 
 
@@ -17,7 +21,7 @@ export default function Homepage() {
     axios.get('/api/home')
       .then((res) => {
         console.log("TESTING",res)
-        setCategories(res.data)
+        setCategories(res.data.map( cat => {return {...cat, show: false}}));
       })  
   }, [])
 
@@ -55,11 +59,16 @@ export default function Homepage() {
     );
   }
 
+  function getTransactions(id, cb) {
+    const temp = [...categories];
+    let index = temp.map( c => c.id ).indexOf(id);
+    temp[index].show = !temp[index].show;
+    setCategories(temp)
+  }
 
   return (
     <div className="category">
-
-      <Transactions categoryId={categories.id}/>
+      <BrowserRouter>
 
 
       {categories.map((category) => {
@@ -70,27 +79,40 @@ export default function Homepage() {
             <h1>Add Category</h1>
             <h2>Home</h2>
             <h3>General Home Category</h3>
+           
+           <Link to="/category-transactions">
             <button
             type="submit"
             id={category.name}
             className="category_buttons"
+            onClick={() => getTransactions(category.id)}
             >{category.name} </button>
+          </Link>
+
             <button
             type="submit"
             id={category.name}
             className="category_buttons"
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
+         
+          {category.show && <Transactions id={category.id} handleOnGetTransactions={getTransactions} show={category.show}/>}
+            
             </div>
             
         )
       })}
+      
 
       
+      </BrowserRouter>
+
+
       I am home page <br />
 
       <button>New Entry</button>
       <button>Add Category</button>
+      
     </div>
   )
 }

@@ -101,7 +101,6 @@ app.post('/api/new-category',async (req, res) => {
     await db1.addCategory(info)
     res.status(200).send(`Category`)
   } catch (error) {
-    // alert(`${name} has already this category`)
     res.status(500).send("ERROR");
     console.log(error)
   }
@@ -184,6 +183,15 @@ app.post('/api/home', async (req, res) => {
   }
 })
 
+
+app.get('/categories-transactions/:id', async (req,res) => {
+  console.log("DO IT HERE")
+  console.log("CAT ID IS", req.params.id)
+  let id = Number(req.params.id)
+  let data = await db2.getCategoryTransactions(id)
+  console.log(data.rows)
+  res.json({data: data.rows})
+})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)

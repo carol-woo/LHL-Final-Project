@@ -7,28 +7,31 @@ import TransactionsItem from "./TransactionsItem"
 
 export default function Transactions(props){
   const [transactions, setTransactions] = useState([]);
-  const [showForm, toggleForm] = useState(false)
-  const [showDelete, toggleDelete] = useState(false)
-
+  console.log("~~~~~~~~~~~~~~props for transactions~~~~~~~~~~~~~`", props)
+  // axios.get(`/categories-transactions/${props.id}`)
+  //     .then((res) => {
+  //       console.log("TESTING",res)
+  //       setTransactions(res.data)
+  //     })  
+  
   useEffect(() => {
-    console.log("INHERE!")
-    axios.get('/api/transactions')
-      .then((res) => {
-        console.log("TESTING",res)
-        setTransactions(res.data)
-      })  
+    axios({
+      method: "get",
+      url: `/categories-transactions/${props.id}`,
+      responseType: 'json'
+    }).then(
+      function(response) {  
+        console.log("TEH Response", response);
+        setTransactions(response.data.data);
+      },
+      error => {
+        alert(`Category could not be deleted`)
+        console.log(error);
+      }
+    );
   }, [])
   
-  // function renderEdit(evt, cb){
-  //   evt.preventDefault()
-  //   cb()
-  // }
-
-  // function renderDelete(evt, cb){
-  //   evt.preventDefault()
-  //   cb()
-  // }
-
+  
   function handleDeleteSuccess(id) {
     console.log('handleDeleteSuccess called');
     const temp = [...transactions]
@@ -51,7 +54,8 @@ export default function Transactions(props){
             {transaction.description} <br/>
           </form>
 
-          <TransactionsItem 
+          <TransactionsItem
+            handleOnGetTransactions={props.handleOnGetTransactions}
             category_id={transaction.category_id}
             id={transaction.id} 
             name={transaction.store_name} 
@@ -60,22 +64,6 @@ export default function Transactions(props){
             description={transaction.description}
             onDeleteSuccess={handleDeleteSuccess}
           />
-
-          {/* {showDelete && <Delete 
-          id={transaction.id}
-          renderDelete={renderDelete}
-          onDeleteSuccess={handleDeleteSuccess}
-          />
-          }
-
-          {showForm && <Edit 
-          category_id={transaction.category_id}
-          id={transaction.id} 
-          name={transaction.store_name} 
-          amount={transaction.amount} 
-          entered_on={transaction.entered_on} 
-          description={transaction.description}
-           />} */}
         </div>
       
         
