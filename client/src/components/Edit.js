@@ -7,28 +7,6 @@ export default function Edit(props){
   const [entered_on, setEntered_on] = useState()
   const [description, setDescription] = useState()
   
-  // function submitEdit(){
-  //   axios({
-  //     method: 'post',
-  //     //Temp sending route from homepage
-  //     url: `/api/transactions`,
-  //     data: {
-  //       store_name,
-  //       amount,
-  //       entered_on,
-  //       description,
-  //       category_id: props.category_id,
-  //       id: props.id
-  //     }
-  //     })
-  //   .then(function(response) {
-  //     console.log("TEH Response", response);
-  //   }, (error) => {
-  //     console.log("GOOTTT!")
-  //     console.log(error)
-  //   })
-  // }
-
 
   const submitEdit = async (evt) => {
     evt.preventDefault()
