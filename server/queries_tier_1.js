@@ -92,13 +92,10 @@ const deleteTransaction = async (id) => {
 
 
   const deleteCategory = async (info) => {
-    console.log("editTransaction is running!")
+    console.log("deleteCategory in queries_tier_1 is running!")
    try{
     await pool.query(`
-    UPDATE transactions 
-    SET store_name = $2, category_id = $3, amount = $4, entered_on = $5, description= $6
-    WHERE id = $1
-    `, [info.id, info.store_name, info.category_id, info.amount, info.entered_on, info.description])
+    DELETE FROM categories WHERE categories.id = $1 AND categories.user_id = $2; `, [info.category_id, info.user_id])
    } catch(error) {
      console.log(error)
    }
@@ -106,4 +103,4 @@ const deleteTransaction = async (id) => {
 
 
 
-module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction, deleteTransaction}
+module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction, deleteTransaction, deleteCategory}

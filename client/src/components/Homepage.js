@@ -21,16 +21,19 @@ export default function Homepage() {
       })  
   }, [])
 
-  function updateState (category) {
-    let categories = [...categories];
-    categories = categories.filter(eachCategory => eachCategory.id !== category.id)
-    setCategories(categories);
-
+  function updateState (categoryId) {
+    let tempCategories = [...categories];
+    tempCategories = categories.filter(eachCategory => eachCategory.id !== categoryId)
+    setCategories(tempCategories);
+    console.log("TESTING THE tempCategory", tempCategories)
   }
 
-  function deleteUserCategory({id}) {
+  function deleteUserCategory(id) {
+    console.log("TESTING THE CATEGORY inside the deletefunction in homepage", id)
     // setSelectedCategoryId(id)
     // setSelectedCategoryName(name)
+    updateState(id)
+
     axios({
       method: "post",
       url: `/api/home`,
@@ -75,7 +78,7 @@ export default function Homepage() {
             type="submit"
             id={category.name}
             className="category_buttons"
-            onClick={() => deleteUserCategory(category)}
+            onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
             </div>
             
