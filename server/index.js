@@ -167,15 +167,18 @@ app.delete('/api/transactions', (req, res) => {
 
 })
 
-app.delete('/api/home', async (req, res) => {
-  const user_id = req.session.user_id
-  let id = req.body.deleteCategoryId
-  console.log("delete category in index.js")
- 
-  db1.deleteTransaction(id)
-  res.status(200).send(`Transaction deleted`)
-
-})
+// app.delete('/api/home', async (req, res) => {
+//   const user_id = req.session.user_id
+//   let id = req.body.deleteCategoryId
+//   console.log("delete category in index.js")
+//   try {
+//     db1.deleteTransaction(id)
+//     res.status(200).send(`Transaction deleted`)
+//   } catch (error) {
+//     res.status(500).send("Error")
+//     console.log(error)
+//   }
+// })
 
 
 
