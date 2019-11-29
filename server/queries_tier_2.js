@@ -29,6 +29,7 @@ getUsercategories = async(user_id) => {
 getCategoryTransactions = async(category_id) => {
   try {
    let transactions = await pool.query(`select * from transactions join categories on categories.id = category_id where category_id = ${category_id};`);
+   console.log("TESTING TRA", transactions)
    return transactions;
     // return await pool.query(`SELECT * FROM categories`);
   } catch (error) {
