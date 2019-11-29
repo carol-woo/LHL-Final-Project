@@ -13,17 +13,22 @@ function App(props) {
       setSideDrawerOpen((prevState) => !prevState)
   };
 
-  let sideDrawer;
+  const backdropClickHandler = () => { 
+    setSideDrawerOpen(false)
+  }
+
   let backdrop
 
   if(sideDrawerOpen) {
-    sideDrawer = <SideDrawer />;
-    backdrop = <Backdrop />
+    backdrop = <Backdrop click={backdropClickHandler}/>
   }
+  
   return (
     <div className="App">
-      <Navbar drawerClickHandler={drawerToggleClickHandler}/>
-      {sideDrawer}
+      <Navbar 
+      drawerClickHandler={drawerToggleClickHandler} 
+      />
+      <SideDrawer show={sideDrawerOpen}/>
       {backdrop}
    </div>
   );

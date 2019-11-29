@@ -32,14 +32,19 @@ const addCategory = async info => {
   // console.log('HIIII ___--->>',testId)
   // const category_name = await pool.query(`SELECT name FROM categories WHERE categories.id = $1`, [info.category_id]);
   // console.log("CATEGORY NAME CAPTURED", category_name)
-  const result = await pool.query(
-    `INSERT INTO categories(name, user_id, category_budget)
-  VALUES ($1, $2, $3)`,
-    [info.name, info.user_id, info.category_budget]
-  );
-  console.log("addCategory being used in queries.js");
-  return result;
-};
+  try {
+    const result = await pool.query(
+      `INSERT INTO categories(name, user_id, category_budget)
+    VALUES ($1, $2, $3)`,
+      [info.name, info.user_id, info.category_budget]
+    );
+    console.log("addCategory being used in queries.js");
+    return result;
+  } catch (error) {
+    alert()
+    console.error(error);
+  }
+  }
 
 const getTransactions = async (req, res) => {
   await pool.query('SELECT * FROM transactions', (error, results) => {

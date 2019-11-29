@@ -29,7 +29,7 @@ export default function NewCategory() {
         // console.log("TEH Response", response);
       },
       error => {
-        // console.log("GOOTTT!");
+        alert(`${name} category has already been added`)
         console.log(error);
       }
     );
@@ -46,15 +46,15 @@ export default function NewCategory() {
       <h1>Add Category</h1>
 
       <form>
-        What is your budget?
-        <input
-          type="number"
-          value={budget}
-          onChange={event => setBudget(event.target.value)}
-        />
         {categories.map((category, i) => {
           let stringName = category.name.replace(" ", "-");
           return (
+            <div>
+            <input
+              type="number"              
+              value={budget}
+              onChange={event => setBudget(event.target.value)}
+            />
             <button
               key={i}
               type="submit"
@@ -66,7 +66,8 @@ export default function NewCategory() {
                 submitCategory(category)}}
             >
               {category.name}
-            </button >
+            </button>
+            </div>
           );
         })}
         {/* <button type="submit" id="rent" className="category_buttons">Rent</button>
