@@ -26,4 +26,14 @@ getUsercategories = async(user_id) => {
   }
 }
 
-module.exports = {userVerification, getUsercategories}
+getCategoryTransactions = async(category_id) => {
+  try {
+   let transactions = await pool.query(`select * from transactions join categories on categories.id = category_id where category_id = 1`);
+   return transactions;
+    // return await pool.query(`SELECT * FROM categories`);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+module.exports = {userVerification, getUsercategories, getCategoryTransactions}
