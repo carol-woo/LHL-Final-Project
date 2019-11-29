@@ -38,10 +38,12 @@ export default function Transactions(props){
 
   return(
     <div>
-    {transactions.map((transaction, i) => {
+
+    {transactions.map((transaction) => {
      
       return(
-        <div key={i}>
+        <div key={transaction.id}>
+
           <form>
             {transaction.store_name} <br/> 
             ${transaction.amount} <br/>
