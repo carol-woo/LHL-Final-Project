@@ -66,6 +66,7 @@ export default function NewEntry() {
     <div className="new-entry">
       <form>
       <h1>Add a new entry!</h1>
+      
       Store Name
       <span>
         <input

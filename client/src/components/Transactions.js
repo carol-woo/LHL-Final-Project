@@ -32,6 +32,8 @@ export default function Transactions(props){
     setTransactions(temp);
   }
 
+  
+
   return(
     <div>
 

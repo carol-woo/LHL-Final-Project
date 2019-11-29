@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios";
+import "../styles/Edit.css";
 
 export default function Edit(props){
   const [store_name, setStore_Name] = useState()
@@ -38,6 +39,7 @@ export default function Edit(props){
 
           Store Name
          <input 
+         className="inputMaterial"
          type="text" 
          placeholder={props.name}
          store_name={store_name}
