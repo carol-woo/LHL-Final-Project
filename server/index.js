@@ -183,6 +183,10 @@ app.post('/api/home', async (req, res) => {
   }
 })
 
+app.get('/categories-transactions', async (req,res) => {
+  const result = await db2.getCategoryTransactions()
+  res.status(200).json(result)
+})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
