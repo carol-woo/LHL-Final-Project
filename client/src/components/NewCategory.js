@@ -10,6 +10,10 @@ export default function NewCategory() {
   // const [selectedCategoryId, setSelectedCategoryId] = useState();
   // const [selectedCategoryName, setSelectedCategoryName] = useState();
 
+  function handleInput (event) {
+    const value = event.target.value;
+    setBudget(value)
+  }
 
   function submitCategory({id, name}) {
     // setSelectedCategoryId(id)
@@ -46,17 +50,20 @@ export default function NewCategory() {
       <h1>Add Category</h1>
 
       <form>
-        {categories.map((category, i) => {
+        {categories.map((category) => {
           let stringName = category.name.replace(" ", "-");
           return (
-            <div>
+            <div key={category.id}>
             <input
-              type="number"              
+              type="number" 
+              id={category.id}             
               value={budget}
-              onChange={event => setBudget(event.target.value)}
+              // onChange={event => {event.preventDefault();
+              //   setBudget(event.target.value)}}
+              onChange={handleInput}
             />
             <button
-              key={i}
+              key={category.id}
               type="submit"
               id={stringName}
               name={category.name}
@@ -70,42 +77,7 @@ export default function NewCategory() {
             </div>
           );
         })}
-        {/* <button type="submit" id="rent" className="category_buttons">Rent</button>
-      <button type="submit" id="mortgage" className="category_buttons">Mortgage</button>
-      <button type="submit" id="property" className="category_buttons">Property Tax</button>
-      <button type="submit" id="water" className="category_buttons">Water</button>
-      <button type="submit" id="home_maintenance" className="category_buttons">Home Maintenance</button>
-      <button type="submit" id="home_phone" className="category_buttons">Home Phone</button>
-      <button type="submit" id="hydro" className="category_buttons">Hydro</button>
-      <button type="submit" id="cable_internet" className="category_buttons">Cable/Internet</button>
-      <button type="submit" id="cell_phone" className="category_buttons">Cell Phone</button>
-      <h2>Insurance</h2>
-      <h3>General Insurance Category</h3>
-      <button type="submit" id="insurance" className="category_buttons">Insurance</button>
-      <h3>Specific Insurance Categories</h3>
-      <button type="submit" id="mortgage_insurance" className="category_buttons">Mortgage Insurance</button>
-      <button type="submit" id="home_insurance" className="category_buttons">Home insurance</button>
-      <button type="submit" id="life_insurance" className="category_buttons">Life Insurance</button>
-      <button type="submit" id="auto_insurance" className="category_buttons">Auto Insurance</button>
-      <h2>Travel</h2>
-      <button type="submit" id="transportation" className="category_buttons">Transportation</button>
-      <button type="submit" id="gas" className="category_buttons">Gas</button>
-      <button type="submit" id="public_transportation" className="category_buttons">Public Transportation</button>
-      <button type="submit" id="parking" className="category_buttons">Parking</button>
-      <h2>Eating</h2>
-      <h3>General Food Category</h3>
-      <button type="submit" id="food" className="category_buttons">Food</button>
-      <h3>Specific Food Categories</h3>
-      <button type="submit" id="groceries" className="category_buttons">Groceries</button>
-      <button type="submit" id="restaurants" className="category_buttons">Restaurants</button>
-      <button type="submit" id="beverage" className="category_buttons">Beverage</button>
-      <h2>Others</h2>
-      <button type="submit" id="recreational" className="category_buttons">Recreational</button>
-      <button type="submit" id="loans" className="category_buttons">Loans</button>
-      <button type="submit" id="miscellaneous" className="category_buttons">Miscellaneous</button>
-      <button type="submit" id="medical" className="category_buttons">Medical/Healtcare</button>
-      <button type="submit" id="pets" className="category_buttons">Pets</button> */}
-      </form>
+        </form>
     </div>
   );
 }

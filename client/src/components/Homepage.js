@@ -2,6 +2,7 @@ import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import Transactions from "./Transactions"
 import "../styles/categorybuttons.css";
+import Form from './Form';
 
 
 
