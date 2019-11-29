@@ -3,19 +3,45 @@ import axios from "axios";
 import Popover from "./Popover";
 import "../styles/categorybuttons.css";
 
+const CategoryBudgetForm = ({category, onClick}) => {
+  const [budget, setBudget] = useState(0);
+
+  const handleInput = (event) => {
+    const value = event.target.value;
+    setBudget(value)
+  };
+
+  const stringName = category.name.replace(" ", "-");
+
+  return (<div key={category.id}>
+            <input
+              type="number" 
+              id={category.id}             
+              value={budget}
+              // onChange={event => {event.preventDefault();
+              //   setBudget(event.target.value)}}
+              onChange={(event) => handleInput(event)}
+            />
+            <button
+              key={category.id}
+              type="submit"
+              id={stringName}
+              name={category.name}
+              // id={category.name}
+              className="category_buttons"
+              onClick={(e) => { e.preventDefault(); onClick(budget); }}
+            >
+              {category.name}
+            </button>
+            </div>);
+}
+
 //New Category view
 export default function NewCategory() {
   const [categories, setCategories] = useState([]);
-  const [budget, setBudget] = useState('');
-  // const [selectedCategoryId, setSelectedCategoryId] = useState();
-  // const [selectedCategoryName, setSelectedCategoryName] = useState();
+ 
 
-  function handleInput (event) {
-    const value = event.target.value;
-    setBudget(value)
-  }
-
-  function submitCategory({id, name}) {
+  function submitCategory({id, name}, budget) {
     // setSelectedCategoryId(id)
     // setSelectedCategoryName(name)
     axios({
@@ -50,31 +76,9 @@ export default function NewCategory() {
       <h1>Add Category</h1>
 
       <form>
-        {categories.map((category) => {
-          let stringName = category.name.replace(" ", "-");
+        {categories.map((category, i) => {
           return (
-            <div key={category.id}>
-            <input
-              type="number" 
-              id={category.id}             
-              value={budget}
-              // onChange={event => {event.preventDefault();
-              //   setBudget(event.target.value)}}
-              onChange={handleInput}
-            />
-            <button
-              key={category.id}
-              type="submit"
-              id={stringName}
-              name={category.name}
-              // id={category.name}
-              className="category_buttons"
-              onClick={event => {event.preventDefault();
-                submitCategory(category)}}
-            >
-              {category.name}
-            </button>
-            </div>
+            <CategoryBudgetForm onClick={(budget) => {  submitCategory(category, budget)}} category={category} />
           );
         })}
         </form>
