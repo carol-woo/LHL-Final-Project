@@ -3,6 +3,10 @@
   overflow: scroll;
 }
 
+#category_title {
+  text-decoration: none;
+}
+
 .category_buttons {
   display: inline-flex;
   flex-direction: column-reverse;
@@ -15,6 +19,16 @@
   font-size: 1.2rem;
   margin: 10px;
   outline: none;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+}
+
+.category_buttons:hover,
+.category_buttons:active,
+.category_buttons:focus {
+  color: white;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
+  transform: scale(1.1);
 }
 
 /* HOME CATEGORY */
