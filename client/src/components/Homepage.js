@@ -5,6 +5,8 @@ import Transactions from "./Transactions"
 import "../styles/Homepage.css";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import Category from './Category';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
@@ -79,26 +81,39 @@ export default function Homepage() {
           <div
           key={category.id}
           className={category.name}>
-          <div className="individual_category">
+          <div className="main_individual_category">
           <button
           type="submit"
           id={category.name}
           className="homepage_category_buttons"
           onClick={() => getTransactions(category.id)}
           >{category.name} </button>
-            <h1 id="homepage_category_title">{category.name}</h1>  
-            <p>Your set budget is ${category.category_budget}</p>
-            <p>Budget remaining: $$$</p>
-            <p>Amount spent: $$$</p>         
+
+          <div className="homepage_category_info">
+
+              <div className="homepage_category_title">
+                <h1 id="homepage_category_title">{category.name}</h1> 
+                <p>Total Budget: ${category.category_budget}</p>
+              </div>
+
+              <div className="progress">
+                <ProgressBar now={60} id="progress_bar"/>
+              </div>
+              
+              <div className="budget_amount_info">
+                <p>Budget remaining: $$$</p>
+                <p>Amount spent: $$$</p>    
+              </div>     
+
+          </div>
             <Link to="/category-transactions" id="category_title">
           </Link>
-
             <button
             type="submit"
-            id={category.name}
+            id="trash_can_button"
             className="homepage_category_buttons"
             onClick={() => deleteUserCategory(category.id)}
-            >Delete</button>
+            ></button>
          
           {category.show && <Transactions 
           id={category.id} 
