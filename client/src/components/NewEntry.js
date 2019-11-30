@@ -4,19 +4,12 @@ import "../styles/NewEntry.css"
 
 //New entry view
 export default function NewEntry() {
-  // const [entries, setEntries] = useState({
-  //   storeName: '',
-  //   categoryId: '',
-  //   transactionAmount: '',
-  //   enteredOn: '',
-  //   description: ''
-  // });
-
   const [storeName, setStoreName] = useState('');
   const [categoryId, setCateroryId] = useState('');
   const [transactionAmount, setTransactionAmount] = useState('');
   const [enteredOn, setEnteredOn] = useState('');
   const [description, setDescription] = useState('');
+  const [currentCategories, setCurrentCategories] = useState([])
 
   function submitTransaction(evt) {
     evt.preventDefault()
@@ -35,7 +28,6 @@ export default function NewEntry() {
       function(response) {
         console.log("TEH Response", response);
         setStoreName('')
-        setCateroryId('')
         setTransactionAmount('')
         setEnteredOn('')
         setDescription('')
@@ -47,20 +39,15 @@ export default function NewEntry() {
     );
   }
 
-  //   useEffect(() => {
+  useEffect(() => {
+    console.log("INHERE!")
+    axios.get('/api/home')
+      .then((res) => {
+        console.log("TESTING",res.data)
+        setCurrentCategories(res.data)
+      })  
+  }, [])
 
-  //    axios({
-  //      method: 'put',
-  //      url: '/new-entry',
-  //      data: {storeName, categoryId, transactionAmount, enteredOn, description}
-  //    })
-  //    .then(function(response) {
-  //      console.log("TEH Response", response);
-  //    }, (error) => {
-  //      console.log("GOOTTT!")
-  //      console.log(error)
-  //    })
-  //  }, [])
 
   return (
     <div className="new-entry">
@@ -135,16 +122,17 @@ export default function NewEntry() {
 
         Category
         <span>
-        <input
-        className="inputMaterial"
-          type="text"
-          value={categoryId}
-          onChange={event => setCateroryId(event.target.value)}
-          placeholder="Category ID Test"
-        />
-        <span className="highlight"></span>
-        <span className="bar"></span>
+          <select id="categories" onChange={(event) => setCateroryId(event.target.value )}>
+            <option></option>
+            {currentCategories.map(category => {
+              return(
+                <option value={category.id}>{category.name}</option>
+              )
+            })}
+          </select>
         </span>
+
+
         <button className="newEntryButton" type="submit" onClick={submitTransaction}>
           Submit
         </button>
