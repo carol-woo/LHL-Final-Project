@@ -122,23 +122,11 @@ export default function NewEntry() {
 
         Category
         <span>
-        <input
-        className="inputMaterial"
-          type="text"
-          value={categoryId}
-          onChange={event => setCateroryId(event.target.value)}
-          placeholder="Category ID Test"
-        />
-        <span className="highlight"></span>
-        <span className="bar"></span>
-        </span>
-
-        <span>
         <input list="browsers" name="browser"/>
           <datalist id="browsers">
             {currentCategories.map(category => {
               return(
-              <option value={category.id}>{category.name}</option>
+                <option value={category.name}/>
               )
             })}
           </datalist>
