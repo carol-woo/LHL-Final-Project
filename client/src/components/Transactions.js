@@ -38,9 +38,9 @@ export default function Transactions(props){
     <div>
 
     {transactions.map((transaction) => {
-     
       return(
         <div key={transaction.id}>
+      {props.RB(transaction.amount)}
 
           <form className="transactionsForm">
             <p className="transactionP"><span className="heading">Store Name:</span> { transaction.store_name}</p>

@@ -13,6 +13,7 @@ import Category from './Category';
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
+  const [amountRemaining, setAmountRemaining] = useState()
 
   useEffect(() => {
     console.log("INHERE!")
@@ -32,8 +33,6 @@ export default function Homepage() {
 
   function deleteUserCategory(id) {
     console.log("TESTING THE CATEGORY inside the deletefunction in homepage", id)
-    // setSelectedCategoryId(id)
-    // setSelectedCategoryName(name)
     updateState(id)
 
     axios({
@@ -41,14 +40,10 @@ export default function Homepage() {
       url: `/api/home`,
       data: {
         deleteCategoryId: Number(id)
-        // categoryBudget: Number(budget),
-        // name: name
       },
       responseType: 'json'
     }).then(
       function(response) {
-
-        // console.log("TEH Response", response);
       },
       error => {
         alert(`Category could not be deleted`)
@@ -69,9 +64,14 @@ export default function Homepage() {
       <BrowserRouter>
 
       {categories.map((category) => {
-        let remaining= category.category_budget
-        const RB = function (amount){
-          return remaining - amount
+         let remaining = category.category_budget
+         let remainingAmount
+         const RB = function (amount){
+          console.log("Remaining =", remaining)
+          console.log("Amount = ", amount)
+          remainingAmount = remaining - amount
+          console.log("remainingAmount = ", remainingAmount)
+           setAmountRemaining(remainingAmount)
         }
         
         return (
@@ -88,7 +88,7 @@ export default function Homepage() {
           >{category.name} </button>
             <h1 id="homepage_category_title">{category.name}</h1>  
             <p>Your set budget is ${category.category_budget}</p>
-            <p>Budget remaining: $$$</p>
+            <p>Budget remaining: {amountRemaining}</p>
             <p>Amount spent: $$$</p>         
             <Link to="/category-transactions" id="category_title">
           </Link>
