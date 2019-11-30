@@ -5,6 +5,7 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from './components/Backdrop/Backdrop'
 
 
+
 function App(props) {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false)
 
@@ -28,7 +29,7 @@ function App(props) {
       <Navbar 
       drawerClickHandler={drawerToggleClickHandler} 
       />
-      <SideDrawer show={sideDrawerOpen}/>
+      <SideDrawer show={sideDrawerOpen} close={setSideDrawerOpen}/>
       {backdrop}
    </div>
   );
