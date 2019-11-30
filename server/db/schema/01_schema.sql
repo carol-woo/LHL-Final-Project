@@ -24,6 +24,7 @@ CREATE TABLE categories (
 CREATE TABLE transactions (
   id SERIAL PRIMARY KEY NOT NULL,
   store_name VARCHAR NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   amount INTEGER NOT NULL,
   entered_on DATE NOT NULL,

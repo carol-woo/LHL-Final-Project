@@ -68,16 +68,16 @@ VALUES ('Housing', 2000),
 
 -- -- Date format will have to be yyyy-mm-dd
 
-INSERT INTO transactions (store_name, category_id, amount, entered_on, description)
-VALUES ('Rental property', 1, 2000.00, '2019-06-01', 'monthly rent'),
-('Oretta', 2, 92.98, '2019-06-01', 'Went to restaurant'),
-('Costco', 3, 75.00, '2019-06-03', 'grocery shopping'),
-('Manulife', 4, 25.00, '2019-06-05', 'insurance payment'),
-('TTC', 5, 45.00, '2019-06-09', 'paying for transportation'),
-('metro', 6, 50.00, '2019-06-02', 'groceries'),
-('Rogers', 7, 120.00, '2019-06-09', 'cell phone bill'),
-('Toronto Hydro', 8, 56.00, '2019-06-13', 'hydro bill'),
-('Mcdonalds', 5, 8.00, '2019-06-01', 'went for chicken nuggets');
+INSERT INTO transactions (store_name, user_id, category_id, amount, entered_on, description)
+VALUES ('Rental property', 1, 1, 2000.00, '2019-06-01', 'monthly rent'),
+('Oretta', 1,  2, 92.98, '2019-06-01', 'Went to restaurant'),
+('Costco', 1, 3, 75.00, '2019-06-03', 'grocery shopping'),
+('Manulife', 1, 4, 25.00, '2019-06-05', 'insurance payment'),
+('TTC', 1, 5, 45.00, '2019-06-09', 'paying for transportation'),
+('metro', 1, 6, 50.00, '2019-06-02', 'groceries'),
+('Rogers', 1, 7, 120.00, '2019-06-09', 'cell phone bill'),
+('Toronto Hydro', 1, 8, 56.00, '2019-06-13', 'hydro bill'),
+('Mcdonalds', 1, 5, 8.00, '2019-06-01', 'went for chicken nuggets');
 -- ('LCBO', 77, 30.00, '2019-06-14', 'Friday night wine night'),
 -- ('Rogers', 74, 135.00, '2019-06-09', 'monthly cable/internet bill'),
 -- ('metro', 75, 62.47, '2019-06-09', 'groceries'),
