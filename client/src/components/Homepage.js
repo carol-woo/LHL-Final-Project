@@ -1,7 +1,7 @@
 import React, { useState, useEffect,Fragment } from 'react';
 import axios from 'axios';
 import Transactions from "./Transactions"
-import "../styles/categorybuttons.css";
+// import "../styles/categorybuttons.css";
 import "../styles/Homepage.css";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import Category from './Category';
@@ -65,34 +65,38 @@ export default function Homepage() {
   }
 
   return (
-    <div className="category">
+    <div className="homepage_category">
       <BrowserRouter>
-
 
       {categories.map((category) => {
         let remaining= category.category_budget
         const RB = function (amount){
           return remaining - amount
         }
+        
         return (
+          <div className="category_column">
           <div
           key={category.id}
           className={category.name}>
-            <h1>{category.name}</h1>  
-            <p>Your set budget is ${category.category_budget}</p>         
-           <Link to="/category-transactions">
-            <button
-            type="submit"
-            id={category.name}
-            className="category_buttons"
-            onClick={() => getTransactions(category.id)}
-            >{category.name} </button>
+          <div className="individual_category">
+          <button
+          type="submit"
+          id={category.name}
+          className="homepage_category_buttons"
+          onClick={() => getTransactions(category.id)}
+          >{category.name} </button>
+            <h1 id="homepage_category_title">{category.name}</h1>  
+            <p>Your set budget is ${category.category_budget}</p>
+            <p>Budget remaining: $$$</p>
+            <p>Amount spent: $$$</p>         
+            <Link to="/category-transactions" id="category_title">
           </Link>
 
             <button
             type="submit"
             id={category.name}
-            className="category_buttons"
+            className="homepage_category_buttons"
             onClick={() => deleteUserCategory(category.id)}
             >Delete</button>
          
@@ -102,9 +106,9 @@ export default function Homepage() {
           show={category.show}
           RB={RB}
           />}
-            
+              </div>
             </div>
-            
+          </div>
         )
       })}
       
