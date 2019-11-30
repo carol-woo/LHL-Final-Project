@@ -28,7 +28,6 @@ export default function NewEntry() {
       function(response) {
         console.log("TEH Response", response);
         setStoreName('')
-        setCateroryId('')
         setTransactionAmount('')
         setEnteredOn('')
         setDescription('')
@@ -48,6 +47,7 @@ export default function NewEntry() {
         setCurrentCategories(res.data)
       })  
   }, [])
+
 
   return (
     <div className="new-entry">
@@ -122,14 +122,14 @@ export default function NewEntry() {
 
         Category
         <span>
-        <input list="browsers" name="browser"/>
-          <datalist id="browsers">
+          <select id="categories" onChange={(event) => setCateroryId(event.target.value )}>
+            <option></option>
             {currentCategories.map(category => {
               return(
-                <option value={category.name}/>
+                <option value={category.id}>{category.name}</option>
               )
             })}
-          </datalist>
+          </select>
         </span>
 
 
