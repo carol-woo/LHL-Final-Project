@@ -51,7 +51,7 @@ const getTransactions = async (req, res) => {
     res.status(200).json(results.rows)
   })
 }
-
+// Will need to add user_id
 const addTransaction = async info => {
   console.log("addTransaction QUERY IS RUNNING!!");
   await pool.query(
@@ -67,7 +67,7 @@ const addTransaction = async info => {
     ]
   );
 };
-
+// Will need to add user_id
 const editTransaction = async (info) => {
   console.log("editTransaction is running!")
  try{
