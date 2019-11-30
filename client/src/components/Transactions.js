@@ -42,7 +42,7 @@ export default function Transactions(props){
       return(
         <div key={transaction.id}>
 
-          <form>
+          <form className="transactionsForm">
             <p className="transactionP"><span className="heading">Store Name:</span> { transaction.store_name}</p>
             <p className="transactionP"><span className="heading">Amount Spent:</span> ${transaction.amount}</p>
             <p className="transactionP"><span className="heading">Date:</span> { (new Date(transaction.entered_on).toDateString())}</p>

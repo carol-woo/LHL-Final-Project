@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Popover from "./Popover";
 import "../styles/categorybuttons.css";
+import "../styles/NewCategory.css";
+
 
 const CategoryBudgetForm = ({category, onClick}) => {
   const [budget, setBudget] = useState(0);
@@ -73,7 +75,7 @@ export default function NewCategory() {
 
   return (
     <div className="category">
-      <h1>Add Category</h1>
+      <h1>Add A Category</h1>
 
       <form>
         {categories.map((category, i) => {

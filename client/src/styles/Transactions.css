@@ -7,11 +7,11 @@
   font-weight: 700;
 }
 
-form {
+.transactionsForm{
   border-radius: 14px;
-  transition-delay: 1s ;
+  transition-delay: 0.5s ;
 }
 
-form:hover{
+.transactionsForm:hover{
   background-color: lightblue;
 }
