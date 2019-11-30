@@ -7,6 +7,7 @@ import NewCategory from "../NewCategory";
 import './SideDrawer.css'
 import Login from "../Login";
 import Register from "../Register";
+import Backdrop from "../Backdrop/Backdrop";
 import {
   CSSTransition
 } from 'react-transition-group';
@@ -26,6 +27,11 @@ let drawerClasses = 'side-drawer';
       drawerClasses ='side-drawer open';
      }
 
+     const handleClick = () => {
+       props.close(false)
+     }
+     
+
   return (  
   <div>
   <BrowserRouter>
@@ -34,12 +40,12 @@ let drawerClasses = 'side-drawer';
         <img src={require("../../styles/Images/CIRCLE-06.png")} id="app_logo"/>
         </div>
     <ul>
-        <li><Link to="/login" className="a">Login</Link></li>
-        <li><Link to="/register" className="a">Register</Link></li>
-        <li><Link to="/home" className="a">Homepage</Link></li>
-        <li><Link to="/new-entry" className="a">New Entry</Link></li>
-        <li><Link to="/new-category" className="a">Add Category</Link></li>
-        <li><Link to="/home" className="a">Monthly View</Link></li>
+        <li><Link to="/login" className="a" onClick={handleClick}>Login</Link></li>
+        <li><Link to="/register" className="a" onClick={handleClick}>Register</Link></li>
+        <li><Link to="/home" className="a" onClick={handleClick}>Homepage</Link></li>
+        <li><Link to="/new-entry" className="a" onClick={handleClick}>New Entry</Link></li>
+        <li><Link to="/new-category" className="a" onClick={handleClick}>Add Category</Link></li>
+        <li><Link to="/home" className="a" onClick={handleClick}>Monthly View</Link></li>
       </ul>
     </nav>
 
