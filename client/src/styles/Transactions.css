@@ -1,0 +1,17 @@
+.transactionP {
+  font-size: 18px;
+  display: block;
+}
+
+.heading{
+  font-weight: 700;
+}
+
+form {
+  border-radius: 14px;
+  transition-delay: 1s ;
+}
+
+form:hover{
+  background-color: lightblue;
+}

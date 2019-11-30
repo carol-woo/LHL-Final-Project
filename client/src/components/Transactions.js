@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
-import Edit from "./Edit"
 import axios from "axios"
-import Delete from "./Delete";
 import TransactionsItem from "./TransactionsItem"
+import "../styles/Transactions.css"
+
 
 
 export default function Transactions(props){
@@ -43,10 +43,10 @@ export default function Transactions(props){
         <div key={transaction.id}>
 
           <form>
-            {transaction.store_name} <br/> 
-            ${transaction.amount} <br/>
-            {(new Date(transaction.entered_on).toDateString())} <br/>
-            {transaction.description} <br/>
+            <p className="transactionP"><span className="heading">Store Name:</span> { transaction.store_name}</p>
+            <p className="transactionP"><span className="heading">Amount Spent:</span> ${transaction.amount}</p>
+            <p className="transactionP"><span className="heading">Date:</span> { (new Date(transaction.entered_on).toDateString())}</p>
+            <p className="transactionP"><span className="heading">description:</span> { transaction.description}</p>
           </form>
 
           <TransactionsItem
