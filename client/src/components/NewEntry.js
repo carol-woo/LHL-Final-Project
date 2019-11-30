@@ -4,19 +4,12 @@ import "../styles/NewEntry.css"
 
 //New entry view
 export default function NewEntry() {
-  // const [entries, setEntries] = useState({
-  //   storeName: '',
-  //   categoryId: '',
-  //   transactionAmount: '',
-  //   enteredOn: '',
-  //   description: ''
-  // });
-
   const [storeName, setStoreName] = useState('');
   const [categoryId, setCateroryId] = useState('');
   const [transactionAmount, setTransactionAmount] = useState('');
   const [enteredOn, setEnteredOn] = useState('');
   const [description, setDescription] = useState('');
+  const [currentCategories, setCurrentCategories] = useState([])
 
   function submitTransaction(evt) {
     evt.preventDefault()
@@ -47,20 +40,14 @@ export default function NewEntry() {
     );
   }
 
-  //   useEffect(() => {
-
-  //    axios({
-  //      method: 'put',
-  //      url: '/new-entry',
-  //      data: {storeName, categoryId, transactionAmount, enteredOn, description}
-  //    })
-  //    .then(function(response) {
-  //      console.log("TEH Response", response);
-  //    }, (error) => {
-  //      console.log("GOOTTT!")
-  //      console.log(error)
-  //    })
-  //  }, [])
+  useEffect(() => {
+    console.log("INHERE!")
+    axios.get('/api/home')
+      .then((res) => {
+        console.log("TESTING",res.data)
+        setCurrentCategories(res.data)
+      })  
+  }, [])
 
   return (
     <div className="new-entry">
@@ -145,6 +132,19 @@ export default function NewEntry() {
         <span className="highlight"></span>
         <span className="bar"></span>
         </span>
+
+        <span>
+        <input list="browsers" name="browser"/>
+          <datalist id="browsers">
+            {currentCategories.map(category => {
+              return(
+              <option value={category.id}>{category.name}</option>
+              )
+            })}
+          </datalist>
+        </span>
+
+
         <button className="newEntryButton" type="submit" onClick={submitTransaction}>
           Submit
         </button>
