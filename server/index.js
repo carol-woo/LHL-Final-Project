@@ -109,10 +109,11 @@ app.post('/api/new-category',async (req, res) => {
 
 
 app.get('/api/transactions', db1.getTransactions)
-// Add the user id to transaction
+// Added the user id to transaction
 app.post('/new-entry', (req, res) =>{
   console.log("new entry in index.js")
   let store_name = req.body.store_name
+  let user_id = req.session.user_id
   let category_id = req.body.category_id
   let amount = req.body.amount
   let entered_on = req.body.entered_on
@@ -120,6 +121,7 @@ app.post('/new-entry', (req, res) =>{
 
   const info = {
     store_name,
+    user_id,
     category_id,
     amount,
     entered_on,
@@ -131,11 +133,12 @@ app.post('/new-entry', (req, res) =>{
 })
  
 
-// Add user_id
+// Added user_id
 app.post('/api/transactions',(req,res) =>{
   console.log("transactions in index.js")
   
   let store_name = req.body.store_name
+  let user_id = req.session.user_id
   let amount = req.body.amount
   let entered_on = req.body.entered_on
   let description = req.body.description
@@ -145,6 +148,7 @@ app.post('/api/transactions',(req,res) =>{
 
   const info = {
     store_name,
+    user_id,
     amount,
     entered_on,
     description,
