@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import Edit from "./Edit"
 import Delete from "./Delete";
+import "../styles/TransactionItems.css";
+
 
 export default function TransactionsItems(props){
   const [showForm, toggleForm] = useState(false)
@@ -25,8 +27,8 @@ export default function TransactionsItems(props){
 
   return(
     <div>
-    <button type="submit" onClick={renderEdit}>Edit</button>
-    <button type="submit" onClick={renderDelete}>Delete</button>
+    <button className="buttonTransactionItem" type="submit" onClick={renderEdit}>Edit</button>
+    <button className="buttonTransactionItem" onClick={renderDelete}>Delete</button>
 
     {showDelete && <Delete 
       renderDelete={renderDelete}

@@ -66,6 +66,7 @@ export default function NewEntry() {
     <div className="new-entry">
       <form>
       <h1>Add a new entry!</h1>
+      
       Store Name
       <span>
         <input
@@ -87,6 +88,7 @@ export default function NewEntry() {
           value={enteredOn}
           onChange={event => setEnteredOn(event.target.value)}
           placeholder="Enter date of occurance"
+          
         />
         <span className="highlight"></span>
         <span className="bar"></span>
