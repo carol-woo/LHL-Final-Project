@@ -77,6 +77,7 @@ app.post('/new-user', async (req, res) => {
 })
 
 app.get('/api/new-category', async (req, res) => {
+ 
   const result = await db1.getCategories();
   res.status(200).json(result)
 
