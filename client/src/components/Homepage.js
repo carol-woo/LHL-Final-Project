@@ -14,9 +14,6 @@ export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
 
-  
-
-
   useEffect(() => {
     console.log("INHERE!")
     axios.get('/api/home')
