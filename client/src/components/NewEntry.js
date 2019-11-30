@@ -88,6 +88,7 @@ export default function NewEntry() {
           value={enteredOn}
           onChange={event => setEnteredOn(event.target.value)}
           placeholder="Enter date of occurance"
+          
         />
         <span className="highlight"></span>
         <span className="bar"></span>
