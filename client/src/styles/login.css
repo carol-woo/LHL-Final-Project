@@ -70,7 +70,7 @@ h2 {
 .bar {
   position: relative;
   display: block;
-  width: 800px;
+  width: 315px;
 }
 
 .bar:before, .bar:after {
