@@ -6,6 +6,7 @@ import "../styles/Transactions.css"
 
 
 export default function Transactions(props){
+  console.log(props)
   const [transactions, setTransactions] = useState([]);  
   useEffect(() => {
     axios({
