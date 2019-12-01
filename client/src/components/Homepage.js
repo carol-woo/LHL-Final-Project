@@ -16,21 +16,13 @@ export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
   const [amountRemaining, setAmountRemaining] = useState()
-  const [transactions, setTransactions] = useState({})
-  // {
-  //   [id]: [
-  //     { transactions },
-  //     {},
-  //   ]
-  // }
-
-  // transactions[category.id]
-
+  const [transactions, setTransactions] = useState()
+ 
   useEffect(() => {
     console.log("INHERE!")
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING",res)
+        console.log("TESTING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",res.data)
         setCategories(res.data.map( cat => {return {...cat, show: false}}));
       })
   }, [])
@@ -62,7 +54,7 @@ export default function Homepage() {
       }
     );
   }
-
+ 
   function getTransactions(id, cb) {
     const temp = [...categories];
     let index = temp.map( c => c.id ).indexOf(id);
@@ -70,54 +62,14 @@ export default function Homepage() {
     setCategories(temp)
   }
 
-  console.log(transactions)
-
   return (
     <div className="homepage_category">
       <BrowserRouter>
-
+  
       {categories.map((category) => {
-        console.log(category.amount)
+
         return (
           <div className="category_column">
-<<<<<<< HEAD
-
-            <div
-              key={category.id}
-              className={category.name}>
-              <div className="individual_category">
-
-                <button
-                  type="submit"
-                  id={category.name}
-                  className="homepage_category_buttons"
-                  onClick={() => getTransactions(category.id)}
-                >
-                  {category.name}
-                </button>
-
-                <h1 id="homepage_category_title">{category.name}</h1>  
-                <p>Your set budget is ${category.category_budget}</p>
-                <p>Budget remaining: ${amountRemaining}</p>
-                <p>Amount spent: $$$</p>  
-
-                <Link to="/category-transactions" id="category_title"></Link>
-
-                <button
-                  type="submit"
-                  id={category.name}
-                  className="homepage_category_buttons"
-                  onClick={() => deleteUserCategory(category.id)}
-                >Delete</button>
-              
-                {category.show &&
-                  <Transactions 
-                    id={category.id} 
-                    handleOnGetTransactions={getTransactions} 
-                    show={category.show}
-                  />
-                }
-=======
           <div
           key={category.id}
           className={category.name}>
@@ -137,12 +89,12 @@ export default function Homepage() {
               </div>
 
               <div className="progress">
-                <ProgressBar now={60} id="progress_bar"/>
+                <ProgressBar animated striped variant="info" min={0} max={category.category_budget} now={category.sum} id="progress_bar"/>
               </div>
               
               <div className="budget_amount_info">
-                <p>Budget remaining: $$$</p>
-                <p>Amount spent: $$$</p>    
+                <p>Budget remaining: ${category.category_budget - category.sum}</p>
+                <p>Amount spent: ${category.sum}</p>    
               </div>     
 
           </div>
@@ -159,9 +111,7 @@ export default function Homepage() {
           id={category.id} 
           handleOnGetTransactions={getTransactions} 
           show={category.show}
-          RB={RB}
           />}
->>>>>>> master
               </div>
             </div>
           </div>

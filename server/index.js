@@ -50,6 +50,15 @@ app.get('/api/home', async (req, res) => {
     res.status(500).send(error.message);
   }
 })
+
+// app.get('/api/amounts', async (req, res) => {
+//   try {
+//     const result = await db2.getCategoriesAmount();
+//     res.json(result.rows)
+//   } catch (error) {
+//     res.status(500).send(error.message);
+//   }
+// })
 // app.get('/api/home', db1.getCategories)
 
 app.post('/new-user', async (req, res) => {
