@@ -15,14 +15,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 export default function Homepage() {
 
   const [categories, setCategories] = useState([]);
-
+  const [amountRemaining, setAmountRemaining] = useState()
+  const [transactions, setTransactions] = useState()
+ 
   useEffect(() => {
     console.log("INHERE!")
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING",res)
+        console.log("TESTING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",res.data)
         setCategories(res.data.map( cat => {return {...cat, show: false}}));
-      })  
+      })
   }, [])
 
   function updateState (categoryId) {
@@ -34,8 +36,6 @@ export default function Homepage() {
 
   function deleteUserCategory(id) {
     console.log("TESTING THE CATEGORY inside the deletefunction in homepage", id)
-    // setSelectedCategoryId(id)
-    // setSelectedCategoryName(name)
     updateState(id)
 
     axios({
@@ -43,14 +43,10 @@ export default function Homepage() {
       url: `/api/home`,
       data: {
         deleteCategoryId: Number(id)
-        // categoryBudget: Number(budget),
-        // name: name
       },
       responseType: 'json'
     }).then(
       function(response) {
-
-        // console.log("TEH Response", response);
       },
       error => {
         alert(`Category could not be deleted`)
@@ -58,7 +54,7 @@ export default function Homepage() {
       }
     );
   }
-
+ 
   function getTransactions(id, cb) {
     const temp = [...categories];
     let index = temp.map( c => c.id ).indexOf(id);
@@ -69,13 +65,9 @@ export default function Homepage() {
   return (
     <div className="homepage_category">
       <BrowserRouter>
-
+  
       {categories.map((category) => {
-        let remaining= category.category_budget
-        const RB = function (amount){
-          return remaining - amount
-        }
-        
+
         return (
           <div className="category_column">
           <div
@@ -97,12 +89,12 @@ export default function Homepage() {
               </div>
 
               <div className="progress">
-                <ProgressBar now={60} id="progress_bar"/>
+                <ProgressBar animated striped variant="info" min={0} max={category.category_budget} now={category.sum} id="progress_bar"/>
               </div>
               
               <div className="budget_amount_info">
-                <p>Budget remaining: $$$</p>
-                <p>Amount spent: $$$</p>    
+                <p>Budget remaining: ${category.category_budget - category.sum}</p>
+                <p>Amount spent: ${category.sum}</p>    
               </div>     
 
           </div>
@@ -119,7 +111,6 @@ export default function Homepage() {
           id={category.id} 
           handleOnGetTransactions={getTransactions} 
           show={category.show}
-          RB={RB}
           />}
               </div>
             </div>

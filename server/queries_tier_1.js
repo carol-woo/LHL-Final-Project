@@ -84,6 +84,7 @@ const editTransaction = async (info) => {
   
 
 const deleteTransaction = async (id) => {
+  console.log("Deleting transaction in Q2")
   await pool.query(`DELETE FROM transactions WHERE id = $1`, [id])
   }
 
