@@ -12,7 +12,7 @@
   flex-direction: column-reverse;
   align-items: center;
   background-position: top;
-  border-radius: 20px; 
+  border-radius: 60px; 
   width: 180px;
   height: 90px;
   padding-bottom: 3px;
@@ -33,52 +33,52 @@
 
 /* HOME CATEGORY */
 #Housing {
-  background: url("./Images/house.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/house.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Rent {
-  background: url("./Images/rent.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/rent.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%; 
 }
 #Property-Tax {
-  background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Home-Maintenance {
-  background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Hydro {
-  background: url("./Images/hydro.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/hydro.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Home-Phone {
-  background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Cable-Internet {
-  background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Mortgage {
-  background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Cell-Phone {
-  background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Water {
-  background: url("./Images/water.png") no-repeat center, linear-gradient(#1c10ee, #499ee3, #cdebf1);
+  background: url("./Images/water.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
@@ -86,50 +86,50 @@
 
 /* INSURANCE CATEGORY */
 #Insurance {
-  background: url("./Images/insurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background: url("./Images/insurance.png") no-repeat center, linear-gradient(#43780d, #51e349);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Mortgage-Insurance {
-  background: url("./Images/mortgage_insurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background: url("./Images/mortgage_insurance.png")no-repeat center, linear-gradient(#43780d, #51e349);
   background-size: 60px, 60px;
   background-position-y: 20%;
   font-size: 1.1rem;
 }
 #Auto-Insurance {
-  background: url("./Images/autoinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background: url("./Images/autoinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Home-Insurance {
-  background: url("./Images/homeinsurance.png")no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background: url("./Images/homeinsurance.png")no-repeat center, linear-gradient(#43780d, #51e349);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Life-Insurance {
-  background: url("./Images/lifeinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349, #57c966);
+  background: url("./Images/lifeinsurance.png") no-repeat center, linear-gradient(#43780d, #51e349);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 /* TRAVELLING RELATED CATEGORIES */
 #Transportation {
-  background: url("./Images/transportation.png") no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background: url("./Images/transportation.png") no-repeat center, linear-gradient(#d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Gas {
-  background: url("./Images/gas.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background: url("./Images/gas.png")no-repeat center, linear-gradient(#d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Parking {
-  background: url("./Images/parking-sign.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background: url("./Images/parking-sign.png")no-repeat center, linear-gradient(#d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Public-Transportation {
-  background: url("./Images/publictransportation.png")no-repeat center, linear-gradient(#930b0b, #d65e49, #e47d5a);
+  background: url("./Images/publictransportation.png")no-repeat center, linear-gradient(#d65e49, #e47d5a);
   background-size: 60px, 60px;
   background-position-y: 20%;
   font-size: 1.1rem;
@@ -137,24 +137,24 @@
 
 /* FOOD RELATED CATEGORIES */
 #Food {
-  background: url("./Images/food.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background: url("./Images/food.png") no-repeat center, linear-gradient(#7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Groceries {
-  background: url("./Images/grocery.png") no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background: url("./Images/grocery.png") no-repeat center, linear-gradient(#7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Restaurants {
-  background: url("./Images/restaurant.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background: url("./Images/restaurant.png")no-repeat center, linear-gradient(#7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Beverage {
-  background: url("./Images/beverage.png")no-repeat center, linear-gradient(#4b0f54, #7949d6, #5a69e4);
+  background: url("./Images/beverage.png")no-repeat center, linear-gradient(#7949d6, #5a69e4);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
@@ -162,34 +162,35 @@
 
 /* OTHER CATEGORIES */
 #Healthcare {
-  background: url("./Images/medical.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background: url("./Images/medical.png")no-repeat center, linear-gradient(#283E51, #4B79A1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Pets {
-  background: url("./Images/pets.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background: url("./Images/pets.png") no-repeat center, linear-gradient(#283E51, #4B79A1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Loans {
-  background: url("./Images/loans.png")no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background: url("./Images/loans.png")no-repeat center, linear-gradient(#283E51, #4B79A1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Recreational {
-  background: url("./Images/recreational.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background: url("./Images/recreational.png") no-repeat center, linear-gradient(#283E51, #4B79A1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 
 #Miscellaneous {
-  background: url("./Images/miscellaneous.png") no-repeat center, linear-gradient(#4b5202, #d3df1c, #e6e294);
+  background: url("./Images/miscellaneous.png") no-repeat center, linear-gradient( #283E51, #4B79A1);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
+
 
 
 

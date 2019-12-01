@@ -1,6 +1,6 @@
 .side-drawer {
   height: 100%;
-  background: url("https://cdn.hipwallpaper.com/m/67/64/LijZqG.jpg") no-repeat;
+  background: url("https://cdn.hipwallpaper.com/m/50/59/G8xbSr.jpg") no-repeat;
   background-size: auto 100%;
   box-shadow: 1px 0 7px rgba(0,0,0, 0.5);
   position: fixed;
@@ -42,7 +42,7 @@
 }
 
 .side-drawer a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 1.6rem;
 }
