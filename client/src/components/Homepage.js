@@ -14,6 +14,7 @@ import { Modal, Button} from 'react-bootstrap';
 export default function Homepage() {
   const [categories, setCategories] = useState([]);
   const [modal, toggleModal] = useState(false)
+  const [selectedCategoryId, setSelectedCategoryId] = useState(-1)
  
   useEffect(() => {
     axios.get('/api/home')
@@ -55,7 +56,7 @@ export default function Homepage() {
     setCategories(temp)
   }
 
-  function confirmModal(){
+  function confirmModal(id){
 
     return (
       <>
@@ -68,7 +69,7 @@ export default function Homepage() {
              <Button variant="secondary" onClick={() => toggleModal(prev => !prev)}>
                Close
              </Button>
-             <Button variant="danger">
+             <Button variant="danger" onClick={() => {deleteUserCategory(id); toggleModal(prev => !prev)}}>
                Delete Category
              </Button>
            </Modal.Footer>
@@ -80,12 +81,12 @@ export default function Homepage() {
   return (
     <div className="homepage_category">
       <BrowserRouter>
-  
+
+      {modal && confirmModal(selectedCategoryId)}
       {categories.map((category) => {
 
         return (
           <div className="category_column">
-            {modal && confirmModal()}
             <div
               key={category.id}
               className={category.name}>
@@ -119,7 +120,7 @@ export default function Homepage() {
                   type="submit"
                   id="trash_can_button"
                   className="homepage_category_buttons"
-                  onClick={() => toggleModal(prev => !prev)}
+                  onClick={() => toggleModal(prev => {setSelectedCategoryId(category.id); return !prev})}
                 ></button>
 
           {category.show &&

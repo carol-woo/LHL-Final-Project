@@ -19,7 +19,9 @@ getUsercategories = async(user_id) => {
   try {
    let aa = await pool.query(`
    SELECT categories.id, categories.name, categories.category_budget,  SUM(transactions.amount)
-   FROM categories JOIN users ON categories.user_id = users.id JOIN transactions ON categories.id = transactions.category_id
+   FROM categories  
+   JOIN users ON categories.user_id = users.id 
+   LEFT JOIN transactions ON categories.id = transactions.category_id
    WHERE categories.user_id=${user_id}
    GROUP BY categories.id, categories.name, categories.category_budget;
   `);
