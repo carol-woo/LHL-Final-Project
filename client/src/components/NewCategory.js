@@ -74,7 +74,7 @@ export default function NewCategory() {
   }, []);
 
   return (
-    <div className="category">
+    <div className="new_category">
       <h1>Add A Category</h1>
 
       <form>

@@ -10,7 +10,7 @@ h1 {
 .homepage_category {
   height: 100vh;
   overflow: scroll;
-  width:
+  margin: auto 120px;
 }
 
 #homepage_category_title {
@@ -53,8 +53,7 @@ h1 {
 
 .category_column:hover,
 .category_column:active {
-  box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
-
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0 ,0.2);
 }
 
 .main_individual_category {
@@ -97,10 +96,12 @@ h1 {
 
 .homepage_category_title p {
   font-size: 1.4rem;
+  color: white;
 }
 
 .budget_amount_info p {
   font-size: 1.4rem;
+  color: white;
 }
 
 #trash_can_button {
