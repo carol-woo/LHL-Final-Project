@@ -50,6 +50,15 @@ app.get('/api/home', async (req, res) => {
     res.status(500).send(error.message);
   }
 })
+
+// app.get('/api/amounts', async (req, res) => {
+//   try {
+//     const result = await db2.getCategoriesAmount();
+//     res.json(result.rows)
+//   } catch (error) {
+//     res.status(500).send(error.message);
+//   }
+// })
 // app.get('/api/home', db1.getCategories)
 
 app.post('/new-user', async (req, res) => {
@@ -77,6 +86,7 @@ app.post('/new-user', async (req, res) => {
 })
 
 app.get('/api/new-category', async (req, res) => {
+ 
   const result = await db1.getCategories();
   res.status(200).json(result)
 
@@ -84,16 +94,14 @@ app.get('/api/new-category', async (req, res) => {
  
 
 app.post('/api/new-category',async (req, res) => {
-
+  console.log("I AM REQ BODYYYYYYYYYYYYYYYYYYYYYYYYYY", req.body)
   let name = req.body.name
   const user_id = req.session.user_id
-  // let created_at = req.body.created_at
   let category_budget = req.body.categoryBudget
 
   const info = {
     name,
     user_id,
-    // created_at,
     category_budget
   }
  
@@ -162,7 +170,7 @@ app.post('/api/transactions',(req,res) =>{
 }) 
 
 app.delete('/api/transactions', (req, res) => {
-  console.log("delete transaction in index.js")
+  console.log("delete transaction in index.js", req.body)
  let id = req.body.id
  
   db1.deleteTransaction(id)

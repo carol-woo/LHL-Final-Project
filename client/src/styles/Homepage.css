@@ -4,5 +4,109 @@
 }
 
 h1 {
-  margin-top: 7%; 
+  margin-top: 3%; 
+}
+
+.homepage_category {
+  height: 100vh;
+  overflow: scroll;
+  margin: auto 120px;
+}
+
+#homepage_category_title {
+  margin-top: 10px; 
+}
+
+#category_title {
+  text-decoration: none;
+}
+
+.homepage_category_buttons {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background-position: top;
+  border-radius: 35px; 
+  width: 180px;
+  height: 90px;
+  padding-bottom: 3px;
+  font-size: 1.2rem;
+  margin: 10px;
+  outline: none;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+}
+
+.homepage_category_buttons:hover,
+.homepage_category_buttons:active,
+.homepage_category_buttons:focus {
+  color: white;
+  box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
+  transform: scale(1.1);
+}
+
+.category_column {
+  margin: 80px 20px 20px 20px;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+.category_column:hover,
+.category_column:active {
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0 ,0.2);
+}
+
+.main_individual_category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homepage_category_info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 30px;
+}
+
+.progress {
+  width: 90%;
+}
+
+#progress_bar {
+  width: 100%;
+}
+
+.homepage_category_title{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.homepage_category_title p{
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 0;
+}
+
+.budget_amount_info {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.homepage_category_title p {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.budget_amount_info p {
+  font-size: 1.4rem;
+  color: white;
+}
+
+#trash_can_button {
+  background: url("./Images/trash-can.png") no-repeat center;
+  background-size: 60px, 60px;
+  width: 90px;
+  margin: auto 0;
 }
