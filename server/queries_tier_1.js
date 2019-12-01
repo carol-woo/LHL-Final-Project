@@ -27,11 +27,6 @@ const getCategories = async () => {
 };
 
 const addCategory = async info => {
-  // const {name, created_at} = req.body
-  // const testId = info.category_id;
-  // console.log('HIIII ___--->>',testId)
-  // const category_name = await pool.query(`SELECT name FROM categories WHERE categories.id = $1`, [info.category_id]);
-  // console.log("CATEGORY NAME CAPTURED", category_name)
     await pool.query(
       `INSERT INTO categories(name, user_id, category_budget)
     VALUES ($1, $2, $3)`,
