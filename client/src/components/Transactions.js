@@ -8,6 +8,7 @@ import "../styles/Transactions.css"
 export default function Transactions(props){
   console.log(props)
   const [transactions, setTransactions] = useState([]);  
+
   useEffect(() => {
     axios({
       method: "get",
@@ -39,10 +40,9 @@ export default function Transactions(props){
     <div>
 
     {transactions.map((transaction) => {
-     
+      
       return(
         <div key={transaction.id}>
-
           <form className="transactionsForm">
             <p className="transactionP"><span className="heading">Store Name:</span> { transaction.store_name}</p>
             <p className="transactionP"><span className="heading">Amount Spent:</span> ${transaction.amount}</p>
