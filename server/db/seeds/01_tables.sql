@@ -35,6 +35,8 @@ VALUES ('Housing', 2000),
 ('Pets', 500),
 ('Loans', 2);
 
+
+
 -- -- Date format will have to be yyyy-mm-dd
 
 INSERT INTO transactions (store_name, user_id, category_id, amount, entered_on, description)
@@ -131,4 +133,4 @@ VALUES ('Rental property', 1, 1, 2000.00, '2019-06-01', 'monthly rent'),
 ('Mcdonalds', 1, 5, 8.00, '2019-08-07', 'went for chicken nuggets'),
 ('Mcdonalds', 1, 5, 6.00, '2019-08-12', 'went for chicken nuggets'),
 ('Mcdonalds', 1, 5, 4.00, '2019-08-13', 'more chicken nuggets'),
-('Mcdonalds', 1, 5, 7.49, '2019-08-22', 'cant get enough of chicken nuggets ')
+('Mcdonalds', 1, 5, 7.49, '2019-08-22', 'cant get enough of chicken nuggets ');
