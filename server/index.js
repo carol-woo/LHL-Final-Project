@@ -172,7 +172,7 @@ app.post('/api/transactions',(req,res) =>{
 }) 
 
 app.delete('/api/transactions', (req, res) => {
-  console.log("delete transaction in index.js")
+  console.log("delete transaction in index.js", req.body)
  let id = req.body.id
  
   db1.deleteTransaction(id)
