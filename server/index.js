@@ -87,10 +87,16 @@ app.post('/new-user', async (req, res) => {
 })
 
 app.get('/api/new-category', async (req, res) => {
- 
-  const result = await db1.getCategories();
-  res.status(200).json(result)
-
+  const user_id = req.session.user_id;
+  console.log("TESTNG", user_id)
+  try{
+    const result = await db1.getCategories();
+    res.status(200).json(result)
+    return result;
+  } catch (error) {
+    console.log("Error in index.js! Get Categories function")
+    console.log(error)
+  }
 })
  
 
