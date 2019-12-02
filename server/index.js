@@ -57,9 +57,9 @@ app.get('/api/monthly-view', async (req, res) => {
   console.log("monthly view route is hit")
   const user_id = req.session.user_id;
   try {
-    const result = await db3.amountSpentPerDayMonth()
-    console.log("Checking the result in db3", result.rows)
-    res.json(result.rows)
+    const payload = await db3.amountSpentPerDayMonth()
+    console.log("Checking the result in db3. It is working")
+    res.json(payload)
   } catch (error) {
     console.log("Error in index.js monthly view route")
     res.status(500).send(error.message);
