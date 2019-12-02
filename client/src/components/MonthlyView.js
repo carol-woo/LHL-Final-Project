@@ -20,8 +20,8 @@ useEffect(() => {
     // })
     const graphData = res.data.dailyTotalTransactions.map(t => ({
       "name": t.day,
-      "Average daily budget": res.data.average,
-      "Average amount spent per day": t.total
+      "Average amount spent per day": t.total,
+      "Average daily budget": res.data.average
     }))
     setGraphData(graphData)
   })
@@ -34,7 +34,7 @@ useEffect(() => {
     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
     <CartesianGrid strokeDasharray="3 3" />
     <XAxis dataKey="name" />
-    <YAxis />
+    <YAxis type="number" domain={[0, 2500]}/>
     <Tooltip />
     <Legend />
     <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
