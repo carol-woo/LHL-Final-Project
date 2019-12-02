@@ -16,6 +16,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-transition-group": "^4.3.0",
+    "recharts": "^1.8.5",
     "request-promise": "^4.2.5"
   },
   "scripts": {
