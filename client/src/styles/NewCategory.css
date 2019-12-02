@@ -78,3 +78,7 @@
 .inputMaterial:focus ~ .highlight {
   animation:inputHighlighter 0.3s ease;
 }
+
+.new_category {
+  z-index: -1;
+}
