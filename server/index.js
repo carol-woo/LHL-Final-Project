@@ -39,7 +39,7 @@ app.get('/logout',  (req, res) => {
   console.log("/logout, please nuke the session")
   // console.log("what is my session?", req.session)
   req.session = null;
-  res.json({logout: 'ok'})
+  res.json({logout: 'ok'});
 })
 
 app.get('/api/home', async (req, res) => {
