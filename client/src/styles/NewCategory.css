@@ -2,5 +2,14 @@
 #add_new_category{
   width: 20%;
   display: inline-block;
-  margin: 2%;
+  margin: 1%;
 }
+
+.h1NewCat {
+  font-size: 350%;
+}
+
+.h2NewCat {
+  font-size: 250%;
+}
+

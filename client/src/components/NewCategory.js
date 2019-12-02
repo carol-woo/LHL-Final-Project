@@ -80,6 +80,8 @@ export default function NewCategory() {
 
   return (
       <div className="new_category">
+        <h1 className="h1NewCat">Looking to add a new category to your cache?</h1>
+          <h2 className="h2NewCat">Set your budget then click the category you want!</h2>
     
         <div className="form_category">
           {categories.map((category, i) => {
