@@ -25,6 +25,13 @@ const amountSpentPerDayMonth = async (month, user_id) => {
 
 // select sum(transactions.amount), category_id, categories.name, categories.category_budget, transactions.user_id from transactions join categories on categories.id = transactions.category_id group by transactions.category_id, categories.name, categories.category_budget, transactions.user_id having transactions.user_id = 1
 
+// const balance
+
+
+// select date_created, budget, expenditure, (budget - expenditure) as balance from (select category_budget as budget, transactions.amount as expenditure, transactions.entered_on as date_created
+//   from categories
+//   join transactions on categories.id = transactions.category_id) as difference
+//   where extract (month from date_created) = 6
 
       
       module.exports = {getMonthAverageBudget, amountSpentPerDayMonth}
