@@ -15,11 +15,16 @@ export default function MonthlyView(){
 const [graphData, setGraphData] = useState([])
 
 useEffect(() => {
-  axios.get('api/monthlyView')
+
+  axios.get('api/monthly-view')
   .then((res) => {
+    console.log('The front end', res.data)
     setGraphData(res.data)
   })
-})
+}, [])
+
+// Change data to graph data after fixing routes
+
   const data = [
     {
       "name": "Day 1",
@@ -58,12 +63,7 @@ useEffect(() => {
     }
   ]
   return(
-<<<<<<< HEAD
-    <div>
-    <Spline />
-      oh snap i am MonthlyView
-    </div>
-=======
+
     <LineChart width={730} height={250} data={data}
     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
     <CartesianGrid strokeDasharray="3 3" />
@@ -74,7 +74,7 @@ useEffect(() => {
     <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
     <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
   </LineChart>
->>>>>>> master
+
   )
 }
 
