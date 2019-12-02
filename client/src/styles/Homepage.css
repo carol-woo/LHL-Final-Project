@@ -111,3 +111,7 @@ h1 {
 .single-category {
   display: flex;
 }
+
+button {
+  z-index: -1;
+}

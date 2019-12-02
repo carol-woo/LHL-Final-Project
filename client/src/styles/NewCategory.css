@@ -3,6 +3,8 @@
   width: 25%;
   display: inline-block;
   margin: 1%;
+  position: relative;
+  z-index: -1;
 }
 
 .h1NewCat {
@@ -12,13 +14,6 @@
 
 .h2NewCat {
   font-size: 250%;
-}
-
-.piggybank {
-  width: 30%;
-  display: inline-flex;
-  margin-bottom: 1%;
-  margin-top: 1%;
 }
 
 .banner {
