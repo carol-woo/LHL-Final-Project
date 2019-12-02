@@ -8,8 +8,7 @@ export default function MonthlyView(){
 const [graphData, setGraphData] = useState([])
 
 useEffect(() => {
-
-  axios.get('api/monthly-view')
+  axios.get('api/monthlyView')
   .then((res) => {
     console.log('The front dailyTotal', res.data);
     console.log('The front average', res.data);
@@ -34,7 +33,7 @@ useEffect(() => {
     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
     <CartesianGrid strokeDasharray="3 3" />
     <XAxis dataKey="name" />
-    <YAxis />
+    <YAxis type="number"/>
     <Tooltip />
     <Legend />
     <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
