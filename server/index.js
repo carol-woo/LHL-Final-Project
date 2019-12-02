@@ -52,6 +52,19 @@ app.get('/api/home', async (req, res) => {
   }
 })
 
+app.get('/api/monthly-view', async (req, res) => {
+  console.log("monthly view route is hit")
+  const user_id = req.session.user_id;
+  try {
+    const result = await db3.amountSpentPerDayMonth()
+    console.log("Checking the result in db3", result.rows)
+    res.json(result.rows)
+  } catch (error) {
+    console.log("Error in index.js monthly view route")
+    res.status(500).send(error.message);
+  }
+})
+
 // app.get('/api/amounts', async (req, res) => {
 //   try {
 //     const result = await db2.getCategoriesAmount();

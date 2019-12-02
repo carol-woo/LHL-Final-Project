@@ -15,11 +15,14 @@ export default function MonthlyView(){
 const [graphData, setGraphData] = useState([])
 
 useEffect(() => {
-  axios.get('api/monthlyView')
+  axios.get('api/monthly-view')
   .then((res) => {
+    console.log('The front end', res.data)
     setGraphData(res.data)
   })
-})
+}, [])
+
+// Change data to graph data after fixing routes
   const data = [
     {
       "name": "Day 1",
