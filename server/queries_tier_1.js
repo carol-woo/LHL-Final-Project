@@ -18,7 +18,7 @@ const addUser = async info => {
 
 const getCategories = async () => {
   try {
-    const returnData = await pool.query("SELECT * FROM categories");
+    const returnData = await pool.query("SELECT * FROM categories WHERE user_id IS NULL");
     // console.log("TESTING ROUTE", returnData.rows)
     return returnData.rows;
   } catch (error) {
