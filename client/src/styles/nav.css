@@ -44,9 +44,11 @@
 
 .toolbar_navigation {
   display: flex;
+  position: relative;
   height: 100%;
   align-items: center;
   padding: 0 1rem;
+  z-index: 2;
 }
 
 .toolbar_logo {
