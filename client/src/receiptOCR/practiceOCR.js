@@ -7,51 +7,51 @@ const API_KEY = 'wR2SrkxdWJbRoNQwOmUyAnypjZN2dvZwlJxbJT9RGDk03kf6JhPrmgPbAdLsP4w
 const fs = require("fs");
 const rp = require("request-promise");
 
-// async function callProcess(files, params, ) {
+async function callProcess(files, params, ) {
 
-//   let formData = {
-//     file: []
-//   }
+  let formData = {
+    file: []
+  }
 
-//   for (var i = 0; i < files.length; i++) {
-//     const file = files[i]
-//     formData.file.push({
-//       value: fs.createReadStream(file),
-//       options: {
-//         filename: file,
-//         contentType: 'image/png'
-//       }
-//     })
-//   }
+  for (var i = 0; i < files.length; i++) {
+    const file = files[i]
+    formData.file.push({
+      value: fs.createReadStream(file),
+      options: {
+        filename: file,
+        contentType: 'image/png'
+      }
+    })
+  }
 
-//   formData = Object.assign({}, formData, params);
+  formData = Object.assign({}, formData, params);
 
-//   const options = {
-//     method: 'POST',
-//     formData: formData,
-//     uri: `https://api.tabscanner.com/api/2/process`,
-//     headers: {
-//       'apikey': API_KEY
-//     }
-//   };
+  const options = {
+    method: 'POST',
+    formData: formData,
+    uri: `https://api.tabscanner.com/api/2/process`,
+    headers: {
+      'apikey': API_KEY
+    }
+  };
 
-//   const result = await rp(options)
-//   return JSON.parse(result)
-// }
+  const result = await rp(options)
+  return JSON.parse(result)
+}
 
-// (async () => {
-//   try {
+(async () => {
+  try {
 
-//     const imageFile = './receiptImages/20191118_192801.png'
-//     let result = await callProcess([imageFile], {})
-//     // this token is used later to request the result
-//     const token = result.token
-//     console.log('My post token', token)
+    const imageFile = './receiptImages/20191118_192801.png'
+    let result = await callProcess([imageFile], {})
+    // this token is used later to request the result
+    const token = result.token
+    console.log('My post token', token)
 
-//   } catch (e) {
-//     console.log(e)
-//   }
-// })();
+  } catch (e) {
+    console.log(e)
+  }
+})();
 
 
 // 'use strict';
@@ -61,6 +61,9 @@ const rp = require("request-promise");
 // const API_KEY = 'wR2SrkxdWJbRoNQwOmUyAnypjZN2dvZwlJxbJT9RGDk03kf6JhPrmgPbAdLsP4wb'
 // const fs = require("fs");
 // const rp = require("request-promise");
+
+
+// The get part
 
 async function callResult(token) {
 
@@ -76,6 +79,8 @@ async function callResult(token) {
   return JSON.parse(result)
 
 }
+
+// get request function call
 (async () => {
   try {
 

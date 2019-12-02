@@ -4,6 +4,7 @@ const app = express()
 const port = 3001
 const db1 = require('./queries_tier_1')
 const db2 = require('./queries_tier_2')
+const db3 = require('./queries_tier_3')
 var cors = require('cors')
 
 const cookieSession = require('cookie-session');
