@@ -31,10 +31,10 @@ amountSpentPerDayMonth = async () => {
 
 
   let payload = {
-    dailyTotalTransactions: result,
-    average: monthAverageBudget
+    dailyTotalTransactions: result.rows,
+    average: monthAverageBudget.rows[0].dailyaverage
   };
-  // console.log("CHECKING SOMETHIGN", payload)
+  console.log("CHECKING SOMETHIGN", payload)
 
     return payload;
 }
