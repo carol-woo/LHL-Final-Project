@@ -45,7 +45,7 @@ let drawerClasses = 'side-drawer';
         <li><Link to="/home" className="a" onClick={handleClick}>Homepage</Link></li>
         <li><Link to="/new-entry" className="a" onClick={handleClick}>New Entry</Link></li>
         <li><Link to="/new-category" className="a" onClick={handleClick}>Add Category</Link></li>
-        <li><Link to="/home" className="a" onClick={handleClick}>Monthly View</Link></li>
+        <li><Link to="/monthly-view" className="a" onClick={handleClick}>Monthly View</Link></li>
       </ul>
     </nav>
 
