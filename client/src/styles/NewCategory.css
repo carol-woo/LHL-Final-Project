@@ -1,42 +1,80 @@
-html {
-  height: 100%;
+
+#add_new_category{
+  width: 25%;
+  display: inline-block;
+  margin: 1%;
 }
 
-body {
-  height: 100%;
-  background-color: rgb(245,245,248);
+.h1NewCat {
+  font-size: 350%;
+  display: inline-flex;
 }
 
-#new_category {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.h2NewCat {
+  font-size: 250%;
 }
 
-#new_category_header {
-  display: flex;
-  flex-direction: row;
-  top: 0;
-  position: absolute;
-  z-index: -1;
+.piggybank {
+  width: 30%;
+  display: inline-flex;
+  margin-bottom: 1%;
+  margin-top: 1%;
 }
 
-#new_category_header_image {
-  background: url("https://cdn.hipwallpaper.com/m/49/80/SbsmNC.jpg") no-repeat;
-  height: 580px;
-  width: 50vw;
+.banner {
+  margin-bottom: 2%;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  width: 60%;
+  margin-left: 20rem;
 }
 
-.new_category_man {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
+
+
+.inputMaterial {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+  margin: auto;
 }
 
-.form_category {
-  display: flex;
+.inputMaterial:focus {
+  outline: none;
+} 
+
+.bar {
   position: relative;
- padding: 20px;
- 
+  display: block;
+  width: 315px;
+  margin: auto;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #009688; 
+  transition:0.2s ease all; 
+}
+
+
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+.inputMaterial:focus ~ .bar:before, 
+.inputMaterial:focus ~ .bar:after {
+  width: 50%;
+}
+
+.inputMaterial:focus ~ .highlight {
+  animation:inputHighlighter 0.3s ease;
 }
