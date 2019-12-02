@@ -31,6 +31,16 @@ amountSpentPerDayMonth = async () => {
   // console.log ("Testing the avg query", monthAverageBudget);
 
 
+  // select total transactions for a month
+  // select sum(transactions.amount) as total_transactions from transactions where user_id = 2 and extract (month from transactions.entered_on) = 6
+
+  // return category name and total amount spent for a particular month
+  select categories.name, sum(transactions.amount) as total from transactions
+  join categories on categories.id = transactions.category_id
+   where extract(month from entered_on) = 6 group by categories.name
+
+
+
   let payload = {
     dailyTotalTransactions: result.rows,
     average: monthAverageBudget.rows[0].dailyaverage

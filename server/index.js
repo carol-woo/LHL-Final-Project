@@ -57,7 +57,7 @@ app.get('/api/monthly-view', async (req, res) => {
   console.log("monthly view route is hit")
   const user_id = req.session.user_id;
   try {
-    const payload = await db3.amountSpentPerDayMonth()
+    const payload = await db3.amountSpentPerDayMonth(user_id)
     console.log("Checking the result in db3. It is working")
     res.json(payload)
   } catch (error) {
