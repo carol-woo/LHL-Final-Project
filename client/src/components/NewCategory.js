@@ -73,6 +73,7 @@ export default function NewCategory() {
 
   useEffect(() => {
     axios.get("/api/new-category").then(res => {
+      console.log(res.data)
       setCategories(res.data);
     });
   }, []);
