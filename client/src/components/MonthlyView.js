@@ -8,7 +8,11 @@ export default function MonthlyView(){
 const [graphData, setGraphData] = useState([])
 
 useEffect(() => {
+<<<<<<< Updated upstream
   axios.get('api/monthly-view')
+=======
+  axios.get('api/monthly-View')
+>>>>>>> Stashed changes
   .then((res) => {
     console.log('The front dailyTotal', res.data);
     console.log('The front average', res.data);
@@ -25,6 +29,7 @@ useEffect(() => {
     setGraphData(graphData)
   })
 }, [])
+
 
 
   return(
