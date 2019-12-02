@@ -40,7 +40,6 @@ useEffect(() => {
     <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
     <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
   </LineChart>
-
   )
 }
 
