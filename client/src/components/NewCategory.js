@@ -15,7 +15,10 @@ const CategoryBudgetForm = ({category, onClick}) => {
 
   const stringName = category.name.replace(" ", "-");
 
-  return (<div key={category.id}>
+  return (<div key={category.id} id="add_new_category">
+
+          <div className="add_new_cate">
+          <p>Set budget amount</p>
             <input
               type="number" 
               id={category.id}             
@@ -35,6 +38,7 @@ const CategoryBudgetForm = ({category, onClick}) => {
             >
               {category.name}
             </button>
+          </div>  
             </div>);
 }
 
@@ -74,16 +78,16 @@ export default function NewCategory() {
   }, []);
 
   return (
-    <div className="new_category">
-      <h1>Add A Category</h1>
-
-      <form>
-        {categories.map((category, i) => {
-          return (
-            <CategoryBudgetForm onClick={(budget) => {  submitCategory(category, budget)}} category={category} />
-          );
-        })}
-        </form>
+      <div className="new_category">
+    
+        <div className="form_category">
+          {categories.map((category, i) => {
+            return (
+              <CategoryBudgetForm onClick={(budget) => {  submitCategory(category, budget)}} category={category} />
+            );
+          })}
+          </div>
+     
     </div>
   );
 }

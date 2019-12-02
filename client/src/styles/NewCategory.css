@@ -4,8 +4,39 @@ html {
 
 body {
   height: 100%;
-  background: url("https://cdn.hipwallpaper.com/m/71/66/DaM4hJ.jpg") no-repeat ;
-  background-size: 100% 100%;
-  opacity: 
+  background-color: rgb(245,245,248);
 }
 
+#new_category {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#new_category_header {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#new_category_header_image {
+  background: url("https://cdn.hipwallpaper.com/m/49/80/SbsmNC.jpg") no-repeat;
+  height: 580px;
+  width: 50vw;
+}
+
+.new_category_man {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.form_category {
+  display: flex;
+  position: relative;
+ padding: 20px;
+ 
+}

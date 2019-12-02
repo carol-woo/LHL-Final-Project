@@ -58,6 +58,12 @@ useEffect(() => {
     }
   ]
   return(
+<<<<<<< HEAD
+    <div>
+    <Spline />
+      oh snap i am MonthlyView
+    </div>
+=======
     <LineChart width={730} height={250} data={data}
     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
     <CartesianGrid strokeDasharray="3 3" />
@@ -68,6 +74,7 @@ useEffect(() => {
     <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
     <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
   </LineChart>
+>>>>>>> master
   )
 }
 
