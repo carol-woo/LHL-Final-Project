@@ -4,6 +4,7 @@ const app = express()
 const port = 3001
 const db1 = require('./queries_tier_1')
 const db2 = require('./queries_tier_2')
+const db3 = require('./queries_tier_3')
 var cors = require('cors')
 
 const cookieSession = require('cookie-session');
@@ -38,13 +39,14 @@ app.get('/logout',  (req, res) => {
   console.log("/logout, please nuke the session")
   // console.log("what is my session?", req.session)
   req.session = null;
-  res.json({logout: 'ok'})
+  res.json({logout: 'ok'});
 })
 
 app.get('/api/home', async (req, res) => {
   const user_id = req.session.user_id;
   try {
     const result = await db2.getUsercategories(user_id);
+    console.log("TESTING this thing", result.rows)
     res.json(result.rows)
   } catch (error) {
     res.status(500).send(error.message);
@@ -86,10 +88,16 @@ app.post('/new-user', async (req, res) => {
 })
 
 app.get('/api/new-category', async (req, res) => {
- 
-  const result = await db1.getCategories();
-  res.status(200).json(result)
-
+  const user_id = req.session.user_id;
+  console.log("TESTNG", user_id)
+  try{
+    const result = await db1.getCategories();
+    res.status(200).json(result)
+    return result;
+  } catch (error) {
+    console.log("Error in index.js! Get Categories function")
+    console.log(error)
+  }
 })
  
 

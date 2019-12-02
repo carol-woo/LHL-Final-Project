@@ -18,7 +18,7 @@ const addUser = async info => {
 
 const getCategories = async () => {
   try {
-    const returnData = await pool.query("SELECT * FROM categories");
+    const returnData = await pool.query("SELECT * FROM categories WHERE user_id IS NULL");
     // console.log("TESTING ROUTE", returnData.rows)
     return returnData.rows;
   } catch (error) {
@@ -27,6 +27,7 @@ const getCategories = async () => {
 };
 
 const addCategory = async info => {
+  console.log("AIMAN IS TESTING")
     await pool.query(
       `INSERT INTO categories(name, user_id, category_budget)
     VALUES ($1, $2, $3)`,

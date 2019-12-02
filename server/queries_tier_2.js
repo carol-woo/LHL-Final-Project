@@ -23,9 +23,9 @@ getUsercategories = async(user_id) => {
    JOIN users ON categories.user_id = users.id 
    LEFT JOIN transactions ON categories.id = transactions.category_id
    WHERE categories.user_id=${user_id}
-   GROUP BY categories.id, categories.name, categories.category_budget;
+   GROUP BY categories.id, categories.name, categories.category_budget
   `);
-   console.log("I AM ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWS",aa.rows);
+   console.log("I AM ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWS Aiman",aa.rows);
    return aa;
   } catch (error) {
     console.error(error);
