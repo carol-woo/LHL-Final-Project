@@ -32,6 +32,8 @@ getUsercategories = async(user_id) => {
   }
 }
 
+
+
 // getCategoriesAmount = async() => {
 //   try {
 //    let aa = await pool.query(`select sum(transactions.amount), category_id from transactions group by category_id;`);
