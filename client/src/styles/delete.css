@@ -1,0 +1,17 @@
+.yes {
+  background-image: url(../styles/Images/success.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+ border-radius: 50%;
+ width: 2rem;
+ height: 2rem;
+}
+
+.no {
+  background-image: url(../styles/Images/remove.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+ border-radius: 50%;
+ width: 2rem;
+ height: 2rem;
+}
