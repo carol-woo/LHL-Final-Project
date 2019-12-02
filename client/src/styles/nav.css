@@ -118,3 +118,28 @@
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
+
+.logout {
+  background: #cfd8dc;
+	border:0;
+	color: #009688;
+	padding:10px;
+	font-size: 16px;
+  font-weight: 300;
+  width:10rem;
+  margin: 3 auto;
+	display:block;
+  cursor:pointer;
+	transition: all 0.4s;
+	border-radius: 2px;
+}
+.logout:hover {
+  background: #009688;
+  color: #FFF;
+	transition: all 0.4s;
+}
+
+.logout:active{
+	background: #009688;
+  color: #263238;
+}
