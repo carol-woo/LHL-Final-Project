@@ -27,6 +27,7 @@ const getCategories = async () => {
 };
 
 const addCategory = async info => {
+  console.log("AIMAN IS TESTING")
     await pool.query(
       `INSERT INTO categories(name, user_id, category_budget)
     VALUES ($1, $2, $3)`,

@@ -6,15 +6,17 @@
     "@material-ui/core": "^4.7.0",
     "@material-ui/pickers": "^3.2.8",
     "axios": "^0.19.0",
-    "cloudmersive-ocr-api-client": "^1.2.8",
     "bootstrap": "^4.4.1",
+    "cloudmersive-ocr-api-client": "^1.2.8",
     "ocr-space-api": "^1.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-charts": "^2.0.0-beta.6",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-transition-group": "^4.3.0",
+    "recharts": "^1.8.5",
     "request-promise": "^4.2.5"
   },
   "scripts": {
