@@ -3,11 +3,12 @@
   display: block;
 }
 
-.heading{
+.heading{ 
   font-weight: 700;
 }
 
 .transactionsForm{
+
   border-radius: 14px;
   transition-delay: 0.5s ;
 }
@@ -15,3 +16,10 @@
 .transactionsForm:hover{
   background-color: lightblue;
 }
+
+.TransactionItems {
+  width: 20rem;
+  position: relative;
+  display: inline-block;
+}
+
