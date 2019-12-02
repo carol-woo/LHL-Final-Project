@@ -2,13 +2,6 @@ import React, { useState, useEffect } from "react"
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import axios from 'axios';
 
-// export default function MonthlyView(){
-//   return(
-//     <div>
-//       oh snap i am MonthlyView
-//     </div>
-//   )
-// }
 
 export default function MonthlyView(){
 
@@ -18,8 +11,13 @@ useEffect(() => {
 
   axios.get('api/monthly-view')
   .then((res) => {
-    console.log('The front end', res.data)
+    console.log('The front dailyTotal', res.data.dailyTotalTransactions.rows);
+    console.log('The front average', res.data.average.rows);
     setGraphData(res.data)
+    setGraphData({
+      "Day name": res.data.dailyTotalTransactions.rows[i].day,
+      "Total transactions/Day": res.data.dailyTotalTransactions.rows
+    })
   })
 }, [])
 

@@ -9,7 +9,7 @@ const pool = new Pool({
 
 
 // const getMonthAverageBudget = async () => {
-//   const monthAverageBudget = await pool.query(`select avg(transactions.amount) as average from transactions
+//   const monthAverageBudget = await pool.query(`select avg(transactions.amount) as dailyAverage from transactions
 //   where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019`)
 //   console.log ("Testing the avg query", monthAverageBudget);
 //   return monthAverageBudget;
@@ -23,8 +23,20 @@ const pool = new Pool({
 
 // Returns amount spent along with the day
 amountSpentPerDayMonth = async () => {
-    let result = await pool.query(`select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = 2 group by entered_on`);
-    return result;
+  const result = await pool.query(`select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = 2 group by entered_on`);
+
+  const monthAverageBudget = await pool.query(`select avg(transactions.amount) as dailyAverage from transactions
+  where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019`);
+  // console.log ("Testing the avg query", monthAverageBudget);
+
+
+  let payload = {
+    dailyTotalTransactions: result,
+    average: monthAverageBudget
+  };
+  // console.log("CHECKING SOMETHIGN", payload)
+
+    return payload;
 }
 
 // select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = 2 group by entered_on`
