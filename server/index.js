@@ -24,6 +24,12 @@ app.use(
 )
 
 
+app.get('/api/budget', async(req, res) => {
+  const user_id = req.session.user_id
+ const budget = await db2.getUserBudget(user_id)
+  res.status(200).json(budget)
+})
+
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
 // })
@@ -46,7 +52,6 @@ app.get('/api/home', async (req, res) => {
   const user_id = req.session.user_id;
   try {
     const result = await db2.getUsercategories(user_id);
-    console.log("TESTING this thing", result)
     res.json(result)
   } catch (error) {
     res.status(500).send(error.message);
@@ -54,11 +59,9 @@ app.get('/api/home', async (req, res) => {
 })
 
 app.get('/api/monthly-view', async (req, res) => {
-  console.log("monthly view route is hit")
   const user_id = req.session.user_id;
   try {
     const payload = await db3.amountSpentPerDayMonth(user_id)
-    // console.log("Checking the result in db3. It is working", payload)
     res.json(payload)
   } catch (error) {
     console.log("Error in index.js monthly view route")
@@ -132,7 +135,6 @@ app.post('/api/new-category',async (req, res) => {
     res.status(500).send("ERROR");
     console.log(error)
   }
-   console.log("new-category in index.js",info)
 }) 
 
 
@@ -190,7 +192,6 @@ app.post('/api/transactions',(req,res) =>{
 }) 
 
 app.delete('/api/transactions', (req, res) => {
-  console.log("delete transaction in index.js", req.body)
  let id = req.body.id
  
   db1.deleteTransaction(id)
@@ -205,7 +206,6 @@ app.post('/api/home', async (req, res) => {
     category_id,
     user_id
   }
-  console.log("delete category in index.js", info)
   try {
     await db1.deleteCategory(info)
     res.status(200).send(`Transaction deleted`)
@@ -217,11 +217,8 @@ app.post('/api/home', async (req, res) => {
 
 
 app.get('/categories-transactions/:id', async (req,res) => {
-  console.log("DO IT HERE")
-  console.log("CAT ID IS", req.params.id)
   let id = Number(req.params.id)
   let data = await db2.getCategoryTransactions(id)
-  console.log(data.rows)
   res.json({data: data.rows})
 })
 

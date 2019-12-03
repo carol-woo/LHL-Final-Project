@@ -12,8 +12,6 @@ const [graphData2, setGraphData2] = useState([]);
 useEffect(() => {
   axios.get('api/monthly-view')
   .then((res) => {
-    console.log('The front dailyTotal', res.data);
-    console.log('The front average', res.data);
     const graphData1 = res.data.dailyTotalTransactions.map(t1 => ({
       "name": t1.day,
       "Average amount spent per day": t1.total,
@@ -26,8 +24,6 @@ useEffect(() => {
     }))
     setGraphData1(graphData1)
     setGraphData2(graphData2)
-    console.log("GRAPH DATA1", graphData1)
-    // console.log("GRAPH DATA2", graphData2)
   })
 }, [])
 

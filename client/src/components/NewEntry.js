@@ -35,7 +35,6 @@ export default function NewEntry() {
         setDescription('')
       },
       error => {
-        console.log("GOOTTT!");
         console.log(error);
       }
     );
@@ -45,11 +44,34 @@ export default function NewEntry() {
     console.log("INHERE!")
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING",res.data)
         setCurrentCategories(res.data.userCategories)
       })  
   }, [])
 
+  
+  // const receiptScan = async () => {
+  //   try {
+  //     // let postResult = await callProcess([imageFile], {})
+  //     // //     // this token is used later to request the result
+  //     // const token = postResult.token
+  //     // console.log('My post token', token)
+      
+  //     let getResult = await callResult(token)
+  //     console.log("testing my total", getResult.result)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+  
+  // const handleFileChange = async (event) => {
+  //   console.log("Test file", event.target.files[0].name)
+  //   // const imageFile = `./receiptImages/${event.target.files[0].name}`
+  //   let postResult = await callProcess(event.target.files, {})
+  //     //     // this token is used later to request the result
+  //     const token = await postResult.token
+  //     console.log('My post token', token)
+
+  // }
 
   return (
     <div className="new-entry">
@@ -108,7 +130,13 @@ export default function NewEntry() {
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
-        />
+          // onChange={handleFileChange}
+          />
+          {/* <button name="fileSelect"
+          type="submit"
+          placeholder="FileSelect"
+          onClick={receiptScan}
+          ></button> */}
         <span className="highlight"></span>
         <span className="bar"></span>
         </span>
