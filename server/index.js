@@ -46,8 +46,8 @@ app.get('/api/home', async (req, res) => {
   const user_id = req.session.user_id;
   try {
     const result = await db2.getUsercategories(user_id);
-    console.log("TESTING this thing", result.rows)
-    res.json(result.rows)
+    console.log("TESTING this thing", result)
+    res.json(result)
   } catch (error) {
     res.status(500).send(error.message);
   }
