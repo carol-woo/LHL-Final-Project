@@ -9,7 +9,8 @@ export default function NewEntry() {
   const [transactionAmount, setTransactionAmount] = useState('');
   const [enteredOn, setEnteredOn] = useState('');
   const [description, setDescription] = useState('');
-  const [currentCategories, setCurrentCategories] = useState([])
+  const [currentCategories, setCurrentCategories] = useState([]);
+  const [token, setToken] = useState('');
 
   function submitTransaction(evt) {
     evt.preventDefault()
@@ -46,19 +47,6 @@ export default function NewEntry() {
       })  
   }, [])
 
-  // const receiptScan = async () => {
-  //   try {
-  //     // let postResult = await callProcess([imageFile], {})
-  //     // //     // this token is used later to request the result
-  //     // const token = postResult.token
-  //     // console.log('My post token', token)
-      
-  //     let getResult = await callResult(token)
-  //     console.log("testing my total", getResult.result)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
   const handleFileChange = async (event) => {
     console.log("Test file", event.target.files[0].name)
     const fileName = event.target.files[0].name;
@@ -69,22 +57,30 @@ export default function NewEntry() {
       responseType: JSON
     }).then(
       function(response){
-        setStoreName('')
-        setTransactionAmount('')
-        setEnteredOn('')
-        console.log("The response in handleFileChange post", response)
-        alert(`${response.data}`)
+        setStoreName(response.data.result.establishment)
+        setTransactionAmount(response.data.result.total)
+        setEnteredOn(response.data.result.date)
+        // setToken(`${response.data}`)
+        // alert(`${response.data}`)
+        console.log("FRONT END", response.data)
       },
       error => {
         console.log("Error in new entry axios post", error)
       }
     )
-    // const imageFile = `./receiptImages/${event.target.files[0].name}`
-    // let postResult = await callProcess(event.target.files, {})
-      //     // this token is used later to request the result
-      // const token = await postResult.token
-      // console.log('My post token', token)
+  }
 
+  const parseReceipt = async (event) => {
+    event.preventDefault()
+    console.log('token front end is', token)
+    const response = await axios.get(`/api/receipt?token=${token}`)
+    console.log("Testing the get response", response)
+    // .then((res) => {
+    //   console.log("Testing the receipt info", res.data)
+    // },
+    // error => {
+    //   console.log("Error in new entry axios get", error)
+    // })
   }
 
   return (
@@ -151,7 +147,7 @@ export default function NewEntry() {
           name="scan"
           type="submit"
           placeholder="FileSelect"
-          // onClick={handleFileChange}
+          onClick={parseReceipt}
           ></button>
         <span className="highlight"></span>
         <span className="bar"></span>

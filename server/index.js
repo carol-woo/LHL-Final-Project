@@ -165,11 +165,18 @@ app.post('/api/receipt', async (req, res) =>{
     const postResult = await receiptData.callProcess([filePath])
     const postToken = await postResult.token
     console.log("THE POST token in index is", await postToken)
-    res.status(200).send(`Receipt scan posted`)
+    setTimeout(async()=> {
+      const getResult = await receiptData.callResult(postToken);
+      console.log("The Get result", await getResult);
+      res.json(getResult);
+    }, 5000)
+    // res.status(200).send(`${postToken}`)
   } catch (error) {
     console.log("Error in callProcess in Index.js", error)
   }
 })
+
+// app.get('/api/receipt', async ())
  
 
 // Added user_id
