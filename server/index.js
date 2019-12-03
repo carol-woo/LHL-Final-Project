@@ -160,9 +160,10 @@ app.post('/new-entry', (req, res) =>{
 app.post('/api/receipt', async (req, res) =>{
   console.log("TESTTING THE POst in index.js", req.body.fileName)
   const filePath = `./receiptOCR/receiptImages/${req.body.fileName}`
-  console.log("FILEPATH", filePath)
+  console.log("FILEPATH", [filePath])
   try {
-    const postToken = await receiptData.callProcess(filePath)
+    const postResult = await receiptData.callProcess([filePath])
+    const postToken = await postResult.token
     console.log("THE POST token in index is", await postToken)
     res.status(200).send(`Receipt scan posted`)
   } catch (error) {

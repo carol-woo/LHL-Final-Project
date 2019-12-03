@@ -73,6 +73,7 @@ export default function NewEntry() {
         setTransactionAmount('')
         setEnteredOn('')
         console.log("The response in handleFileChange post", response)
+        alert(`${response.data}`)
       },
       error => {
         console.log("Error in new entry axios post", error)
