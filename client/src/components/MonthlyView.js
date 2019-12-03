@@ -9,7 +9,6 @@ const [graphData1, setGraphData1] = useState([]);
 const [graphData2, setGraphData2] = useState([]);
 
 useEffect(() => {
-
   axios.get('api/monthly-view')
   .then((res) => {
     console.log('The front dailyTotal', res.data);

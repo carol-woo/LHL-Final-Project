@@ -41,7 +41,7 @@ export default function Transactions(props){
     {transactions.map((transaction) => {
       
       return(
-        <div key={transaction.transaction_id}>
+        <div key={transaction.transaction_id} className="TransactionItems">
           <form className="transactionsForm">
             <p className="transactionP"><span className="heading">Store Name:</span> { transaction.store_name}</p>
             <p className="transactionP"><span className="heading">Amount Spent:</span> ${transaction.amount}</p>

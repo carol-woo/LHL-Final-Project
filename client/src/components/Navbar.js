@@ -39,7 +39,7 @@ export default function Navbar(props){
           <div className="spacer"/>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
-              <li className="nav_li"><button type ="submit" onClick={nukeMyLogout}>Logout</button></li>
+              <li className="nav_li"><button className="logout" type ="submit" onClick={nukeMyLogout}>Logout</button></li>
             </ul>
           </div>
         </nav>
