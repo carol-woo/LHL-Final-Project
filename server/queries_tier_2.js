@@ -90,7 +90,7 @@ getUserBudgetSpent = async(user_id) => {
       WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};
       `
     )
-    console.log(amountSpent)
+    return amountSpent.rows[0].total
   } catch(error) {
     console.error(error)
   }
