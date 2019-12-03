@@ -157,9 +157,17 @@ app.post('/new-entry', (req, res) =>{
   res.status(200).send(`Transactions`)
 })
 
-app.post('/api/receipt', (req, res) =>{
-  console.log("TESTTING THE POst in index.js", req.body)
-
+app.post('/api/receipt', async (req, res) =>{
+  console.log("TESTTING THE POst in index.js", req.body.fileName)
+  const filePath = `./receiptOCR/receiptImages/${req.body.fileName}`
+  console.log("FILEPATH", filePath)
+  try {
+    const postToken = await receiptData.callProcess(filePath)
+    console.log("THE POST token in index is", await postToken)
+    res.status(200).send(`Receipt scan posted`)
+  } catch (error) {
+    console.log("Error in callProcess in Index.js", error)
+  }
 })
  
 

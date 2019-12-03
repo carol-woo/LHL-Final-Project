@@ -40,6 +40,7 @@ const callProcess = async (files, params,) => {
   };
 
   const result = await rp(options)
+  console.log("AWAIT RESULT", await result)
   return JSON.parse(result)
 }
 
