@@ -5,6 +5,7 @@ const port = 3001
 const db1 = require('./queries_tier_1')
 const db2 = require('./queries_tier_2')
 const db3 = require('./queries_tier_3')
+const receiptData = require('./receiptOCR/receipt_scan')
 var cors = require('cors')
 
 const cookieSession = require('cookie-session');
@@ -154,6 +155,11 @@ app.post('/new-entry', (req, res) =>{
  
   db1.addTransaction(info)
   res.status(200).send(`Transactions`)
+})
+
+app.post('/api/receipt', (req, res) =>{
+  console.log("TESTTING THE POst in index.js", req.body)
+
 })
  
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/NewEntry.css";
-import {callProcess} from '../receiptOCR/practiceOCR';
-import {callResult} from '../receiptOCR/practiceOCR';
 
 //New entry view
 export default function NewEntry() {
@@ -48,7 +46,6 @@ export default function NewEntry() {
       })  
   }, [])
 
-  
   // const receiptScan = async () => {
   //   try {
   //     // let postResult = await callProcess([imageFile], {})
@@ -62,16 +59,32 @@ export default function NewEntry() {
   //     console.log(error)
   //   }
   // }
-  
-  // const handleFileChange = async (event) => {
-  //   console.log("Test file", event.target.files[0].name)
-  //   // const imageFile = `./receiptImages/${event.target.files[0].name}`
-  //   let postResult = await callProcess(event.target.files, {})
-  //     //     // this token is used later to request the result
-  //     const token = await postResult.token
-  //     console.log('My post token', token)
+  const handleFileChange = async (event) => {
+    console.log("Test file", event.target.files[0].name)
+    const fileName = event.target.files[0].name;
+    axios({
+      method: 'post',
+      url: '/api/receipt',
+      data: {fileName},
+      responseType: JSON
+    }).then(
+      function(response){
+        setStoreName('')
+        setTransactionAmount('')
+        setEnteredOn('')
+        console.log("The response in handleFileChange post", response)
+      },
+      error => {
+        console.log("Error in new entry axios post", error)
+      }
+    )
+    // const imageFile = `./receiptImages/${event.target.files[0].name}`
+    // let postResult = await callProcess(event.target.files, {})
+      //     // this token is used later to request the result
+      // const token = await postResult.token
+      // console.log('My post token', token)
 
-  // }
+  }
 
   return (
     <div className="new-entry">
@@ -132,11 +145,13 @@ export default function NewEntry() {
           accept="image/png, image/jpeg"
           onChange={handleFileChange}
           />
-          {/* <button name="fileSelect"
+          <button
+          className="inputMaterial"
+          name="scan"
           type="submit"
           placeholder="FileSelect"
-          onClick={receiptScan}
-          ></button> */}
+          // onClick={handleFileChange}
+          ></button>
         <span className="highlight"></span>
         <span className="bar"></span>
         </span>
