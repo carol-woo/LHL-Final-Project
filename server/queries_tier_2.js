@@ -82,4 +82,20 @@ getUserBudget = async(user_id) => {
   }
 }
 
-module.exports = {userVerification, getUsercategories, getCategoryTransactions, getUserBudget}
+getUserBudgetSpent = async(user_id) => {
+  try {
+    let amountSpent = await pool.query(
+      `SELECT sum(transactions.amount) AS total 
+      FROM transactions 
+      WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};
+      `
+    )
+    console.log(amountSpent)
+  } catch(error) {
+    console.error(error)
+  }
+}
+
+
+
+module.exports = {userVerification, getUsercategories, getCategoryTransactions, getUserBudget, getUserBudgetSpent}

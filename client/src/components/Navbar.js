@@ -11,6 +11,7 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 //For Navbar view
 export default function Navbar(props){ 
   const [budget, setBudget] = useState([]);
+  const [amountSpent, setAmountSpent] = useState([]);
 
   const nukeMyLogout = async() => {    
     try{
@@ -31,6 +32,10 @@ export default function Navbar(props){
         .then((res) => {
           console.log(res.data)
           setBudget(res.data)
+        })
+      axios.get('/api/amount-spent')
+        .then((res) => {
+          console.log(res.data)
         })
     }, [])
 
