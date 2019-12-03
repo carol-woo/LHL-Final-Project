@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/NewEntry.css"
+import "../styles/NewEntry.css";
+import {callProcess} from '../receiptOCR/practiceOCR';
+import {callResult} from '../receiptOCR/practiceOCR';
 
 //New entry view
 export default function NewEntry() {

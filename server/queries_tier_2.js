@@ -17,7 +17,7 @@ const userVerification = async (email,  password) => {
 
 getUsercategories = async(user_id) => {
   try {
-   let aa = await pool.query(`
+   let userCategories = await pool.query(`
    SELECT categories.id, categories.name, categories.category_budget,  SUM(transactions.amount)
    FROM categories  
    JOIN users ON categories.user_id = users.id 
@@ -25,8 +25,19 @@ getUsercategories = async(user_id) => {
    WHERE categories.user_id=${user_id}
    GROUP BY categories.id, categories.name, categories.category_budget
   `);
-   console.log("I AM ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWS Aiman",aa.rows);
-   return aa;
+
+  const result = await pool.query(`select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = $1 group by entered_on`, [user_id]);
+
+  const monthAverageBudget = await pool.query(`select avg(transactions.amount) as dailyAverage from transactions
+  where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019`);
+
+  let payload = {
+    dailyTotalTransactions: result.rows,
+    average: monthAverageBudget.rows[0].dailyaverage,
+    userCategories: userCategories.rows
+  };
+  //  console.log("I AM ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWS Aiman",payload);
+   return payload;
   } catch (error) {
     console.error(error);
   }
