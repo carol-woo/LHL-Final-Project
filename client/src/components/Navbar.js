@@ -35,7 +35,7 @@ export default function Navbar(props){
         })
       axios.get('/api/amount-spent')
         .then((res) => {
-          console.log(res.data)
+          console.log("i am amount spent!",res.data)
         })
     }, [])
 

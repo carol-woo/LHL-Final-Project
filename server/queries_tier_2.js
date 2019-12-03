@@ -84,7 +84,7 @@ getUserBudget = async(user_id) => {
 
 getUserBudgetSpent = async(user_id) => {
   try {
-    let amountSpent = await pool.query(
+    let amountSpent = await pool.query( 
       `SELECT sum(transactions.amount) AS total 
       FROM transactions 
       WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};
