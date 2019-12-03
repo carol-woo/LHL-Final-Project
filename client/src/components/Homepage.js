@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
+import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import Transactions from "./Transactions"
 import "../styles/Homepage.css";
 import {Link, BrowserRouter } from "react-router-dom";
@@ -8,20 +9,26 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Modal, Button} from 'react-bootstrap';
 
 
-
-
-
 export default function Homepage() {
   const [categories, setCategories] = useState([]);
-  const [modal, toggleModal] = useState(false)
-  const [selectedCategoryId, setSelectedCategoryId] = useState(-1)
+  const [modal, toggleModal] = useState(false);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(-1);
+  const [graphData, setGraphData] = useState([]);
  
   useEffect(() => {
     axios.get('/api/home')
       .then((res) => {
-        setCategories(res.data.map( cat => {return {...cat, show: false}}));
+        console.log("TESTING HOME PAGE", res.data)
+        setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
+        const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
+          "name": eachDay.day,
+          "Average amount spent per day": eachDay.total,
+          "Average daily budget": res.data.average
+        }))
+        setGraphData(graphData);
       })
   }, [])
+
 
   function updateState (categoryId) {
     let tempCategories = [...categories];
@@ -79,6 +86,17 @@ export default function Homepage() {
   }
 
   return (
+
+    <div>
+      <LineChart width={730} height={300} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis type="number" domain={[0, 2500]}/>
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
+        <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
+        </LineChart>
     <div className="homepage_category">
       <BrowserRouter>
 
@@ -138,6 +156,7 @@ export default function Homepage() {
       })}
       
       </BrowserRouter>
+    </div>
     </div>
   )
 }
