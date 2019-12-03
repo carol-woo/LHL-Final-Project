@@ -88,7 +88,7 @@ export default function Homepage() {
   return (
 
     <div>
-      <LineChart width={730} height={300} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+      <LineChart className="Chart" width={730} height={300} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis type="number" domain={[0, 2500]}/>
@@ -97,6 +97,7 @@ export default function Homepage() {
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
         <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
         </LineChart>
+
     <div className="homepage_category">
       <BrowserRouter>
 
