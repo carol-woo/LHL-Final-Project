@@ -58,7 +58,7 @@ app.get('/api/monthly-view', async (req, res) => {
   const user_id = req.session.user_id;
   try {
     const payload = await db3.amountSpentPerDayMonth(user_id)
-    console.log("Checking the result in db3. It is working")
+    // console.log("Checking the result in db3. It is working", payload)
     res.json(payload)
   } catch (error) {
     console.log("Error in index.js monthly view route")
@@ -115,7 +115,6 @@ app.get('/api/new-category', async (req, res) => {
  
 
 app.post('/api/new-category',async (req, res) => {
-  console.log("I AM REQ BODYYYYYYYYYYYYYYYYYYYYYYYYYY", req.body)
   let name = req.body.name
   const user_id = req.session.user_id
   let category_budget = req.body.categoryBudget

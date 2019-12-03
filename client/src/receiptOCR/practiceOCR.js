@@ -42,7 +42,7 @@ async function callProcess(files, params, ) {
 (async () => {
   try {
 
-    const imageFile = './receiptImages/20191118_192801.png'
+    const imageFile = './receiptImages/spotify.png'
     let result = await callProcess([imageFile], {})
     // this token is used later to request the result
     const token = result.token
@@ -85,10 +85,10 @@ async function callResult(token) {
   try {
 
     // your token from the previous process call
-    const token = '5P1dQTaxBsB93LhE'
+    const token = 'v1D6w8VnwQLE7r2R'
 
     let result = await callResult(token)
-    console.log("testing my total", result.result.total)
+    console.log("testing my total", result.result)
 
 
   } catch (e) {

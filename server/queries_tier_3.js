@@ -35,17 +35,24 @@ amountSpentPerDayMonth = async () => {
   // select sum(transactions.amount) as total_transactions from transactions where user_id = 2 and extract (month from transactions.entered_on) = 6
 
   // return category name and total amount spent for a particular month
-  select categories.name, sum(transactions.amount) as total from transactions
-  join categories on categories.id = transactions.category_id
-   where extract(month from entered_on) = 6 group by categories.name
 
+  // const categoryAmountSpentMonth = await pool.query('select categories.name, sum(transactions.amount) as total from transactions join categories on categories.id = transactions.category_id where extract(month from entered_on) = 6 group by categories.name');
+  // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
+
+  const categoryAmountSpentMonth = await pool.query('select categories.name, categories.category_budget, sum(transactions.amount) as total from transactions join categories on categories.id = transactions.category_id where extract(month from entered_on) = 6 group by categories.name, categories.category_budget');
+  // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
+
+  const categoryBudget = await pool.query(`select categories.name, categories.category_budget from categories where user_id = 2;`);
+  // console.log("Category budget", categoryBudget.rows)
+  
 
 
   let payload = {
     dailyTotalTransactions: result.rows,
-    average: monthAverageBudget.rows[0].dailyaverage
+    average: monthAverageBudget.rows[0].dailyaverage,
+    totalCategorySpentMonth: categoryAmountSpentMonth.rows
   };
-  console.log("CHECKING SOMETHING", payload)
+  // console.log("CHECKING SOMETHING", payload)
 
     return payload;
 }
