@@ -82,13 +82,9 @@ export default function NewCategory() {
   return (
       <div className="new_category">
         <div className="banner">
-        <div id="container">
-        <div id="triangle-topleft"></div>
+        <img className="piggybank" src={require("../styles/Images/Budgeting_Methods_Banner.png")}/> 
+        <h3 className="h1NewCat">Looking to add a new category to your cache? Set your budget amount with your category and click on the button to submit! </h3>
         </div>
-        {/* <img className="piggybank" src={require("../styles/Images/basic_budget.jpg")}/> */}
-        <h1 className="h1NewCat">Looking to add a new category to your cache?</h1>
-        </div>
-          <h2 className="h2NewCat">Set your budget then click the category you want!</h2>
     
         <div className="form_category">
           {categories.map((category, i) => {
@@ -97,7 +93,7 @@ export default function NewCategory() {
             );
           })}
           </div>
-     
+
     </div>
   );
 }

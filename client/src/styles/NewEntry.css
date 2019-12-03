@@ -1,6 +1,17 @@
 .new-entry{
-  margin-top: 10%;
+  margin-top: 70px;
+}
 
+.new_entry_banner {
+  display: flex;
+  width: 100vw;
+}
+
+.new_entry_banner .newEntry {
+   width: 50vw;
+ align-items: center;
+ justify-content: center;
+ padding: 0px 40px 0px 40px;
 }
 
 form {

@@ -40,7 +40,7 @@ amountSpentPerDayMonth = async () => {
   // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
 
   const categoryAmountSpentMonth = await pool.query('select categories.name, categories.category_budget, sum(transactions.amount) as total from transactions join categories on categories.id = transactions.category_id where extract(month from entered_on) = 6 group by categories.name, categories.category_budget');
-  // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
+  console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
 
   const categoryBudget = await pool.query(`select categories.name, categories.category_budget from categories where user_id = 2;`);
   // console.log("Category budget", categoryBudget.rows)

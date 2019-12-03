@@ -40,6 +40,7 @@
   background: url("https://cdn.hipwallpaper.com/m/50/59/G8xbSr.jpg") no-repeat;
   background-size: 100% auto;
   height: 72px;
+  z-index: 200;
 }
 
 .toolbar_navigation {
@@ -48,7 +49,6 @@
   height: 100%;
   align-items: center;
   padding: 0 1rem;
-  z-index: 2;
 }
 
 .toolbar_logo {
