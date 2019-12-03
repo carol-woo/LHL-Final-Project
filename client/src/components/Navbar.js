@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Route, Link, BrowserRouter } from "react-router-dom";
 import '../styles/nav.css';
 import "../styles/App.css";
@@ -10,6 +10,7 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
 //For Navbar view
 export default function Navbar(props){ 
+  const [budget, setBudget] = useState([]);
 
   const nukeMyLogout = async() => {    
     try{
@@ -25,6 +26,13 @@ export default function Navbar(props){
       }
   }
 
+    useEffect(()=>{
+      axios.get('/api/budget')
+        .then((res) => {
+          console.log(res.data)
+          setBudget(res.data)
+        })
+    }, [])
 
   return( 
       <div className='toolbar'>
@@ -37,6 +45,7 @@ export default function Navbar(props){
             <Link to="/home"><img src={require("../styles/Images/CIRCLE-07.png")} id="navbar_logo" /></Link>
           </div>
           <div className="spacer"/>
+          <h1 className="budget">Your monthly budget is ${budget}</h1>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
               <li className="nav_li"><button className="logout" type ="submit" onClick={nukeMyLogout}>Logout</button></li>

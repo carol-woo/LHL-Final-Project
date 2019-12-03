@@ -24,6 +24,12 @@ app.use(
 )
 
 
+app.get('/api/budget', async(req, res) => {
+  const user_id = req.session.user_id
+ const budget = await db2.getUserBudget(user_id)
+  res.status(200).json(budget)
+})
+
 // app.get('/', (req, res) => {
 //   res.json({ info: 'Node.js, Express, and Postgres API' })
 // })

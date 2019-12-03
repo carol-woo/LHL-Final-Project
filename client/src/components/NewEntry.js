@@ -130,7 +130,7 @@ export default function NewEntry() {
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
-          onChange={handleFileChange}
+          // onChange={handleFileChange}
           />
           {/* <button name="fileSelect"
           type="submit"
