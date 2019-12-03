@@ -91,6 +91,7 @@ export default function Homepage() {
               key={category.id}
               className={category.name}>
                 <div className="main_individual_category">
+                  <div className="single-category">
                   <button
                     type="submit"
                     id={category.name}
@@ -122,6 +123,7 @@ export default function Homepage() {
                   className="homepage_category_buttons"
                   onClick={() => toggleModal(prev => {setSelectedCategoryId(category.id); return !prev})}
                 ></button>
+                </div>
 
           {category.show &&
            <Transactions 

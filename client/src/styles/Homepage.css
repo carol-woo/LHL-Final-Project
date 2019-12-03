@@ -57,7 +57,6 @@ h1 {
 }
 
 .main_individual_category {
-  display: flex;
   justify-content: space-between;
 }
 
@@ -96,12 +95,10 @@ h1 {
 
 .homepage_category_title p {
   font-size: 1.4rem;
-  color: white;
 }
 
 .budget_amount_info p {
   font-size: 1.4rem;
-  color: white;
 }
 
 #trash_can_button {
@@ -109,4 +106,12 @@ h1 {
   background-size: 60px, 60px;
   width: 90px;
   margin: auto 0;
+}
+
+.single-category {
+  display: flex;
+}
+
+button {
+  z-index: 0;
 }

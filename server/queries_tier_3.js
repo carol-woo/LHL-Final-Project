@@ -15,6 +15,7 @@ const pool = new Pool({
 //   return monthAverageBudget;
 // }
 // Returns amount spent per day along with the date
+
 // const amountSpentPerDateMonth = async (month, user_id) => {
 //   const amountSpentPerDate = await pool.query(`select sum(amount), entered_on from transactions where extract (month from entered_on) = $1 and user_id = $2 group by entered_on`, [month, user_id])
 //   console.log("Testing the amountSpentPerDateMonth in queries_tier_3", amountSpentPerDate);
@@ -30,16 +31,32 @@ amountSpentPerDayMonth = async () => {
   // console.log ("Testing the avg query", monthAverageBudget);
 
 
+  // select total transactions for a month
+  // select sum(transactions.amount) as total_transactions from transactions where user_id = 2 and extract (month from transactions.entered_on) = 6
+
+  // return category name and total amount spent for a particular month
+
+  // const categoryAmountSpentMonth = await pool.query('select categories.name, sum(transactions.amount) as total from transactions join categories on categories.id = transactions.category_id where extract(month from entered_on) = 6 group by categories.name');
+  // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
+
+  const categoryAmountSpentMonth = await pool.query('select categories.name, categories.category_budget, sum(transactions.amount) as total from transactions join categories on categories.id = transactions.category_id where extract(month from entered_on) = 6 group by categories.name, categories.category_budget');
+  // console.log("Checking the 2nd graph in DB Query", categoryAmountSpentMonth.rows);
+
+  const categoryBudget = await pool.query(`select categories.name, categories.category_budget from categories where user_id = 2;`);
+  // console.log("Category budget", categoryBudget.rows)
+  
+
+
   let payload = {
     dailyTotalTransactions: result.rows,
-    average: monthAverageBudget.rows[0].dailyaverage
+    average: monthAverageBudget.rows[0].dailyaverage,
+    totalCategorySpentMonth: categoryAmountSpentMonth.rows
   };
-  console.log("CHECKING SOMETHIGN", payload)
+  // console.log("CHECKING SOMETHING", payload)
 
     return payload;
 }
 
-// select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = 2 group by entered_on`
 
 
 // const amountBudg
