@@ -51,8 +51,8 @@ export default function Navbar(props){
             <Link to="/home"><img src={require("../styles/Images/CIRCLE-08.png")} id="navbar_logo" /></Link>
           </div>
           <div className="spacer"/>
-          <p className="budget">Your monthly budget is ${budget}</p>
-          <p className="amountSpent">You've spent ${amountSpent} so far</p>
+          <p className="budget">Your monthly budget is ${budget}---</p>
+          <p className="amountSpent">You've spent ${amountSpent} so far---</p>
           <p className="remaining">Your remaining budget is ${budget - amountSpent}</p>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
