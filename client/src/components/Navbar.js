@@ -34,7 +34,7 @@ export default function Navbar(props){
             <DrawerToggleButton click={props.drawerClickHandler}/>
           </div>
           <div className="toolbar_logo">
-            <Link to="/home"><img src={require("../styles/Images/CIRCLE-07.png")} id="navbar_logo" /></Link>
+            <Link to="/home"><img src={require("../styles/Images/CIRCLE-08.png")} id="navbar_logo" /></Link>
           </div>
           <div className="spacer"/>
           <div className="toolbar_navigation_items">

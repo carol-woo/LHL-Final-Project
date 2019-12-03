@@ -46,7 +46,7 @@ export default function NewEntry() {
     axios.get('/api/home')
       .then((res) => {
         console.log("TESTING",res.data)
-        setCurrentCategories(res.data)
+        setCurrentCategories(res.data.userCategories)
       })  
   }, [])
 
@@ -55,7 +55,7 @@ export default function NewEntry() {
     <div className="new-entry">
     <div className="new_entry_banner">
       <img className="piggybank" src={require("../styles/Images/new_entry.jpg")} />
-      <h3 className="newEntry">Looking to add a new category to your cache? Set your budget amount with your category and click on the button to submit! </h3>
+      <h3 className="newEntry">Have a new expense to enter? Please provide all the necessary information below</h3>
     </div>
       <form>
       <h1>Add a new entry!</h1>

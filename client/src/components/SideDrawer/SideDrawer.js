@@ -37,7 +37,7 @@ let drawerClasses = 'side-drawer';
   <BrowserRouter>
     <nav className={drawerClasses}>
         <div className="logo_icon">
-        <img src={require("../../styles/Images/CIRCLE-06.png")} id="app_logo"/>
+        <img src={require("../../styles/Images/Circle-09.png")} id="app_logo"/>
         </div>
     <ul>
         <li><Link to="/login" className="a" onClick={handleClick}>Login</Link></li>
