@@ -9,8 +9,7 @@ h1 {
 
 .homepage_category {
   height: 100vh;
-  overflow: scroll;
-  margin: auto 120px;
+  margin: 5rem;
 }
 
 #homepage_category_title {
@@ -115,3 +114,12 @@ h1 {
 button {
   z-index: 0;
 }
+
+.Chart {
+  margin-left: 25%;
+  margin-top: 15%;
+}
+
+
+
+

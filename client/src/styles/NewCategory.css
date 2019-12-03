@@ -7,24 +7,36 @@
   z-index: 0;
 }
 
-.h1NewCat {
-  font-size: 350%;
-  display: inline-flex;
-}
-
-.h2NewCat {
-  font-size: 250%;
-}
-
 .banner {
+  display: flex;
   margin-bottom: 2%;
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-  width: 60%;
-  margin-left: 20rem;
+  width: 100vw;
+  color: #5A95C6;
+  opacity: 1;
 }
 
+.banner .h1NewCat {
+ width: 50vw;
+ align-items: center;
+ justify-content: center;
+ padding: 0px 40px 0px 40px;
+ /* background: url("./Images/grid-portrait.png") no-repeat; */
+ background-size: 50vw;
+}
 
+.banner img {
+  opacity: 1;
+}
+
+.piggybank {
+  width: 50vw;
+  background-size: c;
+} 
+
+.h1NewCat{
+  display: flex;
+  align-content: flex-end;
+}
 
 .inputMaterial {
   font-size: 18px;

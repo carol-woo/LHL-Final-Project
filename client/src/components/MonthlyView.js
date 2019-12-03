@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import axios from 'axios';
+import "../styles/monthlyview.css";
 
 
 export default function MonthlyView(){
@@ -27,27 +28,28 @@ useEffect(() => {
 }, [])
 
 
+
   return(
-    <div>
-    <LineChart width={730} height={300} data={graphData1}
-    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+    <div className="monthly_view_main">
+    <LineChart width={900} height={600} data={graphData1}
+    margin={{ top: 5, right: 5, left: 20, bottom: 5 }} >
     <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="name" />
+    <XAxis dataKey="name" padding={{ left: 30, right: 30 }}/>
     <YAxis type="number" domain={[0, 2500]}/>
     <Tooltip />
     <Legend />
-    <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
-    <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
+    <Line type="monotone" dataKey="Average daily budget" stroke="#3809e3" />
+    <Line type="monotone" dataKey="Average amount spent per day" stroke="#d109e3" />
   </LineChart>
 
-<BarChart width={1400} height={250} data={graphData2}>
+<BarChart width={900} height={600} data={graphData2}>
   <CartesianGrid strokeDasharray="3 3" />
   <XAxis dataKey="name" />
-  <YAxis />
+  <YAxis type="number" domain={[0, 12000]}/>
   <Tooltip />
   <Legend />
-  <Bar dataKey="total" fill="#8884d8" />
-  <Bar dataKey="monthlyBudget" fill="#82ca9d" />
+  <Bar dataKey="total" fill="#3809e3" />
+  <Bar dataKey="monthlyBudget" fill="#d109e3" />
 </BarChart>
 </div>
 

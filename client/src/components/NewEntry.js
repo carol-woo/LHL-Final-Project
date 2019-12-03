@@ -75,6 +75,10 @@ export default function NewEntry() {
 
   return (
     <div className="new-entry">
+    <div className="new_entry_banner">
+      <img className="piggybank" src={require("../styles/Images/new_entry.jpg")} />
+      <h3 className="newEntry">Looking to add a new category to your cache? Set your budget amount with your category and click on the button to submit! </h3>
+    </div>
       <form>
       <h1>Add a new entry!</h1>
       
