@@ -69,4 +69,17 @@ getCategoryTransactions = async(category_id) => {
   }
 }
 
-module.exports = {userVerification, getUsercategories, getCategoryTransactions}
+getUserBudget = async(user_id) => {
+  try{
+    let budget = await pool.query(
+      `SELECT budget
+       FROM users
+       WHERE users.id = ${user_id};`
+    )
+    return budget.rows[0].budget
+  } catch(error) {
+    console.error(error);
+  }
+}
+
+module.exports = {userVerification, getUsercategories, getCategoryTransactions, getUserBudget}
