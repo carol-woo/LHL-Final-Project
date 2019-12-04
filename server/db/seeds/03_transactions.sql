@@ -1,6 +1,6 @@
 
 INSERT INTO transactions (store_name, user_id, category_id, amount, entered_on, description)
-VALUES ('Rental property', 2, 26, 800.00, '2019-06-01', 'monthly rent'),
+VALUES 
 ('Oretta', 2,  23, 92.00, '2019-06-01', 'Went to restaurant'),
 ('Costco', 2, 24, 75.00, '2019-06-03', 'grocery shopping'),
 ('TTC', 2, 38, 45.00, '2019-06-09', 'paying for transportation'),
