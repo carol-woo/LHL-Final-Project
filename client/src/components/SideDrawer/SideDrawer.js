@@ -21,33 +21,33 @@ const routes = [
 
 
 const SideDrawer = props => {
-let drawerClasses = 'side-drawer';
+  let drawerClasses = 'side-drawer';
 
-    if(props.show) {
-      drawerClasses ='side-drawer open';
-     }
+  if (props.show) {
+    drawerClasses = 'side-drawer open';
+  }
 
-     const handleClick = () => {
-       props.close(false)
-     }
-     
+  const handleClick = () => {
+    props.close(false)
+  }
 
-  return (  
-  <div>
-  <BrowserRouter>
-    <nav className={drawerClasses}>
-        <div className="logo_icon">
-        <img src={require("../../styles/Images/Circle-09.png")} id="app_logo"/>
-        </div>
-    <ul>
-        <li><Link to="/login" className="a" onClick={handleClick}>Login</Link></li>
-        <li><Link to="/register" className="a" onClick={handleClick}>Register</Link></li>
-        <li><Link to="/home" className="a" onClick={handleClick}>Homepage</Link></li>
-        <li><Link to="/new-entry" className="a" onClick={handleClick}>New Entry</Link></li>
-        <li><Link to="/new-category" className="a" onClick={handleClick}>Add Category</Link></li>
-        <li><Link to="/monthly-view" className="a" onClick={handleClick}>Monthly View</Link></li>
-      </ul>
-    </nav>
+
+  return (
+    <div>
+      <BrowserRouter>
+        <nav className={drawerClasses}>
+          <div className="logo_icon">
+            <img src={require("../../styles/Images/Circle-09.png")} id="app_logo" />
+          </div>
+          <ul>
+            <li><Link to="/login" className="a" onClick={handleClick}>Login</Link></li>
+            <li><Link to="/register" className="a" onClick={handleClick}>Register</Link></li>
+            <li><Link to="/home" className="a" onClick={handleClick}>Homepage</Link></li>
+            <li><Link to="/new-entry" className="a" onClick={handleClick}>New Entry</Link></li>
+            <li><Link to="/new-category" className="a" onClick={handleClick}>Add Category</Link></li>
+            <li><Link to="/monthly-view" className="a" onClick={handleClick}>Monthly View</Link></li>
+          </ul>
+        </nav>
 
         <div className="homepage">
           <Route exact path="/home" component={Homepage}></Route>
@@ -82,9 +82,9 @@ let drawerClasses = 'side-drawer';
           <Route path="/monthly-view" component={MonthlyView}></Route>
         </div>
 
-  </BrowserRouter>
+      </BrowserRouter>
     </div>
-    );
-  }    
+  );
+}
 
 export default SideDrawer 
