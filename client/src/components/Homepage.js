@@ -20,16 +20,30 @@ export default function Homepage() {
 
 
   useEffect(() => {
-    axios.get('/api/home')
-      .then((res) => {
-        setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
+// <<<<<<< aa-27
+//     axios.get('/api/home')
+//       .then((res) => {
+//         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
+// =======
+    return async () => {
+      try {
+        const res = await axios.get('/api/home')
+
+        console.log("TESTING HOME PAGE", res)
+        console.log('!!!!!!!!!!!', res.data)
+        setCategories(res.data.userCategories.map(cat => { return { ...cat, show: false } }));
+
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,
           "Average amount spent per day": eachDay.total,
           "Average daily budget": res.data.average
         }))
         setGraphData(graphData);
-      })
+
+      } catch (err) {
+        console.error(err)
+      }
+    }
   }, [])
 
  

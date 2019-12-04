@@ -64,7 +64,7 @@ const editTransaction = async (info) => {
  try{
   await pool.query(`
   UPDATE transactions 
-  SET store_name = $2, user_id = $3 category_id = $4, amount = $5, entered_on = $6, description= $7
+  SET store_name = $2, user_id = $3, category_id = $4, amount = $5, entered_on = $6, description= $7
   WHERE id = $1
   `, [info.id, info.store_name,info.user_id, info.category_id, info.amount, info.entered_on, info.description])
  } catch(error) {
