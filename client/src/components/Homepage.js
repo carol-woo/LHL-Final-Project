@@ -3,6 +3,7 @@ import axios from 'axios';
 import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import Transactions from "./Transactions"
 import "../styles/Homepage.css";
+import "../styles/categorybuttons.css"
 import {Link, BrowserRouter } from "react-router-dom";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -104,7 +105,8 @@ export default function Homepage() {
   return (
 
     <div>
-      <LineChart className="Chart" width={730} height={300} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+    <div className="homepage_chart">
+      <LineChart className="Chart" width={1000} height={600} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis type="number" domain={[0, 2500]}/>
@@ -112,7 +114,9 @@ export default function Homepage() {
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
         <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
-      </LineChart>
+     34-AC
+        </LineChart>
+    </div>
 
     <div className="homepage_category">
       <BrowserRouter>
