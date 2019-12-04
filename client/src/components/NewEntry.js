@@ -57,8 +57,9 @@ export default function NewEntry() {
       responseType: JSON
     }).then(
       function(response){
+        const amountVal = Math.round(response.data.result.total);
         setStoreName(response.data.result.establishment)
-        setTransactionAmount(response.data.result.total)
+        setTransactionAmount(amountVal)
         setEnteredOn(response.data.result.date.slice(0, 10))
         console.log("Testing line items", response.data.result.date.slice(0,10))
         // setToken(`${response.data}`)
@@ -114,7 +115,7 @@ export default function NewEntry() {
         className="inputMaterial"
           type="number"
           value={transactionAmount}
-          onChange={event => setTransactionAmount(event.target.value)}
+          onChange={event => setTransactionAmount(Math.round(event.target.value))}
           placeholder="Enter the total amount"
         />
         <span className="highlight"></span>

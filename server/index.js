@@ -158,7 +158,7 @@ app.post('/api/receipt', async (req, res) =>{
     setTimeout(async()=> {
       const getResult = await receiptData.callResult(postToken);
       res.json(getResult);
-    }, 10000)
+    }, 5000)
   } catch (error) {
     console.log("Error in callProcess in Index.js", error)
   }
