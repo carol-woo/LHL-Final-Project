@@ -108,3 +108,13 @@ form {
 	background: #009688;
   color: #263238;
 }
+
+@keyframes new_entry_banner {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
