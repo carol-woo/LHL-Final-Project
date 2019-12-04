@@ -23,9 +23,7 @@ amountSpentPerDayMonth = async (user_id) => {
     average: monthAverageBudget.rows[0].dailyaverage,
     totalCategorySpentMonth: categoryAmountSpentMonth.rows
   };
-
     return payload;
 }
-
       
-      module.exports = {amountSpentPerDayMonth}
+module.exports = {amountSpentPerDayMonth}

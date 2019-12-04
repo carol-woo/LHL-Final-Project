@@ -42,27 +42,13 @@ getUsercategories = async(user_id) => {
   }
 }
 
-
-
-// getCategoriesAmount = async() => {
-//   try {
-//    let aa = await pool.query(`select sum(transactions.amount), category_id from transactions group by category_id;`);
-//    console.log(aa.rows);
-//    return aa;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 getCategoryTransactions = async(category_id) => {
   try {
    let transactions = await pool.query(`
    select *, transactions.id as transaction_id from transactions 
    join categories on categories.id = category_id 
    where category_id = ${category_id};`);
-   console.log("TESTING TRA", transactions)
    return transactions;
-    // return await pool.query(`SELECT * FROM categories`);
   } catch (error) {
     console.error(error);
   }
@@ -86,15 +72,12 @@ getUserBudgetSpent = async(user_id) => {
     let amountSpent = await pool.query( 
       `SELECT sum(transactions.amount) AS total 
       FROM transactions 
-      WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};
-      `
+      WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};`
     )
     return amountSpent.rows[0].total
   } catch(error) {
     console.error(error)
   }
 }
-
-
 
 module.exports = {userVerification, getUsercategories, getCategoryTransactions, getUserBudget, getUserBudgetSpent}

@@ -37,20 +37,13 @@ app.get('/api/amount-spent', async(req,res) => {
   res.status(200).json(amountSpent)
 })
 
-// app.get('/', (req, res) => {
-//   res.json({ info: 'Node.js, Express, and Postgres API' })
-// })
-//login
 app.post('/login', async (req, res) => {
   const user = await db2.userVerification(req.body.email, req.body.password)
   req.session.user_id = user.id
-  console.log('/LOGIN HIT')
   res.json({status: 'ok'})
 })
 
 app.get('/logout',  (req, res) => {
-  console.log("/logout, please nuke the session")
-  // console.log("what is my session?", req.session)
   req.session = null;
   res.json({logout: 'ok'});
 })
@@ -82,14 +75,12 @@ app.post('/new-user', async (req, res) => {
   let name = req.body.name 
   let email = req.body.email 
   let password_digest= req.body.password_digest
-  // let created_at=req.body.created_at 
   let budget = req.body.budget
   
   const info = {
     name,
     email,
     password_digest,
-    // created_at,
     budget
   }
   try {
@@ -103,7 +94,6 @@ app.post('/new-user', async (req, res) => {
 
 app.get('/api/new-category', async (req, res) => {
   const user_id = req.session.user_id;
-  console.log("TESTNG", user_id)
   try{
     const result = await db1.getCategories();
     res.status(200).json(result)
@@ -161,16 +151,12 @@ app.post('/new-entry', (req, res) =>{
 })
 
 app.post('/api/receipt', async (req, res) =>{
-  console.log("TESTTING THE POst in index.js", req.body.fileName)
   const filePath = `./receiptOCR/receiptImages/${req.body.fileName}`
-  console.log("FILEPATH", [filePath])
   try {
     const postResult = await receiptData.callProcess([filePath])
     const postToken = await postResult.token
-    console.log("THE POST token in index is", await postToken)
     setTimeout(async()=> {
       const getResult = await receiptData.callResult(postToken);
-      console.log("The Get result", await getResult);
       res.json(getResult);
     }, 10000)
   } catch (error) {
@@ -179,9 +165,7 @@ app.post('/api/receipt', async (req, res) =>{
 })
 
 
-// Added user_id
 app.post('/api/transactions',(req,res) =>{
-  console.log("transactions in index.js")
   
   let store_name = req.body.store_name
   let user_id = req.session.user_id
@@ -203,16 +187,13 @@ app.post('/api/transactions',(req,res) =>{
   }
 
   db1.editTransaction(info)
-  console.log("edit transactions in index.js")
   res.status(200).send(`Edited transactions`)
 }) 
 
 app.delete('/api/transactions', (req, res) => {
  let id = req.body.id
- 
   db1.deleteTransaction(id)
   res.status(200).send(`Transaction deleted`)
-
 })
 
 app.post('/api/home', async (req, res) => {
