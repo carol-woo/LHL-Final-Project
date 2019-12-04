@@ -30,14 +30,14 @@ VALUES ('Rental property', 2, 29, 800.00, '2019-06-01', 'monthly rent'),
 ('Mcdonalds', 2, 33, 6.00, '2019-06-13', 'went for chicken nuggets'),
 ('Mcdonalds', 2, 33, 6.00, '2019-06-16', 'went for chicken nuggets'),
 ('Mcdonalds', 2, 33, 8.00, '2019-06-21', 'went for chicken nuggets'),
-('Rental property', 1, 29, 600.00, '2019-06-01', 'monthly rent'),
-('Oretta', 1,  33, 102.98, '2019-06-01', 'Went to restaurant'),
-('Costco', 1, 47, 69.00, '2019-06-03', 'grocery shopping'),
-('TTC', 1, 5, 50.00, '2019-06-09', 'paying for transportation'),
-('metro', 1, 47, 45.00, '2019-06-02', 'groceries'),
-('Rogers', 1, 45, 110.00, '2019-06-09', 'cell phone bill'),
-('Toronto Hydro', 1, 43, 52.00, '2019-06-13', 'hydro bill'),
-('Mcdonalds', 1, 33, 8.00, '2019-06-01', 'went for chicken nuggets');
+('Rental property', 2, 29, 600.00, '2019-06-01', 'monthly rent'),
+('Oretta', 2,  33, 102.98, '2019-06-01', 'Went to restaurant'),
+('Costco', 2, 47, 69.00, '2019-06-03', 'grocery shopping'),
+('TTC', 2, 5, 50.00, '2019-06-09', 'paying for transportation'),
+('metro', 2, 47, 45.00, '2019-06-02', 'groceries'),
+('Rogers', 2, 45, 110.00, '2019-06-09', 'cell phone bill'),
+('Toronto Hydro', 2, 43, 52.00, '2019-06-13', 'hydro bill'),
+('Mcdonalds', 2, 33, 8.00, '2019-06-01', 'went for chicken nuggets');
 
 
 
