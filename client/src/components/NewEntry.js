@@ -59,7 +59,8 @@ export default function NewEntry() {
       function(response){
         setStoreName(response.data.result.establishment)
         setTransactionAmount(response.data.result.total)
-        setEnteredOn(response.data.result.date)
+        setEnteredOn(response.data.result.date.slice(0, 10))
+        console.log("Testing line items", response.data.result.date.slice(0,10))
         // setToken(`${response.data}`)
         // alert(`${response.data}`)
         console.log("FRONT END", response.data)
