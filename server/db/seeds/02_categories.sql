@@ -18,7 +18,7 @@ VALUES
 ('Home Phone', 2, 80),
 ('Cell Phone', 2, 40),
 ('Cable Internet', 2, 400),
-('Groceries', 2, 10000),
+('Groceries', 2, 1000),
 ('Restaurants', 2, 10),
 ('Beverage', 2, 50),
 ('Mortgage Insurance', 2, 50),

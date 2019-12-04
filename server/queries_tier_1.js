@@ -19,7 +19,6 @@ const addUser = async info => {
 const getCategories = async () => {
   try {
     const returnData = await pool.query("SELECT * FROM categories WHERE user_id IS NULL");
-    // console.log("TESTING ROUTE", returnData.rows)
     return returnData.rows;
   } catch (error) {
     console.error(error);
@@ -42,18 +41,13 @@ const getTransactions = async (req, res) => {
     if (error) {
       throw error
     }
-    console.log("getTransactions being used in queries.js")
-    console.log("TESTING TIME STAMPE", results.rows)
     res.status(200).json(results.rows)
   })
 }
-//added user_id
+
 const addTransaction = async info => {
   console.log("addTransaction QUERY IS RUNNING!!");
-  await pool.query(
-    `
-  INSERT INTO transactions (store_name, user_id, category_id, amount, entered_on, description)
-  VALUES ($1, $2, $3, $4, $5, $6)`,
+  await pool.query(`INSERT INTO transactions (store_name, user_id, category_id, amount, entered_on, description) VALUES ($1, $2, $3, $4, $5, $6)`,
     [
       info.store_name,
       info.user_id,
@@ -64,7 +58,7 @@ const addTransaction = async info => {
     ]
   );
 };
-// added user_id
+
 const editTransaction = async (info) => {
   console.log("editTransaction is running!")
  try{
@@ -84,7 +78,6 @@ const deleteTransaction = async (id) => {
   await pool.query(`DELETE FROM transactions WHERE id = $1`, [id])
   }
 
-
   const deleteCategory = async (info) => {
     console.log("deleteCategory in queries_tier_1 is running!")
     console.log("TESTING VALUES", info.category_id, info.user_id)
@@ -95,7 +88,6 @@ const deleteTransaction = async (id) => {
      console.log(error)
    }
   }
-
 
 
 module.exports = {addUser, getCategories, addTransaction, getTransactions, addCategory, editTransaction, deleteTransaction, deleteCategory}

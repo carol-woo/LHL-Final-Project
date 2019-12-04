@@ -29,31 +29,18 @@ getUsercategories = async(user_id) => {
   const result = await pool.query(`select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = $1 group by entered_on`, [user_id]);
 
   const monthAverageBudget = await pool.query(`select avg(transactions.amount) as dailyAverage from transactions
-  where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019`);
+  where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019 and user_id = $1`, [user_id]);
 
   let payload = {
     dailyTotalTransactions: result.rows,
     average: monthAverageBudget.rows[0].dailyaverage,
     userCategories: userCategories.rows
   };
-  //  console.log("I AM ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWS Aiman",payload);
    return payload;
   } catch (error) {
     console.error(error);
   }
 }
-
-
-
-// getCategoriesAmount = async() => {
-//   try {
-//    let aa = await pool.query(`select sum(transactions.amount), category_id from transactions group by category_id;`);
-//    console.log(aa.rows);
-//    return aa;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 
 getCategoryTransactions = async(category_id) => {
   try {
@@ -61,9 +48,7 @@ getCategoryTransactions = async(category_id) => {
    select *, transactions.id as transaction_id from transactions 
    join categories on categories.id = category_id 
    where category_id = ${category_id};`);
-   console.log("TESTING TRA", transactions)
    return transactions;
-    // return await pool.query(`SELECT * FROM categories`);
   } catch (error) {
     console.error(error);
   }
@@ -87,15 +72,12 @@ getUserBudgetSpent = async(user_id) => {
     let amountSpent = await pool.query( 
       `SELECT sum(transactions.amount) AS total 
       FROM transactions 
-      WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};
-      `
+      WHERE extract(month FROM transactions.entered_on) = 6 AND transactions.user_id = ${user_id};`
     )
     return amountSpent.rows[0].total
   } catch(error) {
     console.error(error)
   }
 }
-
-
 
 module.exports = {userVerification, getUsercategories, getCategoryTransactions, getUserBudget, getUserBudgetSpent}

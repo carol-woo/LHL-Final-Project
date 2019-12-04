@@ -57,8 +57,9 @@ export default function NewEntry() {
       responseType: JSON
     }).then(
       function(response){
+        const amountVal = Math.round(response.data.result.total);
         setStoreName(response.data.result.establishment)
-        setTransactionAmount(response.data.result.total)
+        setTransactionAmount(amountVal)
         setEnteredOn(response.data.result.date.slice(0, 10))
         console.log("Testing line items", response.data.result.date.slice(0,10))
         // setToken(`${response.data}`)
@@ -71,18 +72,6 @@ export default function NewEntry() {
     )
   }
 
-  const parseReceipt = async (event) => {
-    event.preventDefault()
-    console.log('token front end is', token)
-    const response = await axios.get(`/api/receipt?token=${token}`)
-    console.log("Testing the get response", response)
-    // .then((res) => {
-    //   console.log("Testing the receipt info", res.data)
-    // },
-    // error => {
-    //   console.log("Error in new entry axios get", error)
-    // })
-  }
 
   return (
     <div className="new-entry">
@@ -126,7 +115,7 @@ export default function NewEntry() {
         className="inputMaterial"
           type="number"
           value={transactionAmount}
-          onChange={event => setTransactionAmount(event.target.value)}
+          onChange={event => setTransactionAmount(Math.round(event.target.value))}
           placeholder="Enter the total amount"
         />
         <span className="highlight"></span>
@@ -141,14 +130,14 @@ export default function NewEntry() {
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
-          // onChange={handleFileChange}
+          onChange={handleFileChange}
           />
           <button
           className="inputMaterial"
           name="scan"
           type="submit"
           placeholder="FileSelect"
-          onClick={parseReceipt}
+          // onClick={parseReceipt}
           ></button>
         <span className="highlight"></span>
         <span className="bar"></span>
