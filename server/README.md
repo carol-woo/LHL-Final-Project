@@ -15,3 +15,7 @@ It contains database pool query functions
 
 Queries_tier2:
 This file is responsible for smaller functions such as verifications. It also contains database pool query functions.
+
+Receipt Scan:
+Install the request-promise dependency on the server side
+npm install --save request-promise
