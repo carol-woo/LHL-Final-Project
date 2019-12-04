@@ -20,6 +20,11 @@ export default function Homepage() {
 
 
   useEffect(() => {
+// <<<<<<< aa-27
+//     axios.get('/api/home')
+//       .then((res) => {
+//         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
+// =======
     return async () => {
       try {
         const res = await axios.get('/api/home')
@@ -27,6 +32,7 @@ export default function Homepage() {
         console.log("TESTING HOME PAGE", res)
         console.log('!!!!!!!!!!!', res.data)
         setCategories(res.data.userCategories.map(cat => { return { ...cat, show: false } }));
+
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,
           "Average amount spent per day": eachDay.total,
