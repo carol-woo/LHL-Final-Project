@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Route, Link, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Link, BrowserRouter } from "react-router-dom";
 import '../styles/nav.css';
 import "../styles/App.css";
 import { Redirect } from 'react-router-dom';
@@ -13,7 +13,6 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 export default function Navbar(props){ 
   const [budget, setBudget] = useState([]);
   const [amountSpent, setAmountSpent] = useState([]);
-  const [redirect, setRedirect] = useState(false)
 
   const nukeMyLogout = async() => {   
     window.location.href = '/login'
