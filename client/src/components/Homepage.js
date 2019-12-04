@@ -124,6 +124,7 @@ export default function Homepage() {
       {modal && confirmModal(selectedCategoryId)}
       {categories.map((category) => {
         let sum = category.sum
+        const stringName = category.name.replace(" ", "-");
         return (
           <div className="category_column">
             <div
@@ -133,7 +134,7 @@ export default function Homepage() {
                   <div className="single-category">
                   <button
                     type="submit"
-                    id={category.name}
+                    id={stringName}
                     className="homepage_category_buttons"
                     onClick={() => getTransactions(category.id)}
                     >{category.name} 
