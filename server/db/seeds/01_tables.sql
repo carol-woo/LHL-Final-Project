@@ -3,39 +3,41 @@
 -- -- Insert into the users table
 
 INSERT INTO users (name, email, password_digest,  budget)
-VALUES ('vasily', 'vasily@vasily.com', '86', 5000),
-('test', 'test@test.test', 'test', 5000);
+VALUES ('Avijit', 'avijit@gmail.com', 'avijit', 6000),
+('vasily', 'vasily@vasily.com', '86', 5000),
+('Aiman', 'aiman@gmail.com', 'aiman', 5000),
+('Carol', 'carol@gmail.com', 'carol', 5000);
 
 -- 28 Categories
 INSERT INTO categories (name, category_budget)
-VALUES ('Housing', 2000),
-('Transportation', 100),
-('Recreational', 300),
-('Miscellaneous', 40),
-('Food', 2),
-('Insurance', 1000),
-('Healthcare', 400),
-('Rent', 5),
-('Mortgage', 70),
-('Property Tax', 600),
-('Home Maintenance', 40),
-('Gas', 25),
-('Parking', 600),
+VALUES ('Housing', 1000),
+('Transportation', 400),
+('Recreational', 500),
+('Miscellaneous', 500),
+('Food', 500),
+('Insurance', 300),
+('Healthcare', 200),
+('Rent', 800),
+('Mortgage', 600),
+('Property Tax', 100),
+('Home Maintenance', 120),
+('Gas', 350),
+('Parking', 200),
 ('Water', 50),
-('Hydro', 500),
-('Home Phone', 80),
-('Cell Phone', 40),
-('Cable Internet', 400),
-('Groceries', 10000),
-('Restaurants', 10),
-('Beverage', 50),
+('Hydro', 60),
+('Home Phone', 40),
+('Cell Phone', 80),
+('Cable Internet', 100),
+('Groceries', 500),
+('Restaurants', 300),
+('Beverage', 200),
 ('Mortgage Insurance', 50),
 ('Auto Insurance', 100),
-('Home Insurance', 600),
-('Life Insurance', 40),
-('Public Transportation', 100),
-('Pets', 500),
-('Loans', 2);
+('Home Insurance', 50),
+('Life Insurance', 30),
+('Public Transportation', 150),
+('Pets', 60),
+('Loans', 200);
 
 
 

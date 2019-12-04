@@ -31,26 +31,30 @@ useEffect(() => {
 
   return(
     <div className="monthly_view_main">
-    <LineChart width={900} height={600} data={graphData1}
-    margin={{ top: 5, right: 5, left: 20, bottom: 5 }} >
-    <CartesianGrid strokeDasharray="3 3" />
-    <XAxis dataKey="name" padding={{ left: 30, right: 30 }}/>
-    <YAxis type="number" domain={[0, 2500]}/>
-    <Tooltip />
-    <Legend />
-    <Line type="monotone" dataKey="Average daily budget" stroke="#3809e3" />
-    <Line type="monotone" dataKey="Average amount spent per day" stroke="#d109e3" />
-  </LineChart>
+      <div className="monthly_category_banner">
+        <img className="piggybank" src={require("../styles/Images/graph.jpg")} />
+        <h3 className="h3_monthly_category">sneak peek at your monthly progress? View the graphs to track your progress!</h3>
+      </div>
+      <LineChart width={900} height={600} data={graphData1}
+      margin={{ top: 5, right: 5, left: 20, bottom: 5 }} >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" padding={{ left: 30, right: 30 }}/>
+        <YAxis type="number" domain={[0, 2500]}/>
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="Average daily budget" stroke="#F27EA1" />
+        <Line type="monotone" dataKey="Average amount spent per day" stroke="#61C7C9" />
+      </LineChart>
 
-<BarChart width={900} height={600} data={graphData2}>
-  <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="name" />
-  <YAxis type="number" domain={[0, 12000]}/>
-  <Tooltip />
-  <Legend />
-  <Bar dataKey="total" fill="#3809e3" />
-  <Bar dataKey="monthlyBudget" fill="#d109e3" />
-</BarChart>
+      <BarChart width={900} height={600} data={graphData2}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis type="number" domain={[0, 12000]}/>
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="total" fill="#F27EA1" />
+        <Bar dataKey="monthlyBudget" fill="#61C7C9" />
+      </BarChart>
 </div>
 
   )
