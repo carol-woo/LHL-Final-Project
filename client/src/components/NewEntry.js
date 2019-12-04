@@ -71,18 +71,6 @@ export default function NewEntry() {
     )
   }
 
-  const parseReceipt = async (event) => {
-    event.preventDefault()
-    console.log('token front end is', token)
-    const response = await axios.get(`/api/receipt?token=${token}`)
-    console.log("Testing the get response", response)
-    // .then((res) => {
-    //   console.log("Testing the receipt info", res.data)
-    // },
-    // error => {
-    //   console.log("Error in new entry axios get", error)
-    // })
-  }
 
   return (
     <div className="new-entry">
@@ -141,14 +129,14 @@ export default function NewEntry() {
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
-          // onChange={handleFileChange}
+          onChange={handleFileChange}
           />
           <button
           className="inputMaterial"
           name="scan"
           type="submit"
           placeholder="FileSelect"
-          onClick={parseReceipt}
+          // onClick={parseReceipt}
           ></button>
         <span className="highlight"></span>
         <span className="bar"></span>

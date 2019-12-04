@@ -182,14 +182,11 @@ app.post('/api/receipt', async (req, res) =>{
       console.log("The Get result", await getResult);
       res.json(getResult);
     }, 10000)
-    // res.status(200).send(`${postToken}`)
   } catch (error) {
     console.log("Error in callProcess in Index.js", error)
   }
 })
 
-// app.get('/api/receipt', async ())
- 
 
 // Added user_id
 app.post('/api/transactions',(req,res) =>{
