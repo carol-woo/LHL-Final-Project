@@ -25,19 +25,16 @@ export default function Login() {
         withCredentials: true,
       })
 
-      console.log("TEH Response", response);
       setRedirect(true);
-      console.log("Changing redirect state", redirect);
-      console.log("HELLO! IS IT THE homepage you are looking for?")
       return response
     } catch(error) {
       console.log("GOOTTT!")
       console.log(error)
     }
-    }
+  }
 
   if (redirect) {
-    return <Redirect to='/new-category' />
+    return <Redirect to='/home' />
   }
   
 
