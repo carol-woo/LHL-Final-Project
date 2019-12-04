@@ -8,7 +8,6 @@ export default function Edit(props){
   const [entered_on, setEntered_on] = useState()
   const [description, setDescription] = useState()
   
-
   const submitEdit = async (evt) => {
     evt.preventDefault()
     try {
