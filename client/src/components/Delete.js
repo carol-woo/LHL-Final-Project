@@ -11,9 +11,11 @@ export default function Delete(props){
         }
       }).then((data) => {
         props.onDeleteSuccess(props.id);
+        props.updateCategories();
         props.renderDelete()
       })
     } 
+
 
 return (
   <div>

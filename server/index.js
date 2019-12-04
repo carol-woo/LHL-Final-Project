@@ -5,6 +5,7 @@ const port = 3001
 const db1 = require('./queries_tier_1')
 const db2 = require('./queries_tier_2')
 const db3 = require('./queries_tier_3')
+const receiptData = require('./receiptOCR/receipt_scan')
 var cors = require('cors')
 
 const cookieSession = require('cookie-session');
@@ -28,6 +29,12 @@ app.get('/api/budget', async(req, res) => {
   const user_id = req.session.user_id
  const budget = await db2.getUserBudget(user_id)
   res.status(200).json(budget)
+})
+
+app.get('/api/amount-spent', async(req,res) => {
+  const user_id = req.session.user_id
+  const amountSpent = await db2.getUserBudgetSpent(user_id)
+  res.status(200).json(amountSpent)
 })
 
 // app.get('/', (req, res) => {
@@ -161,6 +168,27 @@ app.post('/new-entry', (req, res) =>{
   db1.addTransaction(info)
   res.status(200).send(`Transactions`)
 })
+
+app.post('/api/receipt', async (req, res) =>{
+  console.log("TESTTING THE POst in index.js", req.body.fileName)
+  const filePath = `./receiptOCR/receiptImages/${req.body.fileName}`
+  console.log("FILEPATH", [filePath])
+  try {
+    const postResult = await receiptData.callProcess([filePath])
+    const postToken = await postResult.token
+    console.log("THE POST token in index is", await postToken)
+    setTimeout(async()=> {
+      const getResult = await receiptData.callResult(postToken);
+      console.log("The Get result", await getResult);
+      res.json(getResult);
+    }, 10000)
+    // res.status(200).send(`${postToken}`)
+  } catch (error) {
+    console.log("Error in callProcess in Index.js", error)
+  }
+})
+
+// app.get('/api/receipt', async ())
  
 
 // Added user_id
