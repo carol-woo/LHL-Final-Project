@@ -4,7 +4,7 @@ VALUES
 ('Recreational', 2, 300),
 ('Miscellaneous', 2, 40),
 ('Food', 2, 200),
-('Insurance', 2, 5000),
+('Insurance', 2, 200),
 ('Healthcare', 2, 400),
 ('Rent', 2, 800),
 ('Mortgage', 2, 700),

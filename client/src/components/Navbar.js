@@ -13,7 +13,6 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 export default function Navbar(props){ 
   const [budget, setBudget] = useState([]);
   const [amountSpent, setAmountSpent] = useState([]);
-  const [redirect, setRedirect] = useState(false)
 
   const nukeMyLogout = async() => {   
     window.location.href = '/login'
@@ -31,7 +30,6 @@ export default function Navbar(props){
           setAmountSpent(res.data)
         })
     })
-
   return( 
       <div className='toolbar'>
         <BrowserRouter>  

@@ -20,18 +20,9 @@ export default function Homepage() {
 
 
   useEffect(() => {
-// <<<<<<< aa-27
-//     axios.get('/api/home')
-//       .then((res) => {
-//         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
-// =======
-    return async () => {
-      try {
-        const res = await axios.get('/api/home')
-
-        console.log("TESTING HOME PAGE", res)
-        console.log('!!!!!!!!!!!', res.data)
-        setCategories(res.data.userCategories.map(cat => { return { ...cat, show: false } }));
+    axios.get('/api/home')
+      .then((res) => {
+        setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
 
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,
@@ -39,11 +30,7 @@ export default function Homepage() {
           "Average daily budget": res.data.average
         }))
         setGraphData(graphData);
-
-      } catch (err) {
-        console.error(err)
-      }
-    }
+      })
   }, [])
 
  
@@ -119,10 +106,10 @@ export default function Homepage() {
 
     <div>
     <div className="homepage_chart">
-      <LineChart className="Chart" width={1000} height={600} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+      <LineChart className="Chart" width={1000} height={500} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis type="number" domain={[0, 2500]}/>
+        <YAxis type="number" domain={[0, 1800]}/>
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
@@ -137,6 +124,7 @@ export default function Homepage() {
       {modal && confirmModal(selectedCategoryId)}
       {categories.map((category) => {
         let sum = category.sum
+        const stringName = category.name.replace(" ", "-");
         return (
           <div className="category_column">
             <div
@@ -146,7 +134,7 @@ export default function Homepage() {
                   <div className="single-category">
                   <button
                     type="submit"
-                    id={category.name}
+                    id={stringName}
                     className="homepage_category_buttons"
                     onClick={() => getTransactions(category.id)}
                     >{category.name} 
