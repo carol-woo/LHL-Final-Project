@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Route, Link, BrowserRouter } from "react-router-dom";
+import { Route, Link, BrowserRouter, Redirect } from "react-router-dom";
 import '../styles/nav.css';
 import "../styles/App.css";
 import Homepage from "./Homepage";
@@ -12,6 +12,7 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 export default function Navbar(props){ 
   const [budget, setBudget] = useState([]);
   const [amountSpent, setAmountSpent] = useState([]);
+  const [shouldLogOut, setShouldLogOut] = useState(false)
 
   const nukeMyLogout = async() => {    
     try{
@@ -20,7 +21,8 @@ export default function Navbar(props){
         url: `/logout`,
         // withCredentials: true,
       })
-        console.log("yay i work in nukeMyLogout")
+        console.log("yay i work in nukeMyLogout");
+        setShouldLogOut(true)
         return response
       }catch(error){
         console.log(error)
@@ -39,7 +41,6 @@ export default function Navbar(props){
           setAmountSpent(res.data)
         })
     })
-
   return( 
       <div className='toolbar'>
         <BrowserRouter>  
