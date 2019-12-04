@@ -88,7 +88,7 @@ export default function NewEntry() {
     <div className="new-entry">
     <div className="new_entry_banner">
       <img className="piggybank" src={require("../styles/Images/new_entry.jpg")} />
-      <h3 className="newEntry">Looking to add a new category to your cache? Set your budget amount with your category and click on the button to submit! </h3>
+      <h3 className="newEntry">Have a new expense to enter? Please provide all the necessary information below</h3>
     </div>
       <form>
       <h1>Add a new entry!</h1>
@@ -141,7 +141,7 @@ export default function NewEntry() {
           name="avatar"
           placeholder="Click here for receipt"
           accept="image/png, image/jpeg"
-          onChange={handleFileChange}
+          // onChange={handleFileChange}
           />
           <button
           className="inputMaterial"

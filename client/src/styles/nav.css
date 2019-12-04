@@ -143,3 +143,22 @@
 	background: #009688;
   color: #263238;
 }
+
+.budget {
+  color: white;
+  font-size: 16px;
+  margin: auto;
+}
+.amountSpent {
+  color: white;
+  font-size: 16px;
+  margin: auto;
+
+}
+
+.remaining{
+  color: white;
+  font-size: 16px;
+  margin: auto;
+
+}

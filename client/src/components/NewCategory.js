@@ -18,9 +18,21 @@ const CategoryBudgetForm = ({category, onClick}) => {
   return (<div key={category.id} id="add_new_category">
 
           <div className="add_new_cate">
+          <button
+            key={category.id}
+            type="submit"
+            id={stringName}
+            name={category.name}
+            // id={category.name}
+            className="category_buttons"
+            onClick={(e) => { e.preventDefault(); onClick(budget); }}
+          >
+            {category.name}
+          </button>
             <input
               className="inputMaterial"
               type="number" 
+              placeholder="Enter monthly budget amount"
               id={category.id}             
               value={budget}
               onChange={(event) => handleInput(event)}
@@ -28,17 +40,6 @@ const CategoryBudgetForm = ({category, onClick}) => {
               <span className="highlight"></span>
               <span className="bar"></span>
 
-            <button
-              key={category.id}
-              type="submit"
-              id={stringName}
-              name={category.name}
-              // id={category.name}
-              className="category_buttons"
-              onClick={(e) => { e.preventDefault(); onClick(budget); }}
-            >
-              {category.name}
-            </button>
           </div>  
             </div>);
 }

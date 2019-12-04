@@ -8,10 +8,22 @@
 }
 
 .new_entry_banner .newEntry {
-   width: 50vw;
+ width: 50vw;
  align-items: center;
  justify-content: center;
- padding: 0px 40px 0px 40px;
+ padding: 0px 120px 0px 120px;
+ background: linear-gradient(to right, rgb(199, 199, 199), #e6dada);
+ margin: 0;
+ font-size: 1.8rem;
+ color: #5e5b5b;
+}
+
+.newEntry {
+  display: flex;
+  align-content: flex-end;
+  text-transform: uppercase;
+  font-variant: unicase;
+  text-shadow: 2px 2px 2px white;
 }
 
 form {
@@ -19,9 +31,6 @@ form {
   margin: 2% auto;
   transition: 2s;
 }
-
-
-
 
 .new-entry span{
   display: block;

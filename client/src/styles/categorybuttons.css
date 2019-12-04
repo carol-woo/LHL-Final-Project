@@ -13,72 +13,72 @@
   align-items: center;
   background-position: top;
   border-radius: 60px; 
-  width: 180px;
-  height: 90px;
+  width: 220px;
+  height: 110px;
   padding-bottom: 3px;
   font-size: 1.2rem;
   margin: 10px;
   outline: none;
   transform: translateZ(0);
   transition-duration: 0.3s;
+  color: white;
 }
 
 .category_buttons:hover,
 .category_buttons:active,
 .category_buttons:focus {
-  color: white;
   box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
   transform: scale(1.1);
 }
 
 /* HOME CATEGORY */
 #Housing {
-  background: url("./Images/house.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/house.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Rent {
-  background: url("./Images/rent.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/rent.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%; 
 }
 #Property-Tax {
-  background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/propertytax.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Home-Maintenance {
-  background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/homemaintenance.png")no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Hydro {
-  background: url("./Images/hydro.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/hydro.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Home-Phone {
-  background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/hometelephone.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Cable-Internet {
-  background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/cableinternet.png")no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Mortgage {
-  background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/mortgage.png")no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Cell-Phone {
-  background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/cellphone.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }
 #Water {
-  background: url("./Images/water.png") no-repeat center, linear-gradient(#499ee3, #cdebf1);
+  background: url("./Images/water.png") no-repeat center, linear-gradient(#cdebf1, #499ee3);
   background-size: 60px, 60px;
   background-position-y: 20%;
 }

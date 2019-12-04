@@ -12,40 +12,38 @@
   margin-bottom: 2%;
   width: 100vw;
   color: #5A95C6;
-  opacity: 1;
 }
+
 
 .banner .h1NewCat {
  width: 50vw;
  align-items: center;
  justify-content: center;
- padding: 0px 40px 0px 40px;
- /* background: url("./Images/grid-portrait.png") no-repeat; */
+ padding: 0px 80px;
+ background: url("./Images/blue_grid.png") no-repeat;
  background-size: 50vw;
-}
-
-.banner img {
-  opacity: 1;
+ margin: 0;
 }
 
 .piggybank {
   width: 50vw;
-  background-size: c;
 } 
 
 .h1NewCat{
   display: flex;
   align-content: flex-end;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-variant: unicase;
 }
 
 .inputMaterial {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 300px;
+  width: 310px;
   border: none;
   border-bottom: 1px solid #757575;
-  margin: auto;
 }
 
 .inputMaterial:focus {
@@ -55,7 +53,7 @@
 .bar {
   position: relative;
   display: block;
-  width: 315px;
+  width: 280px;
   margin: auto;
 }
 
@@ -71,15 +69,15 @@
 
 
 .bar:before {
-  left:50%;
+  left:30%;
 }
 .bar:after {
-  right:50%; 
+  right:45%; 
 }
 
 .inputMaterial:focus ~ .bar:before, 
 .inputMaterial:focus ~ .bar:after {
-  width: 50%;
+  width: 40%;
 }
 
 .inputMaterial:focus ~ .highlight {
