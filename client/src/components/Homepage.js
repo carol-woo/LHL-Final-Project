@@ -106,10 +106,10 @@ export default function Homepage() {
 
     <div>
     <div className="homepage_chart">
-      <LineChart className="Chart" width={1000} height={600} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+      <LineChart className="Chart" width={1000} height={500} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis type="number" domain={[0, 2500]}/>
+        <YAxis type="number" domain={[0, 1800]}/>
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />

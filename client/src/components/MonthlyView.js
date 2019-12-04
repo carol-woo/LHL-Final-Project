@@ -35,11 +35,11 @@ useEffect(() => {
         <img className="piggybank" src={require("../styles/Images/graph.jpg")} />
         <h3 className="h3_monthly_category">sneak peek at your monthly progress? View the graphs to track your progress!</h3>
       </div>
-      <LineChart width={900} height={600} data={graphData1}
+      <LineChart width={900} height={500} data={graphData1}
       margin={{ top: 5, right: 5, left: 20, bottom: 5 }} >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" padding={{ left: 30, right: 30 }}/>
-        <YAxis type="number" domain={[0, 2500]}/>
+        <YAxis type="number" domain={[0, 1800]}/>
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#F27EA1" />
