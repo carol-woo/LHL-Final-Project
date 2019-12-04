@@ -22,7 +22,6 @@ export default function Homepage() {
   useEffect(() => {
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING HOME PAGE", res)
         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,
