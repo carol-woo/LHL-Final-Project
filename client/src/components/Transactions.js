@@ -58,6 +58,7 @@ export default function Transactions(props){
             entered_on={transaction.entered_on} 
             description={transaction.description}
             onDeleteSuccess={handleDeleteSuccess}
+            updateCategories={props.updateCategories}
           />
         </div>
       

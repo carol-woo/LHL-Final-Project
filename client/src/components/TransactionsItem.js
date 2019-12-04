@@ -35,6 +35,7 @@ export default function TransactionsItems(props){
       id={id}
       renderDelete={renderDelete}
       onDeleteSuccess={onDeleteSuccess}
+      updateCategories={props.updateCategories}
       />
       }
 

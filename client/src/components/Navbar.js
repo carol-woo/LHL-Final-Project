@@ -38,7 +38,7 @@ export default function Navbar(props){
           console.log("i am amount spent!",res.data)
           setAmountSpent(res.data)
         })
-    }, [])
+    })
 
   return( 
       <div className='toolbar'>

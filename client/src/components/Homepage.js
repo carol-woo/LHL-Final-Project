@@ -14,7 +14,10 @@ export default function Homepage() {
   const [modal, toggleModal] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(-1);
   const [graphData, setGraphData] = useState([]);
- 
+  const [progressNow, setProgressNow] = useState();
+
+
+
   useEffect(() => {
     axios.get('/api/home')
       .then((res) => {
@@ -29,7 +32,7 @@ export default function Homepage() {
       })
   }, [])
 
-
+ 
   function updateState (categoryId) {
     let tempCategories = [...categories];
     tempCategories = categories.filter(eachCategory => eachCategory.id !== categoryId)
@@ -63,6 +66,20 @@ export default function Homepage() {
     setCategories(temp)
   }
 
+  function updateCategories(){
+    axios.get('/api/home')
+      .then((res) => {
+        console.log("TESTING HOME PAGE", res.data)
+        setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
+        const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
+          "name": eachDay.day,
+          "Average amount spent per day": eachDay.total,
+          "Average daily budget": res.data.average
+        }))
+        setGraphData(graphData);
+    })
+  }
+
   function confirmModal(id){
 
     return (
@@ -84,7 +101,6 @@ export default function Homepage() {
        </>
    )
   }
-
   return (
 
     <div>
@@ -96,14 +112,14 @@ export default function Homepage() {
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
         <Line type="monotone" dataKey="Average amount spent per day" stroke="#82ca9d" />
-        </LineChart>
+      </LineChart>
 
     <div className="homepage_category">
       <BrowserRouter>
 
       {modal && confirmModal(selectedCategoryId)}
       {categories.map((category) => {
-
+        let sum = category.sum
         return (
           <div className="category_column">
             <div
@@ -127,7 +143,7 @@ export default function Homepage() {
                     </div>
 
                     <div className="progress">
-                      <ProgressBar animated striped variant="info" min={0} max={category.category_budget} now={category.sum} id="progress_bar"/>
+                      <ProgressBar animated striped variant="info" min={0} max={category.category_budget} now={sum} id="progress_bar"/>
                     </div>
                 
                     <div className="budget_amount_info">
@@ -149,6 +165,7 @@ export default function Homepage() {
             id={category.id} 
             handleOnGetTransactions={getTransactions} 
             show={category.show}
+            updateCategories={updateCategories}
           />}
               </div>
             </div>
