@@ -11,6 +11,7 @@ import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 //For Navbar view
 export default function Navbar(props){ 
   const [budget, setBudget] = useState([]);
+  const [amountSpent, setAmountSpent] = useState([]);
 
   const nukeMyLogout = async() => {    
     try{
@@ -32,7 +33,12 @@ export default function Navbar(props){
           console.log(res.data)
           setBudget(res.data)
         })
-    }, [])
+      axios.get('/api/amount-spent')
+        .then((res) => {
+          console.log("i am amount spent!",res.data)
+          setAmountSpent(res.data)
+        })
+    })
 
   return( 
       <div className='toolbar'>
@@ -45,7 +51,9 @@ export default function Navbar(props){
             <Link to="/home"><img src={require("../styles/Images/CIRCLE-08.png")} id="navbar_logo" /></Link>
           </div>
           <div className="spacer"/>
-          <h1 className="budget">Your monthly budget is ${budget}</h1>
+          <p className="budget">Your monthly budget is ${budget}---</p>
+          <p className="amountSpent">You've spent ${amountSpent} so far---</p>
+          <p className="remaining">Your remaining budget is ${budget - amountSpent}</p>
           <div className="toolbar_navigation_items">
             <ul className="nav_ul">
               <li className="nav_li"><button className="logout" type ="submit" onClick={nukeMyLogout}>Logout</button></li>

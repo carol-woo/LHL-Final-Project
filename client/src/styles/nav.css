@@ -146,5 +146,19 @@
 
 .budget {
   color: white;
-  font-size: 32px;
+  font-size: 16px;
+  margin: auto;
+}
+.amountSpent {
+  color: white;
+  font-size: 16px;
+  margin: auto;
+
+}
+
+.remaining{
+  color: white;
+  font-size: 16px;
+  margin: auto;
+
 }
