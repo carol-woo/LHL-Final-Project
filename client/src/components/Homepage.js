@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import Transactions from "./Transactions"
 import "../styles/Homepage.css";
 import "../styles/categorybuttons.css"
@@ -15,7 +15,6 @@ export default function Homepage() {
   const [modal, toggleModal] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(-1);
   const [graphData, setGraphData] = useState([]);
-  const [progressNow, setProgressNow] = useState();
 
 
 
@@ -70,7 +69,6 @@ export default function Homepage() {
   function updateCategories(){
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING HOME PAGE", res.data)
         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,
@@ -109,7 +107,11 @@ export default function Homepage() {
       <LineChart className="Chart" width={1000} height={500} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
+<<<<<<< HEAD
         <YAxis type="number" domain={[0, 1200]}/>
+=======
+        <YAxis type="number" domain={[0, 900]}/>
+>>>>>>> master
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />

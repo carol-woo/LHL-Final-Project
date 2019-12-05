@@ -1,35 +1,15 @@
-import React, {useEffect, useState} from "react";
-import { Route, Link, BrowserRouter } from "react-router-dom";
+import React from "react";
+import {Link, BrowserRouter } from "react-router-dom";
 import '../styles/nav.css';
 import "../styles/App.css";
-import { Redirect } from 'react-router-dom';
-import Homepage from "./Homepage";
-import axios from "axios"; 
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
-
-import drawerToggleButton from "./SideDrawer/DrawerToggleButton";
 
 //For Navbar view
 export default function Navbar(props){ 
-  const [budget, setBudget] = useState([]);
-  const [amountSpent, setAmountSpent] = useState([]);
-
   const nukeMyLogout = async() => {   
     window.location.href = '/login'
   }
 
-    useEffect(()=>{
-      axios.get('/api/budget')
-        .then((res) => {
-          console.log(res.data)
-          setBudget(res.data)
-        })
-      axios.get('/api/amount-spent')
-        .then((res) => {
-          console.log("i am amount spent!",res.data)
-          setAmountSpent(res.data)
-        })
-    })
   return( 
       <div className='toolbar'>
         <BrowserRouter>  
