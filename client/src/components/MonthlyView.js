@@ -49,7 +49,7 @@ useEffect(() => {
       <BarChart width={900} height={600} data={graphData2}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis type="number" domain={[0, 1500]}/>
+        <YAxis type="number" domain={[0, 1000]}/>
         <Tooltip />
         <Legend />
         <Bar dataKey="total" fill="#F27EA1" />
