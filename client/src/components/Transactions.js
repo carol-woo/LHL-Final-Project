@@ -15,7 +15,6 @@ export default function Transactions(props){
       responseType: 'json'
     }).then(
       function(response) {  
-        console.log("TEH Response", response);
         setTransactions(response.data.data);
       },
       error => {
@@ -27,7 +26,6 @@ export default function Transactions(props){
   
   
   function handleDeleteSuccess(id) {
-    console.log('handleDeleteSuccess called');
     const temp = [...transactions]
     temp.splice(temp.map(e => e.id).indexOf(id),1);
     setTransactions(temp);
