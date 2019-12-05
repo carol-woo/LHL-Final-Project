@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Popover from "./Popover";
 import "../styles/categorybuttons.css";
 import "../styles/NewCategory.css";
 
@@ -18,15 +17,14 @@ const CategoryBudgetForm = ({category, onClick}) => {
   return (<div key={category.id} id="add_new_category">
 
           <div className="add_new_cate">
-          <button
-            key={category.id}
-            type="submit"
-            id={stringName}
-            name={category.name}
-            // id={category.name}
-            className="category_buttons"
-            onClick={(e) => { e.preventDefault(); onClick(budget); }}
-          >
+            <button
+                key={category.id}
+                type="submit"
+                id={stringName}
+                name={category.name}
+                className="category_buttons"
+                onClick={(e) => { e.preventDefault(); onClick(budget); }}
+             >
             {category.name}
           </button>
             <input
@@ -50,8 +48,6 @@ export default function NewCategory() {
  
 
   function submitCategory({id, name}, budget) {
-    // setSelectedCategoryId(id)
-    // setSelectedCategoryName(name)
     axios({
       method: "post",
       url: `/api/new-category`,
@@ -63,8 +59,6 @@ export default function NewCategory() {
       responseType: 'json'
     }).then(
       function(response) {
-
-        // console.log("TEH Response", response);
       },
       error => {
         alert(`${name} category has already been added`)
@@ -75,7 +69,6 @@ export default function NewCategory() {
 
   useEffect(() => {
     axios.get("/api/new-category").then(res => {
-      console.log(res.data)
       setCategories(res.data);
     });
   }, []);
