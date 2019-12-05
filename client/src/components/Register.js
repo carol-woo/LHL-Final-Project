@@ -14,7 +14,6 @@ let date = new Date()
 function submitRegistration(){
       axios({
         method: 'post',
-        //Temp sending route from homepage
         url: `/new-user`,
         data: {
           name: userName,
@@ -28,7 +27,6 @@ function submitRegistration(){
       .then(function(response) {
         console.log("TEH Response", response);
       }, (error) => {
-        console.log("GOOTTT!")
         console.log(error)
       })
     }

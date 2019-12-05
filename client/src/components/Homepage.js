@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-import { BarChart, Bar, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import Transactions from "./Transactions"
 import "../styles/Homepage.css";
 import "../styles/categorybuttons.css"
@@ -15,7 +15,6 @@ export default function Homepage() {
   const [modal, toggleModal] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(-1);
   const [graphData, setGraphData] = useState([]);
-  const [progressNow, setProgressNow] = useState();
 
 
 
@@ -70,7 +69,6 @@ export default function Homepage() {
   function updateCategories(){
     axios.get('/api/home')
       .then((res) => {
-        console.log("TESTING HOME PAGE", res.data)
         setCategories(res.data.userCategories.map( cat => {return {...cat, show: false}}));
         const graphData = res.data.dailyTotalTransactions.map(eachDay => ({
           "name": eachDay.day,

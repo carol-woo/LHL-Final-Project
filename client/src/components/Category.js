@@ -9,13 +9,11 @@ export default function Category(){
   useEffect(() => {
     axios.get('/category-transactions')
       .then((res) => {
-        console.log("TESTING",res)
         setTransactions(res.data)
       })  
   }, [])
   
   function handleDeleteSuccess(id) {
-    console.log('handleDeleteSuccess called');
     const temp = [...transactions]
     temp.splice(temp.map(e => e.id).indexOf(id),1);
     setTransactions(temp);

@@ -10,7 +10,6 @@ export default function NewEntry() {
   const [enteredOn, setEnteredOn] = useState('');
   const [description, setDescription] = useState('');
   const [currentCategories, setCurrentCategories] = useState([]);
-  const [token, setToken] = useState('');
 
   function submitTransaction(evt) {
     evt.preventDefault()
@@ -27,7 +26,6 @@ export default function NewEntry() {
       responseType: JSON
     }).then(
       function(response) {
-        console.log("TEH Response", response);
         setStoreName('')
         setTransactionAmount('')
         setEnteredOn('')
@@ -40,7 +38,6 @@ export default function NewEntry() {
   }
 
   useEffect(() => {
-    console.log("INHERE!")
     axios.get('/api/home')
       .then((res) => {
         setCurrentCategories(res.data.userCategories)
@@ -48,7 +45,6 @@ export default function NewEntry() {
   }, [])
 
   const handleFileChange = async (event) => {
-    console.log("Test file", event.target.files[0].name)
     const fileName = event.target.files[0].name;
     axios({
       method: 'post',
@@ -61,10 +57,6 @@ export default function NewEntry() {
         setStoreName(response.data.result.establishment)
         setTransactionAmount(amountVal)
         setEnteredOn(response.data.result.date.slice(0, 10))
-        console.log("Testing line items", response.data.result.date.slice(0,10))
-        // setToken(`${response.data}`)
-        // alert(`${response.data}`)
-        console.log("FRONT END", response.data)
       },
       error => {
         console.log("Error in new entry axios post", error)
@@ -137,7 +129,6 @@ export default function NewEntry() {
           name="scan"
           type="submit"
           placeholder="FileSelect"
-          // onClick={parseReceipt}
           ></button>
         <span className="highlight"></span>
         <span className="bar"></span>
