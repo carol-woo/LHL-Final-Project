@@ -6,7 +6,7 @@ INSERT INTO users (name, email, password_digest,  budget)
 VALUES ('Avijit', 'avijit@gmail.com', 'avijit', 6000),
 ('test1', 'test1@gmail.com', 'test', 6000),
 ('test2', 'test2@gmail.com', 'test', 6000),
-('vasily', 'vasily@vasily.vasily', '86', 5000),
+('bigcohort', 'bigcohort@gmail.com', '123', 5000),
 ('Aiman', 'aiman@gmail.com', 'aiman', 5000),
 ('Carol', 'carol@gmail.com', 'carol', 5000);
 
