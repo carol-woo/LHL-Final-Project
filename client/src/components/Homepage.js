@@ -107,11 +107,7 @@ export default function Homepage() {
       <LineChart className="Chart" width={1000} height={500} data={graphData} margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-<<<<<<< HEAD
-        <YAxis type="number" domain={[0, 1200]}/>
-=======
         <YAxis type="number" domain={[0, 900]}/>
->>>>>>> master
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="Average daily budget" stroke="#8884d8" />
