@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import axios from "axios";
 import "../styles/Edit.css";
 
@@ -24,10 +24,9 @@ export default function Edit(props){
         },
       })
       props.renderEdit()
-      return response
+        return response
     } catch(error) {
-      console.log("GOOTTT!")
-      console.log(error)
+        console.log(error)
     }
     }
 
@@ -35,53 +34,52 @@ export default function Edit(props){
   return(
     <div className="edit">
       <form>
-
         <span>
           Store Name
-         <input 
-         className="inputMaterial"
-         type="text" 
-         placeholder={props.name}
-         store_name={store_name}
-         onChange={event => setStore_Name(event.target.value)}/>
-         <span className="highlight"></span>
-        <span className="bar"></span>
+           <input 
+              className="inputMaterial"
+              type="text" 
+              placeholder={props.name}
+              store_name={store_name}
+              onChange={event => setStore_Name(event.target.value)}/>
+            <span className="highlight"></span>
+          <span className="bar"></span>
         </span>
 
         <span>
           Amount
-         <input 
-         className="inputMaterial"
-         type="number" 
-         placeholder={props.amount}
-         amount={amount}
-         onChange={event => setAmount(event.target.value)}/>
-         <span className="highlight"></span>
-        <span className="bar"></span>
-         </span>
+            <input 
+            className="inputMaterial"
+            type="number" 
+            placeholder={props.amount}
+            amount={amount}
+            onChange={event => setAmount(event.target.value)}/>
+           <span className="highlight"></span>
+          <span className="bar"></span>
+        </span>
 
          <span>
-          Date
-         <input 
-         className="inputMaterial"
-         type="date" 
-         placeholder={props.entered_on}
-         entered_on={entered_on}
-         onChange ={event => setEntered_on(event.target.value)}/>
-         <span className="highlight"></span>
-        <span className="bar"></span>
+            Date
+              <input 
+              className="inputMaterial"
+              type="date" 
+              placeholder={props.entered_on}
+              entered_on={entered_on}
+              onChange ={event => setEntered_on(event.target.value)}/>
+            <span className="highlight"></span>
+           <span className="bar"></span>
         </span>
 
         <span>
           Description
-         <input 
-         className="inputMaterial"
-         type="text" 
-         placeholder={props.description}
-         description={description}
-         onChange={event => setDescription(event.target.value)}/>
-         <span className="highlight"></span>
-        <span className="bar"></span>
+              <input 
+              className="inputMaterial"
+              type="text" 
+              placeholder={props.description}
+              description={description}
+              onChange={event => setDescription(event.target.value)}/>
+            <span className="highlight"></span>
+          <span className="bar"></span>
         </span>
 
 
@@ -90,7 +88,7 @@ export default function Edit(props){
           type="submit"
           onClick={submitEdit}
         >
-              Submit
+          Submit
         </button>
 
       </form>
