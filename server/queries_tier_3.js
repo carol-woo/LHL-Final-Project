@@ -11,8 +11,6 @@ const pool = new Pool({
 amountSpentPerDayMonth = async (user_id) => {
   const result = await pool.query(`select sum(amount) as total, extract (day from entered_on) as day from transactions where extract (month from entered_on) = 6 and user_id = $1 group by entered_on`, [user_id]);
 
-  // const monthAverageBudget = await pool.query(`select avg(transactions.amount) as dailyAverage from transactions
-  // where extract (month from entered_on) = 6 and extract (year from entered_on) = 2019 and user_id = $1`, [user_id]);
   const usersBudget = await pool.query(`select users.budget from users where users.id = $1`, [user_id]);
   const numberOfDays = await pool.query(`select count (distinct transactions.entered_on) as numOfDays  from transactions where transactions.user_id = $1`, [user_id]);
   const monthAverageBudget = (usersBudget.rows[0].budget) / (numberOfDays.rows[0].numofdays);
