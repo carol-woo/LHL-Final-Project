@@ -28,7 +28,6 @@ export default function Login() {
       setRedirect(true);
       return response
     } catch(error) {
-      console.log("GOOTTT!")
       console.log(error)
     }
   }
@@ -41,7 +40,7 @@ export default function Login() {
   return (
     <div className="login_container">
       <div className="login_image"></div>
-      <div className="login_form_container">
+       <div className="login_form_container">
         <h2>Login</h2>
         <form onSubmit={submitLogin}>
 
