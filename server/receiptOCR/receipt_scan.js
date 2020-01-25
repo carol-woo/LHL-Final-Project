@@ -5,7 +5,7 @@ const fs = require("fs");
 const rp = require("request-promise");
 // load your environment containing the secret API key
 require('dotenv').config()
-const API_KEY = 'wR2SrkxdWJbRoNQwOmUyAnypjZN2dvZwlJxbJT9RGDk03kf6JhPrmgPbAdLsP4wb'
+const API_KEY = 
 
 // const API_KEY = process.env.API_KEY
 
